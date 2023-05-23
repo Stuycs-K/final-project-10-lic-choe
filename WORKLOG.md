@@ -1,6 +1,6 @@
 # Work Log
 
-## GROUP MEMBER 1
+## CLEMENS LI
 
 ### date x
 
@@ -11,11 +11,11 @@ info
 info
 
 
-## GROUP MEMBER 2
+## ELIEZER CHO
 
-### date x
+### 5/23/23
 
-info
+created the Tiles class, I will make the 2 extensions of the class after. (buyable and unbuyable)
 
 ### date y
 
