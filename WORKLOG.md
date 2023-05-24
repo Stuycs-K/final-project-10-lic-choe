@@ -2,7 +2,7 @@
 
 ## CLEMENS LI
 
-### date x
+### 5/24/23
 
 info
 
@@ -19,6 +19,7 @@ created the Tiles class, I will make the 2 extensions of the class after. (buyab
 
 made the buyable and unbuyable classes, I have to test it with the player class later
 
-### date y
+### 5/24/23
+started to transfer things over to processing, need to add map and make it show up on processing
 
 info
