@@ -2,9 +2,9 @@
 
 ## CLEMENS LI
 
-### date x
+### 5/24/23
 
-info
+Created Player class, Removed human player class since it's useless, Need to test with Tiles
 
 ### date y
 
