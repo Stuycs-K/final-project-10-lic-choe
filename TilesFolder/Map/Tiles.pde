@@ -1,6 +1,8 @@
 public class Tiles{
   private String tileType;
   private String name;
+  private int price;
+
 
   public Tiles(String TName,String TType){
     tileType = TType;
@@ -15,4 +17,8 @@ public class Tiles{
     return tileType;
   }
   
+  public int getPrice(){
+  return price;
+  }
+
 }

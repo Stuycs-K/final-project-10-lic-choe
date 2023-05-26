@@ -1,7 +1,7 @@
 public class BuyableTiles extends Tiles{
   private int price;
   //private Player owner;
-  private boolean buyable = true;
+  
   
   public BuyableTiles(String TName,String TType,int TPrice){
     super(TName,TType);
@@ -12,7 +12,6 @@ public class BuyableTiles extends Tiles{
   public int getPrice(){
     return price;
   }
-
   public String getName(){
     return super.getName();
   }
