@@ -1,4 +1,5 @@
-public Tiles[] gameMap;
+public class Map {
+  public Tiles[] gameMap;
 
 void setup(){
   size (1500,1000);
@@ -69,4 +70,5 @@ void grid(){
 void draw(){
 mapSet();
 grid();
+}
 }
