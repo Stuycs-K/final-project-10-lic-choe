@@ -12,7 +12,7 @@ Started GameMechanics but forgot to push, Player should be .pde
 
 ### 5/26/23
 
-Changed Map so that it's a class implemented by GameMechanics setup(), created Actions class, combined Tiles folder and GameMechanics folder
+Changed Map so that it's a class implemented by GameMechanics setup(), created Actions class, combined Tiles folder and GameMechanics folder, Player was also put into GameMechanics
 
 
 ## ELIEZER CHO
