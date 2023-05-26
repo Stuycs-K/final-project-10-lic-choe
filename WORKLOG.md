@@ -22,4 +22,7 @@ made the buyable and unbuyable classes, I have to test it with the player class 
 ### 5/24/23
 started to transfer things over to processing, need to add map and make it show up on processing
 
+
+### 5/25/23
+started making map, it shows up on processing. will work on making more stuff to the map.
 info
