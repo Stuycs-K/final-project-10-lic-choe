@@ -1,9 +1,10 @@
 public class Map {
   public Tiles[] gameMap;
 
-void setup(){
-  size (1500,1000);
+void build(){
   gameMap = new Tiles[16];
+  mapSet();
+  grid();
 }
 
 void mapSet(){
@@ -64,11 +65,5 @@ void grid(){
      textSize(19);
   }
   
-}
-
-
-void draw(){
-mapSet();
-grid();
-}
+  }
 }
