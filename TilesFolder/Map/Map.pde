@@ -33,7 +33,7 @@ void grid(){
       rect(startW,startH, 200,200);
       fill(0);
       text(gameMap[i].getName(),startW+15,startH+20);
-      
+
     fill(255);
       startW += 200;
     }
@@ -64,6 +64,7 @@ void grid(){
   }
   
 }
+
 
 void draw(){
 mapSet();
