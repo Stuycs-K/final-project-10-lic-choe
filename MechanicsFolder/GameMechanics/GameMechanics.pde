@@ -1,0 +1,2 @@
+  Players[] playerlist;
+  PImage screen;
