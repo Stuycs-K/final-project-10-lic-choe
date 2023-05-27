@@ -32,4 +32,7 @@ started making map, it shows up on processing. will work on making more stuff to
 
 ### 5/26/23
 started adding prices to map, but there were way too many errors. have to fix these later today/tomorrow.
+
+### 5/27/23
+made change to gmaemechanics.pde, map.pde, player.pde because it caused errors and i had to fix them. I also didn't know how to change the map in an efficient way, so i just brute force'd it.
 info
