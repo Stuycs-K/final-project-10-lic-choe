@@ -7,8 +7,8 @@ public class Player {
   private int position;
   private ArrayList<Tiles> properties;
   private boolean bankruptcy;
-
-  public PlayerBase() {
+  
+  public Player() {
     this.name = "Player";
     this.bank = 1500;
     this.position = 0;
@@ -50,7 +50,7 @@ public class Player {
   }
 
   public void mortgage(BuyableTiles t) {
-    this.bank += this.properties.remove(t).getPrice();
-
+    this.properties.remove(t);
+    bank += t.getPrice();
   }
 }
