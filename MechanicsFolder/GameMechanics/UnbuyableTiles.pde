@@ -12,4 +12,8 @@ public class UnbuyableTiles extends Tiles{
     ;
   }
   
+  public int getPrice(){
+    return 10000;  
+  }
+  
 }

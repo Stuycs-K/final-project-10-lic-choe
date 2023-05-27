@@ -1,27 +1,27 @@
 public class BuyableTiles extends Tiles{
   private int price;
-  private Player owner;
-  private boolean buyable = true;
-
-  public static void Tiles(String TName,String TType, Player TOwner, int TPrice){
-    super.Tiles(TName,TType);
-    owner = TOwner;
+  //private Player owner;
+  
+  
+  public BuyableTiles(String TName,String TType,int TPrice){
+    super(TName,TType);
+    //owner = TOwner;
     price = TPrice;
   }
 
   public int getPrice(){
     return price;
   }
-
   public String getName(){
-    return name;
+    return super.getName();
   }
 
   public String getType(){
-    return type;
+    return super.getType();
   }
-
+  /*
   public static void setOwner(Player newOwn){
     owner = newOwn;
   }
+  */
 }

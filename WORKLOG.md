@@ -6,9 +6,13 @@
 
 Created Player class, Removed human player class since it's useless, Need to test with Tiles
 
-### date y
+### 5/25/23
 
-info
+Started GameMechanics but forgot to push, Player should be .pde
+
+### 5/26/23
+
+Changed Map so that it's a class implemented by GameMechanics setup(), created Actions class, combined Tiles folder and GameMechanics folder, Player was also put into GameMechanics
 
 
 ## ELIEZER CHO
@@ -25,4 +29,7 @@ started to transfer things over to processing, need to add map and make it show 
 
 ### 5/25/23
 started making map, it shows up on processing. will work on making more stuff to the map.
+
+### 5/26/23
+started adding prices to map, but there were way too many errors. have to fix these later today/tomorrow.
 info
