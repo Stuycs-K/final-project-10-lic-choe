@@ -32,6 +32,10 @@ public class Player {
   public int pos() {
     return this.position;
   }
+  
+  public boolean broke() {
+    return this.bankruptcy;
+  }
 
   public ArrayList<Tiles> owned() {
     return this.properties;
@@ -52,5 +56,8 @@ public class Player {
   public void mortgage(BuyableTiles t) {
     this.properties.remove(t);
     bank += t.getPrice();
+  }
+  
+  public void takeTurn() {
   }
 }
