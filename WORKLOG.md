@@ -14,6 +14,10 @@ Started GameMechanics but forgot to push, Player should be .pde
 
 Changed Map so that it's a class implemented by GameMechanics setup(), created Actions class, combined Tiles folder and GameMechanics folder, Player was also put into GameMechanics
 
+### 5/27/23 && 5/28/23
+
+Worked on GameMechanics.pde, start() function and turns, actions class deleted
+
 
 ## ELIEZER CHO
 
@@ -34,5 +38,5 @@ started making map, it shows up on processing. will work on making more stuff to
 started adding prices to map, but there were way too many errors. have to fix these later today/tomorrow.
 
 ### 5/27/23
-made change to gmaemechanics.pde, map.pde, player.pde because it caused errors and i had to fix them. I also didn't know how to change the map in an efficient way, so i just brute force'd it.
+made change to gmaemechanics.pde, map.pde, player.pde because it caused errors and i had to fix them. I also didn't know how to change the map in an efficient way, so i just brute forced it.
 info
