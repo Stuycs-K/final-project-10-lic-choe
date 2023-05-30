@@ -18,6 +18,10 @@ Changed Map so that it's a class implemented by GameMechanics setup(), created A
 
 Worked on GameMechanics.pde, start() function and turns, actions class deleted
 
+### 5/30/23
+
+Completely changed GameMechanics, new takeTurn() and end() functions, different draw(), keyPressed(), position keeps changing need to fix
+
 
 ## ELIEZER CHO
 
