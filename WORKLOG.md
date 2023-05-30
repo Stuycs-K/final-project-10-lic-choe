@@ -43,4 +43,7 @@ started adding prices to map, but there were way too many errors. have to fix th
 
 ### 5/27/23
 made change to gmaemechanics.pde, map.pde, player.pde because it caused errors and i had to fix them. I also didn't know how to change the map in an efficient way, so i just brute forced it.
+
+### 5/30/23
+I made methods to display the stats of the players, like showing their current balance, their last roll, name, and list of properties
 info

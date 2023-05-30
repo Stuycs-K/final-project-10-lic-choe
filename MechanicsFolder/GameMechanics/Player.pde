@@ -12,13 +12,13 @@ public class Player {
     this.name = "Player";
     this.bank = 1500;
     this.position = 0;
-    this.properties = new ArrayList<Tiles>();
+    this.properties = new ArrayList<>();
     this.bankruptcy = false;
   }
 
   public Player(String s) {
-    Player newPlayer = new Player();
-    newPlayer.name = s;
+    this();
+    this.name = s;
   }
 
   public String name() {
@@ -36,7 +36,7 @@ public class Player {
   public boolean broke() {
     return this.bankruptcy;
   }
-
+  
   public ArrayList<Tiles> owned() {
     return this.properties;
   }
