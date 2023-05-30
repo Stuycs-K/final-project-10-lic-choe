@@ -41,9 +41,10 @@ public class Player {
     return this.properties;
   }
 
-  public void move(int distance, int tileCount) {
+  public int move(int distance) {
     this.position += distance;
-    this.position %= tileCount;
+    this.position %= 16;
+    return distance;
   }
 
   public void payMoney(int amt) {
@@ -59,5 +60,9 @@ public class Player {
   }
   
   public void takeTurn() {
+    this.move(int(random(1, 12)));
+  }
+  
+  public void interaction(Tiles place) {
   }
 }
