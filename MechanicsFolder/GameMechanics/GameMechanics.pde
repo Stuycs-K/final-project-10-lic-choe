@@ -2,9 +2,9 @@ import java.util.Random;
 int turn;
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
-int step;
 Player[] players;
 Map screen;
+int movement;
 
 void setup() {
   size(1500, 1000);
@@ -29,21 +29,21 @@ void draw() {
  
   displayPlayerStat(players[0],100,10);
   displayPlayerStat(players[1],1300,10);
-  if (turn == PLAYERONE) {
-    players[0].takeTurn();
-  }
-  else {
-    players[1].takeTurn();
-  }
 }
 
 void keyPressed() {
   if (key == ENTER) {
     turn++;
     turn%=2;
+  if (turn == PLAYERONE) {
+    movement = players[0].takeTurn();
   }
-  if (key == 'b' &&) {
-    int curpos = players[turn].pos();
+  else {
+    movement = players[1].takeTurn();
+  }
+  }
+  int curpos = players[turn].pos();
+  if (key == 'b' && screen.gameMap[curpos].getType().equals("buyable")) {
     players[turn].buy(screen.gameMap[curpos]);
   }
 }
@@ -80,11 +80,6 @@ void displayPlayerStat(Player currentP, float xVal, float yVal) {
     text("Player Property:", xVal+20, yVal + 307);
     text("Player Roll:", xVal+20,yVal+170);
     textSize(30);
-    text(rollDice(), xVal+40,yVal+220);
+    text(movement, xVal+40,yVal+220);
     textSize(15);
-}
-
-public int rollDice(){
-  Random random = new Random();
-  return random.nextInt(6)+1;
 }

@@ -47,11 +47,12 @@ public class Player {
     return distance;
   }
 
-  public void payMoney(int amt) {
-    this.bank -= amt;
+  public void buy(Tiles t) {
+    this.bank -= t.getPrice();
     if (this.bank < 0) {
       this.bankruptcy = true;
     }
+    this.properties.add(t);
   }
 
   public void mortgage(BuyableTiles t) {
@@ -59,7 +60,7 @@ public class Player {
     bank += t.getPrice();
   }
   
-  public void takeTurn() {
-    this.move(int(random(1, 12)));
+  public int takeTurn() {
+    return this.move(int(random(1, 12)));
   }
 }
