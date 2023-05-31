@@ -1,4 +1,5 @@
 import java.util.Random;
+
 int turn;
 int step;
 Player[] players;
