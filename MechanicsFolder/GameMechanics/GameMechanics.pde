@@ -1,10 +1,12 @@
 import java.util.Random;
-int turn;
+int turn = 0;
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
 Player[] players;
 Map screen;
 int movement;
+int p1pos = 0;
+int p2pos = 0;
 
 void setup() {
   size(1500, 1000);
@@ -14,7 +16,7 @@ void setup() {
 
 void start() {
   players = new Player[2];
-  turn = 0;
+  turn = -1;
   players[0] = new Player("Player One");
   players[1] = new Player("Player Two");
 }
@@ -24,7 +26,7 @@ void end() {
 
 void draw() {
   background(255);
-  Map screen = new Map();
+  screen = new Map();
   screen.build();
  
   displayPlayerStat(players[0],100,10);
@@ -35,16 +37,28 @@ void keyPressed() {
   if (key == ENTER) {
     turn++;
     turn%=2;
-  if (turn == PLAYERONE) {
-    movement = players[0].takeTurn();
+    if (turn == PLAYERONE) {
+      movement = players[0].takeTurn();
+      p1pos = players[0].pos();
+      println("p1pos" + p1pos);
+    }
+    else {
+      movement = players[1].takeTurn();
+      p2pos = players[1].pos();
+      println("p2pos" + p2pos);
+    }
   }
-  else {
-    movement = players[1].takeTurn();
-  }
-  }
-  int curpos = players[turn].pos();
-  if (key == 'b' && screen.gameMap[curpos].getType().equals("buyable")) {
-    players[turn].buy(screen.gameMap[curpos]);
+  if (key == 'b') {
+    if (turn == PLAYERONE) {
+      if (screen.gameMap[p1pos].getType().equals("buyable") && players[0].owned().indexOf(screen.gameMap[p1pos]) == -1) {
+        players[0].buy(screen.gameMap[p1pos]);
+      }
+    }
+    else {
+      if (screen.gameMap[p2pos].getType().equals("buyable") && players[1].owned().indexOf(screen.gameMap[p2pos]) == -1) {
+        players[1].buy(screen.gameMap[p2pos]);
+      }      
+    }
   }
 }
 
