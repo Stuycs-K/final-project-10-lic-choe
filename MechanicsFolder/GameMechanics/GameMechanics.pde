@@ -1,7 +1,12 @@
 import java.util.Random;
+
 int turn;
-int step;
+static int PLAYERONE = 0;
+static int PLAYERTWO = 1;
 Player[] players;
+Map screen;
+int movement1;
+int movement2;
 
 void setup() {
   size(1500, 1000);
@@ -23,27 +28,25 @@ void draw() {
   background(255);
   Map screen = new Map();
   screen.build();
-  //text(turn, 100, 100);
-  //text(players[0].pos(), 100, 200);
-  //text(players[1].pos(), 100, 300);
  
   displayPlayerStat(players[0],100,10);
   displayPlayerStat(players[1],1300,10);
-  if (turn % 2 == 0) {
-    step = 0;
-    players[0].takeTurn();
-    step++;
-  }
-  else {
-    step = 0;
-    players[1].takeTurn();
-    step++;
-  }
 }
 
 void keyPressed() {
-  if (step == 3) {
+  if (key == ENTER) {
     turn++;
+    turn%=2;
+  if (turn == PLAYERONE) {
+    movement1 = players[0].takeTurn();
+  }
+  else {
+    movement2 = players[1].takeTurn();
+  }
+  }
+  int curpos = players[turn].pos();
+  if (key == 'b' && screen.gameMap[curpos].getType().equals("buyable")) {
+    players[turn].buy(screen.gameMap[curpos]);
   }
 }
 
@@ -75,15 +78,17 @@ void displayPlayerStat(Player currentP, float xVal, float yVal) {
     text("Player Name:",xVal+20, yVal+15);
     text(currentP.name(), xVal+20, yVal + 40);
     text("Player Balance:", xVal+20, yVal+85);
-            text(currentP.bank(), xVal+20, yVal +110);
+    text(currentP.bank(), xVal+20, yVal +110);
     text("Player Property:", xVal+20, yVal + 307);
     text("Player Roll:", xVal+20,yVal+170);
     textSize(30);
-    text(rollDice(), xVal+40,yVal+220);
+    if (currentP.name().equals("Player One")){
+          text(movement1, xVal+40,yVal+220);
     textSize(15);
-}
+    }
+     if (currentP.name().equals("Player Two")){
+          text(movement2, xVal+40,yVal+220);
+    textSize(15);
+    }
 
-public int rollDice(){
-  Random random = new Random();
-  return random.nextInt(6)+1;
 }

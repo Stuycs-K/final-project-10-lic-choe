@@ -7,6 +7,7 @@ public class Player {
   private int position;
   private ArrayList<Tiles> properties;
   private boolean bankruptcy;
+  private PImage token;
   
   public Player() {
     this.name = "Player";
@@ -23,6 +24,10 @@ public class Player {
 
   public String name() {
     return this.name;
+  }
+  
+  void setAvatar(PImage ava){
+    token = ava;
   }
 
   public int bank() {
@@ -47,11 +52,12 @@ public class Player {
     return distance;
   }
 
-  public void payMoney(int amt) {
-    this.bank -= amt;
+  public void buy(Tiles t) {
+    this.bank -= t.getPrice();
     if (this.bank < 0) {
       this.bankruptcy = true;
     }
+    this.properties.add(t);
   }
 
   public void mortgage(BuyableTiles t) {
@@ -59,10 +65,7 @@ public class Player {
     bank += t.getPrice();
   }
   
-  public void takeTurn() {
-    this.move(int(random(1, 12)));
-  }
-  
-  public void interaction(Tiles place) {
+  public int takeTurn() {
+    return this.move(int(random(2, 13)));
   }
 }
