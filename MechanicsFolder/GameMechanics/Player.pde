@@ -66,6 +66,6 @@ public class Player {
   }
   
   public int takeTurn() {
-    return this.move(int(random(1, 12)));
+    return this.move(int(random(2, 13)));
   }
 }
