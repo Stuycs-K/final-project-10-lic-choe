@@ -62,7 +62,4 @@ public class Player {
   public void takeTurn() {
     this.move(int(random(1, 12)));
   }
-  
-  public void interaction(Tiles place) {
-  }
 }
