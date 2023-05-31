@@ -46,4 +46,7 @@ made change to gmaemechanics.pde, map.pde, player.pde because it caused errors a
 
 ### 5/30/23
 I made methods to display the stats of the players, like showing their current balance, their last roll, name, and list of properties
+
+### 5/31/23
+I made it so that the rolling dice things actually works, and displays on the side. Each person has different last rolls, and i forgot about that yesterday so i had to fix.
 info

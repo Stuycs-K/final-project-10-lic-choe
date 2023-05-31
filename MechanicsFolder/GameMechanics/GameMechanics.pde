@@ -1,5 +1,5 @@
 import java.util.Random;
-int turn = 0;
+int turn;
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
 Player[] players;
@@ -7,6 +7,8 @@ Map screen;
 int movement;
 int p1pos = 0;
 int p2pos = 0;
+int movement1;
+int movement2;
 
 void setup() {
   size(1500, 1000);
@@ -38,12 +40,12 @@ void keyPressed() {
     turn++;
     turn%=2;
     if (turn == PLAYERONE) {
-      movement = players[0].takeTurn();
+      movement1 = players[0].takeTurn();
       p1pos = players[0].pos();
       println("p1pos" + p1pos);
     }
     else {
-      movement = players[1].takeTurn();
+      movement2 = players[1].takeTurn();
       p2pos = players[1].pos();
       println("p2pos" + p2pos);
     }
@@ -90,10 +92,17 @@ void displayPlayerStat(Player currentP, float xVal, float yVal) {
     text("Player Name:",xVal+20, yVal+15);
     text(currentP.name(), xVal+20, yVal + 40);
     text("Player Balance:", xVal+20, yVal+85);
-            text(currentP.bank(), xVal+20, yVal +110);
+    text(currentP.bank(), xVal+20, yVal +110);
     text("Player Property:", xVal+20, yVal + 307);
     text("Player Roll:", xVal+20,yVal+170);
     textSize(30);
-    text(movement, xVal+40,yVal+220);
+    if (currentP.name().equals("Player One")){
+          text(movement1, xVal+40,yVal+220);
     textSize(15);
+    }
+     if (currentP.name().equals("Player Two")){
+          text(movement2, xVal+40,yVal+220);
+    textSize(15);
+    }
+
 }
