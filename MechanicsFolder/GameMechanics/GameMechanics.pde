@@ -1,7 +1,10 @@
 import java.util.Random;
 int turn;
+static int PLAYERONE = 0;
+static int PLAYERTWO = 1;
 int step;
 Player[] players;
+Map screen;
 
 void setup() {
   size(1500, 1000);
@@ -23,27 +26,25 @@ void draw() {
   background(255);
   Map screen = new Map();
   screen.build();
-  //text(turn, 100, 100);
-  //text(players[0].pos(), 100, 200);
-  //text(players[1].pos(), 100, 300);
  
   displayPlayerStat(players[0],100,10);
   displayPlayerStat(players[1],1300,10);
-  if (turn % 2 == 0) {
-    step = 0;
+  if (turn == PLAYERONE) {
     players[0].takeTurn();
-    step++;
   }
   else {
-    step = 0;
     players[1].takeTurn();
-    step++;
   }
 }
 
 void keyPressed() {
-  if (step == 3) {
+  if (key == ENTER) {
     turn++;
+    turn%=2;
+  }
+  if (key == 'b' &&) {
+    int curpos = players[turn].pos();
+    players[turn].buy(screen.gameMap[curpos]);
   }
 }
 
