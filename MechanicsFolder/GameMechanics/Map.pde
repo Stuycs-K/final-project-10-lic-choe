@@ -12,21 +12,21 @@ public class Map {
 
   void mapSet() {
     gameMap[0] = new UnbuyableTiles("Go", "unbuyable");
-    gameMap[1] = new BuyableTiles("Oriental Avenue", "buyable", 1500);
-    gameMap[2] = new BuyableTiles("Vermont Avenue", "buyable", 1500);
-    gameMap[3] = new BuyableTiles("Connecticut Avenue", "buyable", 1500);
+    gameMap[1] = new BuyableTiles("Oriental Avenue", "buyable", 200);
+    gameMap[2] = new BuyableTiles("Vermont Avenue", "buyable", 200);
+    gameMap[3] = new BuyableTiles("Connecticut Avenue", "buyable", 200);
     gameMap[4] = new UnbuyableTiles("Nothing", "unbuyable");
-    gameMap[5] = new BuyableTiles("St. Charles Place", "buyable", 1500);
-    gameMap[6] = new BuyableTiles("States Avenue", "buyable", 1500);
-    gameMap[7] = new BuyableTiles("Virginia Avenue", "buyable", 1500);
+    gameMap[5] = new BuyableTiles("St. Charles Place", "buyable", 300);
+    gameMap[6] = new BuyableTiles("States Avenue", "buyable", 300);
+    gameMap[7] = new BuyableTiles("Virginia Avenue", "buyable", 300);
     gameMap[8] = new UnbuyableTiles("Nothing", "unbuyable");
-    gameMap[9] = new BuyableTiles("Kentucky Avenue", "buyable", 1500);
-    gameMap[10] = new BuyableTiles("Indiana Avenue", "buyable", 1500);
-    gameMap[11] = new BuyableTiles("Illinois Avenue", "buyable", 1500);
+    gameMap[9] = new BuyableTiles("Kentucky Avenue", "buyable", 350);
+    gameMap[10] = new BuyableTiles("Indiana Avenue", "buyable", 350);
+    gameMap[11] = new BuyableTiles("Illinois Avenue", "buyable", 350);
     gameMap[12] = new Tiles("Nothing", "unbuyable");
-    gameMap[13] = new BuyableTiles("Pacific Avenue", "buyable", 1500);
-    gameMap[14] = new BuyableTiles("North Carolina Avenue", "buyable", 1500);
-    gameMap[15] = new BuyableTiles("Pennsylvania Avenue", "buyable", 1500);
+    gameMap[13] = new BuyableTiles("Pacific Avenue", "buyable", 450);
+    gameMap[14] = new BuyableTiles("North Carolina Avenue", "buyable", 450);
+    gameMap[15] = new BuyableTiles("Pennsylvania Avenue", "buyable", 450);
   }
 
   void grid() {
