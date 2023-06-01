@@ -1,8 +1,14 @@
 import java.util.Random;
-
 int turn;
-int step;
+static int PLAYERONE = 0;
+static int PLAYERTWO = 1;
 Player[] players;
+Map screen;
+int movement;
+int p1pos = 0;
+int p2pos = 0;
+int movement1;
+int movement2;
 
 void setup() {
   size(1500, 1000);
@@ -12,7 +18,7 @@ void setup() {
 
 void start() {
   players = new Player[2];
-  turn = 0;
+  turn = -1;
   players[0] = new Player("Player One");
   players[1] = new Player("Player Two");
 }
@@ -22,29 +28,39 @@ void end() {
 
 void draw() {
   background(255);
-  Map screen = new Map();
+  screen = new Map();
   screen.build();
-  //text(turn, 100, 100);
-  //text(players[0].pos(), 100, 200);
-  //text(players[1].pos(), 100, 300);
  
   displayPlayerStat(players[0],100,10);
   displayPlayerStat(players[1],1300,10);
-  if (turn % 2 == 0) {
-    step = 0;
-    players[0].takeTurn();
-    step++;
-  }
-  else {
-    step = 0;
-    players[1].takeTurn();
-    step++;
-  }
 }
 
 void keyPressed() {
-  if (step == 3) {
+  if (key == ENTER) {
     turn++;
+    turn%=2;
+    if (turn == PLAYERONE) {
+      movement1 = players[0].takeTurn();
+      p1pos = players[0].pos();
+      println("p1pos" + p1pos);
+    }
+    else {
+      movement2 = players[1].takeTurn();
+      p2pos = players[1].pos();
+      println("p2pos" + p2pos);
+    }
+  }
+  if (key == 'b') {
+    if (turn == PLAYERONE) {
+      if (screen.gameMap[p1pos].getType().equals("buyable") && players[0].owned().indexOf(screen.gameMap[p1pos]) == -1) {
+        players[0].buy(screen.gameMap[p1pos]);
+      }
+    }
+    else {
+      if (screen.gameMap[p2pos].getType().equals("buyable") && players[1].owned().indexOf(screen.gameMap[p2pos]) == -1) {
+        players[1].buy(screen.gameMap[p2pos]);
+      }      
+    }
   }
 }
 
@@ -76,15 +92,17 @@ void displayPlayerStat(Player currentP, float xVal, float yVal) {
     text("Player Name:",xVal+20, yVal+15);
     text(currentP.name(), xVal+20, yVal + 40);
     text("Player Balance:", xVal+20, yVal+85);
-            text(currentP.bank(), xVal+20, yVal +110);
+    text(currentP.bank(), xVal+20, yVal +110);
     text("Player Property:", xVal+20, yVal + 307);
     text("Player Roll:", xVal+20,yVal+170);
     textSize(30);
-    text(rollDice(), xVal+40,yVal+220);
+    if (currentP.name().equals("Player One")){
+          text(movement1, xVal+40,yVal+220);
     textSize(15);
-}
+    }
+     if (currentP.name().equals("Player Two")){
+          text(movement2, xVal+40,yVal+220);
+    textSize(15);
+    }
 
-public int rollDice(){
-  Random random = new Random();
-  return random.nextInt(6)+1;
 }
