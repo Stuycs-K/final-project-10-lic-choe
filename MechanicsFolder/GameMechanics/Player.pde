@@ -7,7 +7,7 @@ public class Player {
   private int position;
   private ArrayList<Tiles> properties;
   private boolean bankruptcy;
-  private PImage token;
+  private color pColor;
   
   public Player() {
     this.name = "Player";
@@ -16,7 +16,7 @@ public class Player {
     this.properties = new ArrayList<>();
     this.bankruptcy = false;
   }
-
+  
   public Player(String s) {
     this();
     this.name = s;
@@ -26,10 +26,12 @@ public class Player {
     return this.name;
   }
   
-  void setAvatar(PImage ava){
-    token = ava;
+  void setColor(color col){
+    pColor =col;
   }
-
+  public color getColor(){
+    return this.pColor;
+  }
   public int bank() {
     return this.bank;
   }
@@ -46,7 +48,7 @@ public class Player {
     return this.properties;
   }
 
-  public int move(int distance) {
+  public int move(int distance) { 
     this.position += distance;
     this.position %= 16;
     return distance;
