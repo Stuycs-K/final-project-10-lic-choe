@@ -49,4 +49,7 @@ I made methods to display the stats of the players, like showing their current b
 
 ### 5/31/23
 I made it so that the rolling dice things actually works, and displays on the side. Each person has different last rolls, and i forgot about that yesterday so i had to fix.
+
+###6/1/23
+I made it so that my game finally displays teh characters, i jsut brute forced it and will need to make it better. 
 info
