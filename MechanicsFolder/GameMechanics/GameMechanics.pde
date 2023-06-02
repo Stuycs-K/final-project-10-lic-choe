@@ -17,8 +17,8 @@ int rectW = 145;
   
 void setup() {
   size(1500, 1000);
+  screen = new Map();
   start();
-  end();
 }
 
 void start() {
@@ -32,19 +32,22 @@ void start() {
 }
 
 void end() {
+  background(255);
+  text("GAME OVER", 300, 300);
 }
 
 void draw() {
   background(255);
-  screen = new Map();
   screen.build();
-
   displayPlayerStat(players[0], 100, 10);
   displayPlayerStat(players[1], 1300, 10);
     playerLocation(players[0]);
    playerLocation(players[1]);
   text(players[0].pos(),width/2,height/2-100);
   text(players[1].pos(),width/2,height/2+100);
+  if (players[0].broke() || players[1].broke()) {
+    end();
+  }
 }
 
 void keyPressed() {
@@ -54,23 +57,31 @@ void keyPressed() {
     if (turn == PLAYERONE) {
       movement1 = players[0].takeTurn();
       p1pos = players[0].pos();
+      if (players[1].properties.indexOf(screen.gameMap[p1pos]) != -1) {
+        players[0].pay(screen.gameMap[p1pos].getPrice());
+        players[1].add(screen.gameMap[p1pos].getPrice());
+      }
       println("p1pos" + p1pos); 
        
     } else {
       movement2 = players[1].takeTurn();
       p2pos = players[1].pos();
+      if (players[0].properties.indexOf(screen.gameMap[p2pos]) != -1) {
+        players[1].pay(screen.gameMap[p2pos].getPrice());
+        players[0].add(screen.gameMap[p2pos].getPrice());
+      }
       println("p2pos" + p2pos);
       
     }
   }
   if (key == 'b') {
     if (turn == PLAYERONE) {
-      if (screen.gameMap[p1pos].getType().equals("buyable") && (players[0].owned().indexOf(screen.gameMap[p1pos]) == -1)) {
+      if (screen.gameMap[p1pos].getType().equals("buyable") && !screen.gameMap[p1pos].isOwned()) {
         players[0].buy(screen.gameMap[p1pos]);
         
       }
     } else {
-      if (screen.gameMap[p2pos].getType().equals("buyable") && (players[1].owned().indexOf(screen.gameMap[p2pos]) == -1)) {
+      if (screen.gameMap[p2pos].getType().equals("buyable") && !screen.gameMap[p2pos].isOwned()) {
         players[1].buy(screen.gameMap[p2pos]);
         
       }
@@ -101,7 +112,14 @@ void displayPlayerStat(Player currentP, float xVal, float yVal) {
     }
   }
   text("Player Name:", xVal+20, yVal+15);
+  if (currentP.name().equals("Player One")) {
+    fill(255,0,0);
+  }
+  else {
+    fill(0,0,255);
+  }
   text(currentP.name(), xVal+20, yVal + 40);
+  fill(0,0,0);
   text("Player Balance:", xVal+20, yVal+85);
   text(currentP.bank(), xVal+20, yVal +110);
   text("Player Property:", xVal+20, yVal + 307);

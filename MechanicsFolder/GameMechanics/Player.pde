@@ -42,7 +42,7 @@ public class Player {
   }
   
   public boolean broke() {
-    return this.bankruptcy;
+    return this.bank < 0;
   }
   
   public ArrayList<Tiles> owned() {
@@ -54,13 +54,23 @@ public class Player {
     this.position %= 16;
     return distance;
   }
+  
+  public void pay(int amount) {
+    this.bank-=amount;
+  }
+  public void add(int amount) {
+    this.bank+=amount;
+  }
 
   public void buy(Tiles t) {
-    this.bank -= t.getPrice();
-    if (this.bank < 0) {
-      this.bankruptcy = true;
+    if (this.bank - t.getPrice() > 0) {
+      this.bank -= t.getPrice();
+      this.properties.add(t);
+      t.bought();
     }
-    this.properties.add(t);
+    else {
+      println("TOO BROKE!");
+    }
   }
 
   public void mortgage(BuyableTiles t) {

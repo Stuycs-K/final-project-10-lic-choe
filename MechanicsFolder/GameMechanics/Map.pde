@@ -1,10 +1,11 @@
 public class Map {
   public Tiles[] gameMap;
 
-  void build() {
-
+  public Map() {
     gameMap = new Tiles[16];
     mapSet();
+  }
+  void build() {
     grid();
     displayNameBox();
     displayName();

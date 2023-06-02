@@ -18,11 +18,14 @@ public class Tiles{
   }
   
   public int getPrice(){
-  return price;
+    return price;
   }
-   public boolean isOwned() {
-        return owned;
-    }
+  public boolean isOwned() {
+    return owned;
+  }
+  public void bought() {
+    owned = true;
+  }
 
     
 }
