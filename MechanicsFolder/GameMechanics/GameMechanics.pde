@@ -65,12 +65,14 @@ void keyPressed() {
   }
   if (key == 'b') {
     if (turn == PLAYERONE) {
-      if (screen.gameMap[p1pos].getType().equals("buyable") && players[0].owned().indexOf(screen.gameMap[p1pos]) == -1) {
+      if (screen.gameMap[p1pos].getType().equals("buyable") && (players[0].owned().indexOf(screen.gameMap[p1pos]) == -1)) {
         players[0].buy(screen.gameMap[p1pos]);
+        
       }
     } else {
-      if (screen.gameMap[p2pos].getType().equals("buyable") && players[1].owned().indexOf(screen.gameMap[p2pos]) == -1) {
+      if (screen.gameMap[p2pos].getType().equals("buyable") && (players[1].owned().indexOf(screen.gameMap[p2pos]) == -1)) {
         players[1].buy(screen.gameMap[p2pos]);
+        
       }
     }
   }

@@ -1,6 +1,7 @@
 public class BuyableTiles extends Tiles{
   private int price;
   //private Player owner;
+
   
   
   public BuyableTiles(String TName,String TType,int TPrice){
@@ -19,9 +20,6 @@ public class BuyableTiles extends Tiles{
   public String getType(){
     return super.getType();
   }
-  /*
-  public static void setOwner(Player newOwn){
-    owner = newOwn;
-  }
-  */
+ 
+  
 }

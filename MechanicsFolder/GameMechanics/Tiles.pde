@@ -2,7 +2,7 @@ public class Tiles{
   private String tileType;
   private String name;
   private int price;
-
+   private boolean owned;
 
   public Tiles(String TName,String TType){
     tileType = TType;
@@ -20,5 +20,9 @@ public class Tiles{
   public int getPrice(){
   return price;
   }
+   public boolean isOwned() {
+        return owned;
+    }
 
+    
 }

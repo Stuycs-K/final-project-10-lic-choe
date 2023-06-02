@@ -8,7 +8,7 @@ public class Player {
   private ArrayList<Tiles> properties;
   private boolean bankruptcy;
   private color pColor;
-  
+
   public Player() {
     this.name = "Player";
     this.bank = 1500;
@@ -25,7 +25,8 @@ public class Player {
   public String name() {
     return this.name;
   }
-  
+  void setOwned(){
+  }
   void setColor(color col){
     pColor =col;
   }

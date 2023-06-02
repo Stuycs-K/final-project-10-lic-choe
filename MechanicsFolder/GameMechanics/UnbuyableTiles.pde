@@ -1,4 +1,5 @@
 public class UnbuyableTiles extends Tiles{
+  boolean owned = false;
   public UnbuyableTiles(String TName,String TType){
     super(TName,TType);
   }
@@ -13,7 +14,8 @@ public class UnbuyableTiles extends Tiles{
   }
   
   public int getPrice(){
-    return 10000;  
+    return 1000000;  
   }
+ 
   
 }
