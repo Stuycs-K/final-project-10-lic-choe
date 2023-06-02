@@ -22,6 +22,10 @@ Worked on GameMechanics.pde, start() function and turns, actions class deleted
 
 Completely changed GameMechanics, new takeTurn() and end() functions, different draw(), keyPressed(), position keeps changing need to fix
 
+### 6/1/23
+
+Rent mechanic works, Map() constructor made, build() method fixed, no more duplicate buying, player names should now be color coded, pay() and add() methods added to Player, buy() method fixed, added gameOver screen and modified broke() boolean method
+
 
 ## ELIEZER CHO
 
@@ -51,5 +55,5 @@ I made methods to display the stats of the players, like showing their current b
 I made it so that the rolling dice things actually works, and displays on the side. Each person has different last rolls, and i forgot about that yesterday so i had to fix.
 
 ###6/1/23
-I made it so that my game finally displays teh characters, i jsut brute forced it and will need to make it better. 
+I made it so that my game finally displays teh characters, i jsut brute forced it and will need to make it better.
 info
