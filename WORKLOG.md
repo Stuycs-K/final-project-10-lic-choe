@@ -56,4 +56,7 @@ I made it so that the rolling dice things actually works, and displays on the si
 
 ###6/1/23
 I made it so that my game finally displays teh characters, i jsut brute forced it and will need to make it better.
+
+###6/5/23
+I made multiple screens like the avatar choose screen, game screen, and the menu screen.
 info
