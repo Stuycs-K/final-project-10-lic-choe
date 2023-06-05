@@ -31,6 +31,11 @@ public class Map {
   }
 
   void grid() {
+     textSize(30);
+  fill(255,0,0);
+  rect(30,30,75,30);
+  fill(255);
+  text("Menu",35,55);
     int startW =width/4;
     int startH = 5;
     
