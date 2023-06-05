@@ -1,9 +1,14 @@
 import java.util.Random;
 int turn;
+PImage img, bts;
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
 Player[] players;
 Map screen;
+boolean loadingScreen = true;
+boolean avatarScreen = false;
+boolean gameScreen = false;
+boolean menuButtonOver = false;
 int movement;
 int p1pos = 0;
 int p2pos = 0;
@@ -13,14 +18,40 @@ int movement2;
    int startH = 100;
 int rectW = 145;
     int rectH = 200;
-
+boolean playOver = false;
+boolean avatarOver = false;
   
 void setup() {
   size(1500, 1000);
   screen = new Map();
   start();
+  
+}
+void loadingScreen(){
+  img = loadImage("monoplylogo.png");
+  bts = loadImage("bts.png");
+  image(bts,0,0,width,height);
+  fill(255,0,0);
+  rect(width/2-250, 800, 500, 50, 30);
+  rect(width/2-250, 650, 500, 50, 30);
+  fill(255);
+  textSize(40);
+  text("Play Game",width/2-130,690);
+  text("Select Avatar", width/2-130,840);
+  image(img, 200, 10);
 }
 
+void avatarScreen(){
+  background(23,252,239);
+  fill(0);
+  textSize(100);
+  text("NEED TO WORK ON THIS SOON",0,height/2);
+  textSize(30);
+  fill(255,0,0);
+  rect(30,30,75,30);
+  fill(255);
+  text("Menu",35,55);
+}
 void start() {
   players = new Player[2];
   turn = -1;
@@ -37,10 +68,16 @@ void end() {
 }
 
 void draw() {
-  background(255);
+  update(mouseX, mouseY);
+  if (loadingScreen){
+    loadingScreen();
+  }else if(avatarScreen){
+    avatarScreen();
+  }else if(gameScreen){
+   background(255);
   screen.build();
-  displayPlayerStat(players[0], 100, 10);
-  displayPlayerStat(players[1], 1300, 10);
+  displayPlayerStat(players[0], 150, 10);
+  displayPlayerStat(players[1], 1200, 10);
     playerLocation(players[0]);
    playerLocation(players[1]);
   text(players[0].pos(),width/2,height/2-100);
@@ -48,6 +85,8 @@ void draw() {
   if (players[0].broke() || players[1].broke()) {
     end();
   }
+  }
+ 
 }
 
 void keyPressed() {
@@ -191,10 +230,46 @@ void displayPlayer(color playerC, float x, float y) {
       if (player.pos() == 15){
       displayPlayer(player.getColor(), startW ,startH + ( 1 * rectH));
       }
-       
-    
-    
   }
   
+void mousePressed(){
+if (loadingScreen){
+  if (avatarOver){
+    avatarScreen = true;
+    loadingScreen = false;
+  }
+  if (playOver){
+    loadingScreen = false;
+    gameScreen = true;
+  }
+}
+ if (avatarScreen){
+   if (menuButtonOver){
+     loadingScreen = true;
+     avatarScreen = false;
+   }
+ }
+ if (gameScreen){
+   if (menuButtonOver){
+     loadingScreen = true;
+     gameScreen = false;
+   }
+ }
+}
+
+boolean overRect(int x, int y, int width, int height)  {
+  if (mouseX >= x && mouseX <= x+width && 
+      mouseY >= y && mouseY <= y+height) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+void update(int x, int y) {
+  avatarOver = overRect(width/2-250, 800, 500, 50);
+  playOver = overRect(width/2-250, 650, 500, 50);
+  menuButtonOver = overRect(30,30,75,30);
+}
 
   
