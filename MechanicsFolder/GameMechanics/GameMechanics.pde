@@ -1,15 +1,16 @@
 import java.util.Random;
 int turn;
-PImage img, bts,btsjoe, kenny,tolkien,cartman,kyle, jesse, walter, saul,mike,ssbu;
+PImage img, bts,btsjoe, kenny,tolkien,cartman,kyle, jesse, walter, saul,mike,ssbu,gameover;
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
 Player[] players;
 Map screen;
-boolean loadingScreen = true;
-boolean avatarScreen = false;
-boolean gameScreen = false;
-boolean menuButtonOver = false;
-boolean controlScreen = false;
+boolean loadingScreen;
+boolean avatarScreen;
+boolean gameScreen;
+boolean endScreen;
+boolean menuButtonOver;
+boolean controlScreen;
 int movement;
 int p1pos = 0;
 int p2pos = 0;
@@ -19,17 +20,28 @@ int startW =width/4+400;
 int startH = 100;
 int rectW = 145;
 int rectH = 200;
-boolean playOver = false;
-boolean avatarOver = false;
-boolean controlOver = false;
-boolean p1HasAvatar = false;
-boolean p2HasAvatar = false;
+boolean playOver;
+boolean avatarOver;
+boolean controlOver;
+boolean p1HasAvatar;
+boolean p2HasAvatar;
   
 void setup() {
   size(1500, 1000);
+  turn = 0;
+  loadingScreen = true;
+  avatarScreen = false;
+  gameScreen = false;
+  endScreen = false;
+  menuButtonOver = false;
+  controlScreen = false;
+  playOver = false;
+  avatarOver = false;
+  controlOver = false;
+  p1HasAvatar = false;
+  p2HasAvatar = false;
   screen = new Map();
   start();
-  
 }
 
 void controlScreen(){
@@ -130,8 +142,18 @@ void start() {
 }
 
 void end() {
-  background(255);
-  text("GAME OVER", 300, 300);
+  endScreen = true;
+  gameover = loadImage("gameOver.jpg");
+  textSize(200);
+  textAlign(CENTER);
+  image(gameover, 0, 0, 1500, 1000);
+  if (players[0].broke()) {
+    text("PLAYER 2 WINS!!!", width/2, height/2);
+  }
+  else {
+    text("PLAYER 1 WINS!!!", 750, 500);
+  }
+  text ("press r to restart", 750, 750);
 }
 
 void draw() {
@@ -199,6 +221,11 @@ void keyPressed() {
   if (avatarScreen) {
     if (key == ' ') {
        
+    }
+  }
+  if (endScreen) {
+    if (key == 'r') {
+      setup();
     }
   }
 }
