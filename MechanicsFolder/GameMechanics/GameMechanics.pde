@@ -57,7 +57,7 @@ image(btsjoe,0,0,width,height);
   rect(width/2-350, 650, 700, 50, 30);
   fill(255);
    text("To roll, press \"enter\" on your keyboard!",width/2-220,685);
-  text("To buy property, press \"buy\" on your keyboard!", width/2-300,835);
+  text("To buy property, press \"b\" on your keyboard!", width/2-300,835);
 }
 void loadingScreen(){
   img = loadImage("monoplylogo.png");
