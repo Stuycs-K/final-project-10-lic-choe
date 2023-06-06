@@ -1,6 +1,6 @@
 import java.util.Random;
 int turn;
-PImage img, bts,btsjoe, kenny,tolkien,cartman,kyle, jesse, walter, saul,mike,ssbu,gameover;
+PImage img, bts,btsjoe, kenny,tolkien,cartman,kyle, dora, boots, swiper, diego ,ssbu,gameover;
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
 Player[] players;
@@ -84,24 +84,48 @@ void avatarScreen(){
   fill(0);
   textSize(50);
   fill(255,0,0);
- rect(width/2-300, height/2-250, 450, 70, 30);
+  rect(width/2-300, height/2-250, 450, 70, 30);
   rect(width/2-300, height/2+50, 450, 70, 30);
   kenny = loadImage("kenny.png");
   tolkien =loadImage("tolkien.png");
   cartman = loadImage("cartman.png");
   kyle = loadImage("kyle.png");
-  saul = loadImage("saul.jpg");
-  jesse= loadImage("jesse.jpg");
-  walter = loadImage("walter.jpg");
-  mike = loadImage("mike.jpg");
+  dora = loadImage("dora.png");
+  boots= loadImage("boots.png");
+  swiper = loadImage("swiper.png");
+  diego = loadImage("diego.png");
+  if (players[0].getPfp().equals("kenny")) {
+    rect(200, height/2-150, 150, 150);
+  }
   image(kenny,200,height/2-150,150,150);
+  if (players[0].getPfp().equals("tolkien")) {
+    rect(525,height/2-150, 150, 150);
+  }
   image(tolkien,450,height/2-150,300,150);
+  if (players[0].getPfp().equals("cartman")) {
+    rect(800, height/2-150, 150, 150);
+  }
   image(cartman,800,height/2-150,150,150);
+  if (players[0].getPfp().equals("kyle")) {
+    rect(1100, height/2-150, 150, 150);
+  }
   image(kyle,1100,height/2-150,150,150);
-  image(saul,200,height/2+150,150,150);
-  image(jesse,500,height/2+150,150,150);
-  image(walter,800,height/2+150,150,150);
-  image(mike,1100,height/2+150,150,150);
+  if (players[1].getPfp().equals("dora")) {
+    rect(200, height/2+150, 150, 150);
+  }
+  image(dora,200,height/2+150,150,150);
+  if (players[1].getPfp().equals("boots")) {
+    rect(500, height/2+150, 175, 175);
+  }
+  image(boots,500,height/2+150,150,150);
+  if (players[1].getPfp().equals("swiper")) {
+    rect(800, height/2+150, 175, 175);
+  }
+  image(swiper,800,height/2+150,150,150);
+  if (players[1].getPfp().equals("diego")) {
+    rect(1100, height/2+150, 175, 175);
+  }
+  image(diego,1100,height/2+150,150,150);
   fill(255);
   text("Player 1 Avatars: ",width/2-250,height/2-200);
   text("Player 2 Avatars: ",width/2-250,height/2+100);
@@ -121,14 +145,14 @@ void avatarScreen(){
   }else if (overRect(1100,height/2-150,150,150)){
   text("Kyle",width/2-100,55);
   }else if (overRect(200,height/2+150,150,150)){
-  text("Saul",width/2-100,55);
+  text("dora",width/2-100,55);
   }else if (overRect(500,height/2+150,150,150)){
-  text("Jesse",width/2-100,55);
+  text("boots",width/2-100,55);
   }else if (overRect(800,height/2+150,150,150)){
-  text("Walter",width/2-100,55);
+  text("swiper",width/2-100,55);
   }else if (overRect(1100,height/2+150,150,150)){
-  text("Mike",width/2-100,55);
-}
+  text("diego",width/2-100,55);
+  }
 }
 
 void start() {
@@ -138,6 +162,8 @@ void start() {
   players[1] = new Player("Player Two");
   players[0].setColor(color(255, 0, 0));
   players[1].setColor(color(0, 0, 255));
+  players[0].setPfp("kenny", kenny);
+  players[1].setPfp("dora", dora);
   
 }
 
@@ -163,7 +189,7 @@ void draw() {
   } else if (controlScreen) {
     controlScreen();
   }else if(avatarScreen){
-    avatarScreen();
+    avatarScreen();    
   }else if(gameScreen){
    background(255);
   screen.build();
@@ -309,21 +335,21 @@ if (loadingScreen){
      avatarScreen = false;
    } 
     if (overRect(200,height/2-150,150,150)){
-    players[0].setPfp(kenny);
+    players[0].setPfp("kenny", kenny);
   } else if (overRect(500,height/2-150,150,150)){
-    players[0].setPfp(tolkien); 
+    players[0].setPfp("tolkien", tolkien); 
   }else if (overRect(800,height/2-150,150,150)){
- players[0].setPfp(cartman); 
+ players[0].setPfp("cartman", tolkien); 
     }else if (overRect(1100,height/2-150,150,150)){
-    players[0].setPfp(kyle); 
+    players[0].setPfp("kyle", kyle); 
   }else if (overRect(200,height/2+150,150,150)){
-     players[1].setPfp(saul); 
+     players[1].setPfp("dora", dora); 
   }else if (overRect(500,height/2+150,150,150)){
-  players[1].setPfp(jesse); 
+  players[1].setPfp("boots", boots);
   }else if (overRect(800,height/2+150,150,150)){
-  players[1].setPfp(walter); 
-  }else if (overRect(1100,height/2+150,150,150)){
- players[1].setPfp(mike); 
+  players[1].setPfp("swiper", swiper); 
+    }else if (overRect(1100,height/2+150,150,150)){
+ players[1].setPfp("diego", diego); 
 }
  }
  if (gameScreen){
@@ -360,7 +386,7 @@ void update(int x, int y) {
     
     if ( player.pos()  == 0){
       if (hasPfp){
-        displayPlayer(player.getPfp(),startW,startH);
+        displayPlayer(player.getPfpimg(),startW,startH);
       } else {
       displayPlayer(player.getColor(), startW,startH);
       }
@@ -368,7 +394,7 @@ void update(int x, int y) {
     }
     if (player.pos() == 1){
       if (hasPfp){
-        displayPlayer(player.getPfp(),startW + rectW,startH);
+        displayPlayer(player.getPfpimg(),startW + rectW,startH);
       }
       else{
       displayPlayer(player.getColor(), startW + rectW,startH);
@@ -376,98 +402,98 @@ void update(int x, int y) {
     }
     if (player.pos() == 2){
       if (hasPfp){
-        displayPlayer(player.getPfp(),startW + rectW+rectW,startH);
+        displayPlayer(player.getPfpimg(),startW + rectW+rectW,startH);
       }else{
       displayPlayer(player.getColor(), startW + rectW+rectW,startH);
       }
     }
     if (player.pos() == 3){
       if (hasPfp){
-      displayPlayer(player.getPfp(),startW + rectW+rectW+rectW,startH);
+      displayPlayer(player.getPfpimg(),startW + rectW+rectW+rectW,startH);
       }else{
       displayPlayer(player.getColor(),startW + rectW+rectW+rectW,startH);
       }
     }
     if (player.pos() == 4){
       if (hasPfp){
-        displayPlayer(player.getPfp(),startW + (4 *rectW),startH);
+        displayPlayer(player.getPfpimg(),startW + (4 *rectW),startH);
       }else{
       displayPlayer(player.getColor(), startW + (4 *rectW),startH);
       }
     }
     if (player.pos() == 5){
       if (hasPfp){
-        displayPlayer(player.getPfp(),startW + (4 *rectW),startH + ( 1 * rectH));
+        displayPlayer(player.getPfpimg(),startW + (4 *rectW),startH + ( 1 * rectH));
       }else{
       displayPlayer(player.getColor(),startW + (4 *rectW),startH + ( 1 * rectH));
       }
     }
     if (player.pos() == 6){
       if (hasPfp){
-        displayPlayer(player.getPfp(),startW + (4 *rectW),startH + (2 * rectH));
+        displayPlayer(player.getPfpimg(),startW + (4 *rectW),startH + (2 * rectH));
       }else{
       displayPlayer(player.getColor(), startW + (4 *rectW),startH + ( 2 * rectH));
       }
     }
     if (player.pos() == 7){
       if (hasPfp){
-        displayPlayer(player.getPfp(),startW + (4 *rectW),startH + ( 3 * rectH));
+        displayPlayer(player.getPfpimg(),startW + (4 *rectW),startH + ( 3 * rectH));
       }else{
       displayPlayer(player.getColor(), startW + (4 *rectW),startH + ( 3 * rectH));
       }
     }
     if (player.pos() == 8){
       if (hasPfp){
-        displayPlayer(player.getPfp(),startW+ (4 *rectW),startH+ ( 4 * rectH));
+        displayPlayer(player.getPfpimg(),startW+ (4 *rectW),startH+ ( 4 * rectH));
       }else{
       displayPlayer(player.getColor(), startW + (4 *rectW),startH + ( 4 * rectH));
       }
     }
     if (player.pos() == 9){
       if (hasPfp){
-        displayPlayer(player.getPfp(),startW+ (3 *rectW),startH+ ( 4 * rectH));
+        displayPlayer(player.getPfpimg(),startW+ (3 *rectW),startH+ ( 4 * rectH));
       }else{
     displayPlayer(player.getColor(), startW + (3 *rectW),startH + ( 4 * rectH));
     }
   }
     if (player.pos() == 10){
       if (hasPfp){
-        displayPlayer(player.getPfp(),startW+ (2 *rectW),startH+ ( 4 * rectH));
+        displayPlayer(player.getPfpimg(),startW+ (2 *rectW),startH+ ( 4 * rectH));
       }else{
       displayPlayer(player.getColor(), startW + (2 *rectW),startH + ( 4 * rectH));
       }
     }
     if (player.pos() == 11){
       if (hasPfp){
-        displayPlayer(player.getPfp(),startW+ (1 *rectW),startH+ ( 4 * rectH));
+        displayPlayer(player.getPfpimg(),startW+ (1 *rectW),startH+ ( 4 * rectH));
       }else{
       displayPlayer(player.getColor(), startW + (1 *rectW),startH + ( 4 * rectH));
       }
     }
     if (player.pos() == 12){
       if (hasPfp){
-        displayPlayer(player.getPfp(),startW,startH+ ( 4 * rectH));
+        displayPlayer(player.getPfpimg(),startW,startH+ ( 4 * rectH));
       }else{
       displayPlayer(player.getColor(), startW ,startH + ( 4 * rectH));
       }
     }
     if (player.pos() == 13){
       if (hasPfp){
-        displayPlayer(player.getPfp(),startW,startH+ ( 3 * rectH));
+        displayPlayer(player.getPfpimg(),startW,startH+ ( 3 * rectH));
       }else{
       displayPlayer(player.getColor(), startW ,startH + ( 3 * rectH));
       }
     }
      if (player.pos() == 14){
        if (hasPfp){
-        displayPlayer(player.getPfp(),startW,startH+ ( 2 * rectH));
+        displayPlayer(player.getPfpimg(),startW,startH+ ( 2 * rectH));
       }else{
      displayPlayer(player.getColor(), startW ,startH + ( 2 * rectH));
      }
      }
       if (player.pos() == 15){
         if (hasPfp){
-        displayPlayer(player.getPfp(),startW ,startH + ( 1 * rectH));
+        displayPlayer(player.getPfpimg(),startW ,startH + ( 1 * rectH));
       }else{
       displayPlayer(player.getColor(), startW ,startH + ( 1 * rectH));
         }
