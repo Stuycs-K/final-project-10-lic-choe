@@ -8,6 +8,8 @@ public class Player {
   private ArrayList<Tiles> properties;
   private boolean bankruptcy;
   private color pColor;
+  private PImage pfp;
+  private boolean hasPfp = false;
 
   public Player() {
     this.name = "Player";
@@ -17,11 +19,21 @@ public class Player {
     this.bankruptcy = false;
   }
   
+  public boolean ownsPfp(){
+    return hasPfp;
+  }
   public Player(String s) {
     this();
     this.name = s;
   }
-
+  
+  void setPfp(PImage profile){
+    pfp= profile;
+    hasPfp = true;
+  }
+  public PImage getPfp(){
+    return pfp;
+  }
   public String name() {
     return this.name;
   }
