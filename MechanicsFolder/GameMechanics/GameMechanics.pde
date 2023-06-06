@@ -1,6 +1,7 @@
 import java.util.Random;
 int turn;
 PImage img, bts;
+PImage[] tokens;
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
 Player[] players;
@@ -14,10 +15,10 @@ int p1pos = 0;
 int p2pos = 0;
 int movement1;
 int movement2;
-   int startW =width/4+400;  
-   int startH = 100;
+int startW =width/4+400;  
+int startH = 100;
 int rectW = 145;
-    int rectH = 200;
+int rectH = 200;
 boolean playOver = false;
 boolean avatarOver = false;
   
@@ -51,6 +52,15 @@ void avatarScreen(){
   rect(30,30,75,30);
   fill(255);
   text("Menu",35,55);
+  tokens = new PImage[4];
+  tokens[0] = loadImage("dogtoken.png");
+  tokens[1] = loadImage("hattoken.png");
+  tokens[2] = loadImage("shiptoken.png");
+  tokens[3] = loadImage("cartoken.png");
+  image(tokens[0], 200, 150, 100, 100);
+  image(tokens[1], 300, 150, 100, 100);
+  image(tokens[2], 400, 150, 100, 100);
+  image(tokens[3], 500, 150, 100, 100);
 }
 void start() {
   players = new Player[2];
@@ -90,40 +100,46 @@ void draw() {
 }
 
 void keyPressed() {
-  if (key == ENTER) {
-    turn++;
-    turn%=2;
-    if (turn == PLAYERONE) {
-      movement1 = players[0].takeTurn();
-      p1pos = players[0].pos();
-      if (players[1].properties.indexOf(screen.gameMap[p1pos]) != -1) {
-        players[0].pay(screen.gameMap[p1pos].getPrice());
-        players[1].add(screen.gameMap[p1pos].getPrice());
-      }
-      println("p1pos" + p1pos); 
-       
-    } else {
-      movement2 = players[1].takeTurn();
-      p2pos = players[1].pos();
-      if (players[0].properties.indexOf(screen.gameMap[p2pos]) != -1) {
-        players[1].pay(screen.gameMap[p2pos].getPrice());
-        players[0].add(screen.gameMap[p2pos].getPrice());
-      }
+  if (gameScreen) {
+    if (key == ENTER) {
+      turn++;
+      turn%=2;
+      if (turn == PLAYERONE) {
+        movement1 = players[0].takeTurn();
+        p1pos = players[0].pos();
+        if (players[1].properties.indexOf(screen.gameMap[p1pos]) != -1) {
+          players[0].pay(screen.gameMap[p1pos].getPrice());
+          players[1].add(screen.gameMap[p1pos].getPrice());
+        }
+        println("p1pos" + p1pos);      
+      } else {
+        movement2 = players[1].takeTurn();
+        p2pos = players[1].pos();
+        if (players[0].properties.indexOf(screen.gameMap[p2pos]) != -1) {
+          players[1].pay(screen.gameMap[p2pos].getPrice());
+          players[0].add(screen.gameMap[p2pos].getPrice());
+        }
+        else if (screen.gameMap[p2pos].getName().equals("Go")) {
+          players[0].add(200);
+        }
       println("p2pos" + p2pos);
-      
+      }
     }
+    if (key == 'b') {
+      if (turn == PLAYERONE) {
+        if (screen.gameMap[p1pos].getType().equals("buyable") && !screen.gameMap[p1pos].isOwned()) {
+          players[0].buy(screen.gameMap[p1pos]);
+        }
+      } else {
+        if (screen.gameMap[p2pos].getType().equals("buyable") && !screen.gameMap[p2pos].isOwned()) {
+          players[1].buy(screen.gameMap[p2pos]);  
+        }
+      }
+    }    
   }
-  if (key == 'b') {
-    if (turn == PLAYERONE) {
-      if (screen.gameMap[p1pos].getType().equals("buyable") && !screen.gameMap[p1pos].isOwned()) {
-        players[0].buy(screen.gameMap[p1pos]);
-        
-      }
-    } else {
-      if (screen.gameMap[p2pos].getType().equals("buyable") && !screen.gameMap[p2pos].isOwned()) {
-        players[1].buy(screen.gameMap[p2pos]);
-        
-      }
+  if (avatarScreen) {
+    if (key == ' ') {
+       
     }
   }
 }
