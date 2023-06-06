@@ -25,7 +25,5 @@ public class Tiles{
   }
   public void bought() {
     owned = true;
-  }
-
-    
+  }    
 }
