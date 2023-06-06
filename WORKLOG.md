@@ -26,6 +26,10 @@ Completely changed GameMechanics, new takeTurn() and end() functions, different 
 
 Rent mechanic works, Map() constructor made, build() method fixed, no more duplicate buying, player names should now be color coded, pay() and add() methods added to Player, buy() method fixed, added gameOver screen and modified broke() boolean method
 
+### 6/5/23 & 6/6/23
+
+Forgot to push, but worked on GameMechanics and created SpecialTiles class, restart button but shifts text, keyPressed for different keys, Go mechanic works
+
 
 ## ELIEZER CHO
 
