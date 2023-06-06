@@ -385,28 +385,28 @@ void update(int x, int y) {
     }
     if (player.pos() == 8){
       if (hasPfp){
-        displayPlayer(player.getPfp(),startW+ (4 *rectW),startH);
+        displayPlayer(player.getPfp(),startW+ (4 *rectW),startH+ ( 4 * rectH));
       }else{
       displayPlayer(player.getColor(), startW + (4 *rectW),startH + ( 4 * rectH));
       }
     }
     if (player.pos() == 9){
       if (hasPfp){
-        displayPlayer(player.getPfp(),startW+ (3 *rectW),startH);
+        displayPlayer(player.getPfp(),startW+ (3 *rectW),startH+ ( 4 * rectH));
       }else{
     displayPlayer(player.getColor(), startW + (3 *rectW),startH + ( 4 * rectH));
     }
   }
     if (player.pos() == 10){
       if (hasPfp){
-        displayPlayer(player.getPfp(),startW+ (2 *rectW),startH);
+        displayPlayer(player.getPfp(),startW+ (2 *rectW),startH+ ( 4 * rectH));
       }else{
       displayPlayer(player.getColor(), startW + (2 *rectW),startH + ( 4 * rectH));
       }
     }
     if (player.pos() == 11){
       if (hasPfp){
-        displayPlayer(player.getPfp(),startW+ (1 *rectW),startH);
+        displayPlayer(player.getPfp(),startW+ (1 *rectW),startH+ ( 4 * rectH));
       }else{
       displayPlayer(player.getColor(), startW + (1 *rectW),startH + ( 4 * rectH));
       }
