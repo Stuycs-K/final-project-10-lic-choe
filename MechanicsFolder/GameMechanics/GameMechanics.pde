@@ -217,6 +217,8 @@ void keyPressed() {
         if (players[1].properties.indexOf(screen.gameMap[p1pos]) != -1) {
           players[0].pay(screen.gameMap[p1pos].getPrice());
           players[1].add(screen.gameMap[p1pos].getPrice());
+        } else if (screen.gameMap[p2pos].getName().equals("Go")) {
+          players[0].add(200);
         }
         println("p1pos" + p1pos);      
       } else {
@@ -227,7 +229,7 @@ void keyPressed() {
           players[0].add(screen.gameMap[p2pos].getPrice());
         }
         else if (screen.gameMap[p2pos].getName().equals("Go")) {
-          players[0].add(200);
+          players[1].add(200);
         }
       println("p2pos" + p2pos);
       }
@@ -308,7 +310,7 @@ void displayPlayer(color playerC, float x, float y) {
   ellipse(x, y, radi, radi);
 }
 
-void displayPlayer(PImage playerIcon,float x, float y){
+void displayPlayer2(PImage playerIcon,float x, float y){
   image(playerIcon,x,y,50,50);
 }
 
@@ -386,7 +388,7 @@ void update(int x, int y) {
     
     if ( player.pos()  == 0){
       if (hasPfp){
-        displayPlayer(player.getPfpimg(),startW,startH);
+        displayPlayer2(player.getPfpimg(),startW,startH);
       } else {
       displayPlayer(player.getColor(), startW,startH);
       }
@@ -394,7 +396,7 @@ void update(int x, int y) {
     }
     if (player.pos() == 1){
       if (hasPfp){
-        displayPlayer(player.getPfpimg(),startW + rectW,startH);
+        displayPlayer2(player.getPfpimg(),startW + rectW,startH);
       }
       else{
       displayPlayer(player.getColor(), startW + rectW,startH);
@@ -402,98 +404,98 @@ void update(int x, int y) {
     }
     if (player.pos() == 2){
       if (hasPfp){
-        displayPlayer(player.getPfpimg(),startW + rectW+rectW,startH);
+        displayPlayer2(player.getPfpimg(),startW + rectW+rectW,startH);
       }else{
       displayPlayer(player.getColor(), startW + rectW+rectW,startH);
       }
     }
     if (player.pos() == 3){
       if (hasPfp){
-      displayPlayer(player.getPfpimg(),startW + rectW+rectW+rectW,startH);
+      displayPlayer2(player.getPfpimg(),startW + rectW+rectW+rectW,startH);
       }else{
       displayPlayer(player.getColor(),startW + rectW+rectW+rectW,startH);
       }
     }
     if (player.pos() == 4){
       if (hasPfp){
-        displayPlayer(player.getPfpimg(),startW + (4 *rectW),startH);
+        displayPlayer2(player.getPfpimg(),startW + (4 *rectW),startH);
       }else{
       displayPlayer(player.getColor(), startW + (4 *rectW),startH);
       }
     }
     if (player.pos() == 5){
       if (hasPfp){
-        displayPlayer(player.getPfpimg(),startW + (4 *rectW),startH + ( 1 * rectH));
+        displayPlayer2(player.getPfpimg(),startW + (4 *rectW),startH + ( 1 * rectH));
       }else{
       displayPlayer(player.getColor(),startW + (4 *rectW),startH + ( 1 * rectH));
       }
     }
     if (player.pos() == 6){
       if (hasPfp){
-        displayPlayer(player.getPfpimg(),startW + (4 *rectW),startH + (2 * rectH));
+        displayPlayer2(player.getPfpimg(),startW + (4 *rectW),startH + (2 * rectH));
       }else{
       displayPlayer(player.getColor(), startW + (4 *rectW),startH + ( 2 * rectH));
       }
     }
     if (player.pos() == 7){
       if (hasPfp){
-        displayPlayer(player.getPfpimg(),startW + (4 *rectW),startH + ( 3 * rectH));
+        displayPlayer2(player.getPfpimg(),startW + (4 *rectW),startH + ( 3 * rectH));
       }else{
       displayPlayer(player.getColor(), startW + (4 *rectW),startH + ( 3 * rectH));
       }
     }
     if (player.pos() == 8){
       if (hasPfp){
-        displayPlayer(player.getPfpimg(),startW+ (4 *rectW),startH+ ( 4 * rectH));
+        displayPlayer2(player.getPfpimg(),startW+ (4 *rectW),startH+ ( 4 * rectH));
       }else{
       displayPlayer(player.getColor(), startW + (4 *rectW),startH + ( 4 * rectH));
       }
     }
     if (player.pos() == 9){
       if (hasPfp){
-        displayPlayer(player.getPfpimg(),startW+ (3 *rectW),startH+ ( 4 * rectH));
+        displayPlayer2(player.getPfpimg(),startW+ (3 *rectW),startH+ ( 4 * rectH));
       }else{
     displayPlayer(player.getColor(), startW + (3 *rectW),startH + ( 4 * rectH));
     }
   }
     if (player.pos() == 10){
       if (hasPfp){
-        displayPlayer(player.getPfpimg(),startW+ (2 *rectW),startH+ ( 4 * rectH));
+        displayPlayer2(player.getPfpimg(),startW+ (2 *rectW),startH+ ( 4 * rectH));
       }else{
       displayPlayer(player.getColor(), startW + (2 *rectW),startH + ( 4 * rectH));
       }
     }
     if (player.pos() == 11){
       if (hasPfp){
-        displayPlayer(player.getPfpimg(),startW+ (1 *rectW),startH+ ( 4 * rectH));
+        displayPlayer2(player.getPfpimg(),startW+ (1 *rectW),startH+ ( 4 * rectH));
       }else{
       displayPlayer(player.getColor(), startW + (1 *rectW),startH + ( 4 * rectH));
       }
     }
     if (player.pos() == 12){
       if (hasPfp){
-        displayPlayer(player.getPfpimg(),startW,startH+ ( 4 * rectH));
+        displayPlayer2(player.getPfpimg(),startW,startH+ ( 4 * rectH));
       }else{
       displayPlayer(player.getColor(), startW ,startH + ( 4 * rectH));
       }
     }
     if (player.pos() == 13){
       if (hasPfp){
-        displayPlayer(player.getPfpimg(),startW,startH+ ( 3 * rectH));
+        displayPlayer2(player.getPfpimg(),startW,startH+ ( 3 * rectH));
       }else{
       displayPlayer(player.getColor(), startW ,startH + ( 3 * rectH));
       }
     }
      if (player.pos() == 14){
        if (hasPfp){
-        displayPlayer(player.getPfpimg(),startW,startH+ ( 2 * rectH));
+        displayPlayer2(player.getPfpimg(),startW,startH+ ( 2 * rectH));
       }else{
      displayPlayer(player.getColor(), startW ,startH + ( 2 * rectH));
      }
      }
       if (player.pos() == 15){
         if (hasPfp){
-        displayPlayer(player.getPfpimg(),startW ,startH + ( 1 * rectH));
+        displayPlayer2(player.getPfpimg(),startW ,startH + ( 1 * rectH));
       }else{
       displayPlayer(player.getColor(), startW ,startH + ( 1 * rectH));
         }
