@@ -27,19 +27,25 @@ public class Player {
     this();
     this.name = s;
   }
+  public Player(String s, String profile, PImage profileimg) {
+    this();
+    this.name = s;
+    this.pfp = profile;
+    this.pfpimg = profileimg;
+  }
   
   void setPfp(String profile, PImage profileimg){
-    pfp= profile;
-    pfpimg = profileimg;
-    hasPfp = true;
+    this.pfp= profile;
+    this.pfpimg = profileimg;
+    this.hasPfp = true;
   }
   
   public String getPfp(){
-    return pfp;
+    return this.pfp;
   }
   
   public PImage getPfpimg() {
-    return pfpimg;
+    return this.pfpimg;
   }
   
   public String name() {
