@@ -26,7 +26,7 @@ boolean controlOver;
   
 void setup() {
   size(1500, 1000);
-  turn = 0;
+  turn = -1;
   loadingScreen = true;
   avatarScreen = false;
   gameScreen = false;
@@ -213,6 +213,8 @@ void keyPressed() {
         if (players[1].properties.indexOf(screen.gameMap[p1pos]) != -1) {
           players[0].pay(screen.gameMap[p1pos].getPrice());
           players[1].add(screen.gameMap[p1pos].getPrice());
+        }else if (screen.gameMap[p1pos].getName().equals("Go")) {
+          players[0].add(200);
         }
         println("p1pos" + p1pos);      
       } else {
@@ -223,7 +225,7 @@ void keyPressed() {
           players[0].add(screen.gameMap[p2pos].getPrice());
         }
         else if (screen.gameMap[p2pos].getName().equals("Go")) {
-          players[0].add(200);
+          players[1].add(200);
         }
       println("p2pos" + p2pos);
       }
