@@ -23,8 +23,6 @@ int rectH = 200;
 boolean playOver;
 boolean avatarOver;
 boolean controlOver;
-boolean p1HasAvatar;
-boolean p2HasAvatar;
   
 void setup() {
   size(1500, 1000);
@@ -38,8 +36,14 @@ void setup() {
   playOver = false;
   avatarOver = false;
   controlOver = false;
-  p1HasAvatar = false;
-  p2HasAvatar = false;
+  kenny = loadImage("kenny.png");
+  tolkien =loadImage("tolkien.png");
+  cartman = loadImage("cartman.png");
+  kyle = loadImage("kyle.png");
+  dora = loadImage("dora.png");
+  boots= loadImage("boots.png");
+  swiper = loadImage("swiper.png");
+  diego = loadImage("diego.png");
   screen = new Map();
   start();
 }
@@ -86,14 +90,6 @@ void avatarScreen(){
   fill(255,0,0);
   rect(width/2-300, height/2-250, 450, 70, 30);
   rect(width/2-300, height/2+50, 450, 70, 30);
-  kenny = loadImage("kenny.png");
-  tolkien =loadImage("tolkien.png");
-  cartman = loadImage("cartman.png");
-  kyle = loadImage("kyle.png");
-  dora = loadImage("dora.png");
-  boots= loadImage("boots.png");
-  swiper = loadImage("swiper.png");
-  diego = loadImage("diego.png");
   if (players[0].getPfp().equals("kenny")) {
     rect(200, height/2-150, 150, 150);
   }
@@ -195,8 +191,8 @@ void draw() {
   screen.build();
   displayPlayerStat(players[0], 150, 10);
   displayPlayerStat(players[1], 1200, 10);
-    playerLocation(players[0],players[0].ownsPfp());
-   playerLocation(players[1],players[1].ownsPfp());
+  playerLocation(players[0]);
+  playerLocation(players[1]);
   text(players[0].pos(),width/2,height/2-100);
   text(players[1].pos(),width/2,height/2+100);
   if (players[0].broke() || players[1].broke()) {
@@ -382,122 +378,56 @@ void update(int x, int y) {
   controlOver = overRect(width/2-250, 725, 500, 50);
 }
 
- void playerLocation(Player player,boolean hasPfp) {
+ void playerLocation(Player player) {
     
     if ( player.pos()  == 0){
-      if (hasPfp){
-        displayPlayer(player.getPfpimg(),startW,startH);
-      } else {
-      displayPlayer(player.getColor(), startW,startH);
-      }
-      
+        displayPlayer(player.getPfpimg(),startW,startH);      
     }
-    if (player.pos() == 1){
-      if (hasPfp){
+    else if (player.pos() == 1){
         displayPlayer(player.getPfpimg(),startW + rectW,startH);
-      }
-      else{
-      displayPlayer(player.getColor(), startW + rectW,startH);
-      }
     }
-    if (player.pos() == 2){
-      if (hasPfp){
+    else if (player.pos() == 2){
         displayPlayer(player.getPfpimg(),startW + rectW+rectW,startH);
-      }else{
-      displayPlayer(player.getColor(), startW + rectW+rectW,startH);
-      }
     }
-    if (player.pos() == 3){
-      if (hasPfp){
+    else if (player.pos() == 3){
       displayPlayer(player.getPfpimg(),startW + rectW+rectW+rectW,startH);
-      }else{
-      displayPlayer(player.getColor(),startW + rectW+rectW+rectW,startH);
-      }
     }
-    if (player.pos() == 4){
-      if (hasPfp){
+    else if (player.pos() == 4){
         displayPlayer(player.getPfpimg(),startW + (4 *rectW),startH);
-      }else{
-      displayPlayer(player.getColor(), startW + (4 *rectW),startH);
-      }
     }
-    if (player.pos() == 5){
-      if (hasPfp){
+    else if (player.pos() == 5){
         displayPlayer(player.getPfpimg(),startW + (4 *rectW),startH + ( 1 * rectH));
-      }else{
-      displayPlayer(player.getColor(),startW + (4 *rectW),startH + ( 1 * rectH));
-      }
     }
-    if (player.pos() == 6){
-      if (hasPfp){
+    else if (player.pos() == 6){
         displayPlayer(player.getPfpimg(),startW + (4 *rectW),startH + (2 * rectH));
-      }else{
-      displayPlayer(player.getColor(), startW + (4 *rectW),startH + ( 2 * rectH));
-      }
     }
-    if (player.pos() == 7){
-      if (hasPfp){
+    else if (player.pos() == 7){
         displayPlayer(player.getPfpimg(),startW + (4 *rectW),startH + ( 3 * rectH));
-      }else{
-      displayPlayer(player.getColor(), startW + (4 *rectW),startH + ( 3 * rectH));
-      }
     }
-    if (player.pos() == 8){
-      if (hasPfp){
+    else if (player.pos() == 8){
         displayPlayer(player.getPfpimg(),startW+ (4 *rectW),startH+ ( 4 * rectH));
-      }else{
-      displayPlayer(player.getColor(), startW + (4 *rectW),startH + ( 4 * rectH));
-      }
     }
-    if (player.pos() == 9){
-      if (hasPfp){
+    else if (player.pos() == 9){
         displayPlayer(player.getPfpimg(),startW+ (3 *rectW),startH+ ( 4 * rectH));
-      }else{
-    displayPlayer(player.getColor(), startW + (3 *rectW),startH + ( 4 * rectH));
-    }
   }
-    if (player.pos() == 10){
-      if (hasPfp){
+    else if (player.pos() == 10){
         displayPlayer(player.getPfpimg(),startW+ (2 *rectW),startH+ ( 4 * rectH));
-      }else{
-      displayPlayer(player.getColor(), startW + (2 *rectW),startH + ( 4 * rectH));
-      }
     }
-    if (player.pos() == 11){
-      if (hasPfp){
+    else if (player.pos() == 11){
         displayPlayer(player.getPfpimg(),startW+ (1 *rectW),startH+ ( 4 * rectH));
-      }else{
-      displayPlayer(player.getColor(), startW + (1 *rectW),startH + ( 4 * rectH));
-      }
     }
-    if (player.pos() == 12){
-      if (hasPfp){
+    else if (player.pos() == 12){
         displayPlayer(player.getPfpimg(),startW,startH+ ( 4 * rectH));
-      }else{
-      displayPlayer(player.getColor(), startW ,startH + ( 4 * rectH));
-      }
     }
-    if (player.pos() == 13){
-      if (hasPfp){
+    else if (player.pos() == 13){
         displayPlayer(player.getPfpimg(),startW,startH+ ( 3 * rectH));
-      }else{
-      displayPlayer(player.getColor(), startW ,startH + ( 3 * rectH));
-      }
     }
-     if (player.pos() == 14){
-       if (hasPfp){
+    else if (player.pos() == 14){
         displayPlayer(player.getPfpimg(),startW,startH+ ( 2 * rectH));
-      }else{
-     displayPlayer(player.getColor(), startW ,startH + ( 2 * rectH));
-     }
-     }
-      if (player.pos() == 15){
-        if (hasPfp){
+    }
+    else if (player.pos() == 15){
         displayPlayer(player.getPfpimg(),startW ,startH + ( 1 * rectH));
-      }else{
-      displayPlayer(player.getColor(), startW ,startH + ( 1 * rectH));
-        }
-      }
+    }
   }
 
   
