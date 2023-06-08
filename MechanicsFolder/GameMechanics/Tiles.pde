@@ -48,6 +48,9 @@ public class Tiles{
   public void bought() {
     owned = true;
   }
+  public void sold() {
+    owned = false;
+  }
   
   public PImage tilePfp() {
     return img;

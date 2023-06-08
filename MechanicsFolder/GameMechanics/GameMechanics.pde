@@ -60,9 +60,11 @@ image(btsjoe,0,0,width,height);
  text("Menu",35,55);
  fill(255,0,0);
  rect(width/2-350, 800, 700, 50, 30);
+ rect(width/2-350, 725, 700, 50, 30);
  rect(width/2-350, 650, 700, 50, 30);
  fill(255);
- text("To roll, press \"enter\" on your keyboard!",width/2-220,685);
+ text("To roll your dice, press \"enter\" on your keyboard!",width/2-300,685);
+ text("To sell property, press \"m\" on your keyboard!", width/2-300, 760);
  text("To buy property, press \"b\" on your keyboard!", width/2-300,835);
 }
 void loadingScreen(){
@@ -248,14 +250,17 @@ void keyPressed() {
           players[1].buy(screen.gameMap[p2pos]);  
         }
       }
-    }    
-  }
-  if (avatarScreen) {
-    if (key == ' ') {
-       
+    }
+    if (key == 'm') {
+      if (turn == PLAYERONE) {
+      }
+      else {
+      }
     }
   }
-  if (endScreen) {
+  else if (avatarScreen) {
+  }
+  else if (endScreen) {
     if (key == 'r') {
       setup();
     }
