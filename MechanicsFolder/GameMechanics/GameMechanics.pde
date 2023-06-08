@@ -23,7 +23,7 @@ int rectH = 200;
 boolean playOver;
 boolean avatarOver;
 boolean controlOver;
-  
+
 void setup() {
   size(1500, 1000);
   turn = -1;
@@ -152,6 +152,7 @@ void avatarScreen(){
 }
 
 void start() {
+ 
   players = new Player[2];
   turn = -1;
   players[0] = new Player("Player One");
@@ -167,7 +168,7 @@ void end() {
   endScreen = true;
   gameover = loadImage("gameOver.jpg");
   textSize(200);
-  textAlign(CENTER);
+  //textAlign(CENTER);
   image(gameover, 0, 0, 1500, 1000);
   if (players[0].broke()) {
     text("PLAYER 2 WINS!!!", width/2, height/2);
@@ -403,54 +404,11 @@ int mouseOverTile() {
 }
 
  void playerLocation(Player player) {
-    if ( player.pos()  == 0){
-        displayPlayer(player.getPfpimg(),startW,startH);      
-    }
-    else if (player.pos() == 1){
-        displayPlayer(player.getPfpimg(),startW + rectW,startH);
-    }
-    else if (player.pos() == 2){
-        displayPlayer(player.getPfpimg(),startW + rectW+rectW,startH);
-    }
-    else if (player.pos() == 3){
-      displayPlayer(player.getPfpimg(),startW + rectW+rectW+rectW,startH);
-    }
-    else if (player.pos() == 4){
-        displayPlayer(player.getPfpimg(),startW + (4 *rectW),startH);
-    }
-    else if (player.pos() == 5){
-        displayPlayer(player.getPfpimg(),startW + (4 *rectW),startH + ( 1 * rectH));
-    }
-    else if (player.pos() == 6){
-        displayPlayer(player.getPfpimg(),startW + (4 *rectW),startH + (2 * rectH));
-    }
-    else if (player.pos() == 7){
-        displayPlayer(player.getPfpimg(),startW + (4 *rectW),startH + ( 3 * rectH));
-    }
-    else if (player.pos() == 8){
-        displayPlayer(player.getPfpimg(),startW+ (4 *rectW),startH+ ( 4 * rectH));
-    }
-    else if (player.pos() == 9){
-        displayPlayer(player.getPfpimg(),startW+ (3 *rectW),startH+ ( 4 * rectH));
-  }
-    else if (player.pos() == 10){
-        displayPlayer(player.getPfpimg(),startW+ (2 *rectW),startH+ ( 4 * rectH));
-    }
-    else if (player.pos() == 11){
-        displayPlayer(player.getPfpimg(),startW+ (1 *rectW),startH+ ( 4 * rectH));
-    }
-    else if (player.pos() == 12){
-        displayPlayer(player.getPfpimg(),startW,startH+ ( 4 * rectH));
-    }
-    else if (player.pos() == 13){
-        displayPlayer(player.getPfpimg(),startW,startH+ ( 3 * rectH));
-    }
-    else if (player.pos() == 14){
-        displayPlayer(player.getPfpimg(),startW,startH+ ( 2 * rectH));
-    }
-    else if (player.pos() == 15){
-        displayPlayer(player.getPfpimg(),startW ,startH + ( 1 * rectH));
-    }
+   if (player.name().equals(players[0].name())){
+   displayPlayer(player.getPfpimg(),screen.gameMap[player.pos()].getStartX()+5,screen.gameMap[player.pos()].getStartY()+30);
+   } else {
+   displayPlayer(player.getPfpimg(),screen.gameMap[player.pos()].getStartX()+45,screen.gameMap[player.pos()].getStartY()+30);
+   }
   }
 
   
