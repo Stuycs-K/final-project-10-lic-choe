@@ -4,7 +4,7 @@ PImage img, bts,btsjoe, kenny,tolkien,cartman,kyle, dora, boots, swiper, diego ,
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
 Player[] players;
-Map screen;
+BTSMap screen;
 boolean loadingScreen;
 boolean avatarScreen;
 boolean gameScreen;
@@ -26,7 +26,7 @@ boolean controlOver;
   
 void setup() {
   size(1500, 1000);
-  turn = 0;
+  turn = -1;
   loadingScreen = true;
   avatarScreen = false;
   gameScreen = false;
@@ -44,7 +44,7 @@ void setup() {
   boots= loadImage("boots.png");
   swiper = loadImage("swiper.png");
   diego = loadImage("diego.png");
-  screen = new Map();
+  screen = new BTSMap();
   start();
 }
 
@@ -189,12 +189,15 @@ void draw() {
   }else if(gameScreen){
    background(255);
   screen.build();
-  displayPlayerStat(players[0], 150, 10);
-  displayPlayerStat(players[1], 1200, 10);
+  displayPlayerStat(players[0], 10, 100);
+  displayPlayerStat(players[1], 1340, 100);
   playerLocation(players[0]);
   playerLocation(players[1]);
   text(players[0].pos(),width/2,height/2-100);
   text(players[1].pos(),width/2,height/2+100);
+  if (mouseOverTile() != -1) {
+    displayTileStat(mouseOverTile());
+  }
   if (players[0].broke() || players[1].broke()) {
     end();
   }
@@ -213,6 +216,8 @@ void keyPressed() {
         if (players[1].properties.indexOf(screen.gameMap[p1pos]) != -1) {
           players[0].pay(screen.gameMap[p1pos].getPrice());
           players[1].add(screen.gameMap[p1pos].getPrice());
+        }else if (screen.gameMap[p1pos].getName().equals("Go")) {
+          players[0].add(200);
         }
         println("p1pos" + p1pos);      
       } else {
@@ -223,7 +228,7 @@ void keyPressed() {
           players[0].add(screen.gameMap[p2pos].getPrice());
         }
         else if (screen.gameMap[p2pos].getName().equals("Go")) {
-          players[0].add(200);
+          players[1].add(200);
         }
       println("p2pos" + p2pos);
       }
@@ -257,11 +262,21 @@ void statBox(float x, float y, int xS, int yS) {
   rect(x, y, xS, yS);
 }
 
+void displayTileStat(int tilenum) {
+  noFill();
+  rect(650,300,200,200);
+  textAlign(CENTER);
+  text(screen.gameMap[tilenum].getName(), 750, 325);
+  textAlign(LEFT);
+  fill(255);
+}
+
 void displayPlayerStat(Player currentP, float xVal, float yVal) {
   statBox(xVal, yVal, 150, 50);
   statBox(xVal, yVal+70, 150, 50);
   statBox(xVal, yVal+290, 150, 600);
   statBox(xVal, yVal+150, 150, 100);
+  textSize(15);
   fill(0);
   float increment = 20;
   ArrayList<Tiles> ownedProperties = currentP.owned();
@@ -378,8 +393,16 @@ void update(int x, int y) {
   controlOver = overRect(width/2-250, 725, 500, 50);
 }
 
+int mouseOverTile() {
+  for (int i = 0; i < screen.gameMap.length; i++) {
+    if (mouseX >= screen.gameMap[i].getStartX() && mouseX <= screen.gameMap[i].getEndX() && mouseY >= screen.gameMap[i].getStartY() && mouseY <= screen.gameMap[i].getEndY()) {
+      return i;
+    }
+  }
+  return -1;
+}
+
  void playerLocation(Player player) {
-    
     if ( player.pos()  == 0){
         displayPlayer(player.getPfpimg(),startW,startH);      
     }
