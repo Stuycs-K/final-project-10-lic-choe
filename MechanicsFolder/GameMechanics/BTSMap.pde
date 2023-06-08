@@ -46,7 +46,7 @@ public class BTSMap {
     gameMap[32] = new BuyableTiles("North Carolina Avenue", "buyable", 450);
     gameMap[33] = new UnbuyableTiles("Pyramid Scheme", "unbuyable");
     gameMap[34] = new BuyableTiles("Pennsylvania Avenue", "buyable", 450);
-    gameMap[35] = new UnbuyableTiles("Joe biden", "unbuyable");
+    gameMap[35] = new UnbuyableTiles("Joe Biden", "unbuyable");
     gameMap[36] = new BuyableTiles("a", "buyable", 325);
     gameMap[37] = new BuyableTiles("b", "buyable", 325);
     gameMap[38] = new UnbuyableTiles("a", "unbuyable");
@@ -68,6 +68,7 @@ public class BTSMap {
 
        fill(255);
         rect(startW, startH, rectW, rectH);
+        gameMap[i].setCoords(startW, startH, startW+rectW, startH+rectH);
         rect(startW, startH, rectW, rectH/4);
       if (i >=0 && i < 10) {
         startW += rectW;

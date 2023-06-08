@@ -195,6 +195,9 @@ void draw() {
   playerLocation(players[1]);
   text(players[0].pos(),width/2,height/2-100);
   text(players[1].pos(),width/2,height/2+100);
+  if (mouseOverTile() != -1) {
+    displayTileStat(mouseOverTile());
+  }
   if (players[0].broke() || players[1].broke()) {
     end();
   }
@@ -257,6 +260,15 @@ void keyPressed() {
 void statBox(float x, float y, int xS, int yS) {
   fill(200);
   rect(x, y, xS, yS);
+}
+
+void displayTileStat(int tilenum) {
+  noFill();
+  rect(650,300,200,200);
+  textAlign(CENTER);
+  text(screen.gameMap[tilenum].getName(), 750, 325);
+  textAlign(LEFT);
+  fill(255);
 }
 
 void displayPlayerStat(Player currentP, float xVal, float yVal) {
@@ -381,8 +393,16 @@ void update(int x, int y) {
   controlOver = overRect(width/2-250, 725, 500, 50);
 }
 
+int mouseOverTile() {
+  for (int i = 0; i < screen.gameMap.length; i++) {
+    if (mouseX >= screen.gameMap[i].getStartX() && mouseX <= screen.gameMap[i].getEndX() && mouseY >= screen.gameMap[i].getStartY() && mouseY <= screen.gameMap[i].getEndY()) {
+      return i;
+    }
+  }
+  return -1;
+}
+
  void playerLocation(Player player) {
-    
     if ( player.pos()  == 0){
         displayPlayer(player.getPfpimg(),startW,startH);      
     }
