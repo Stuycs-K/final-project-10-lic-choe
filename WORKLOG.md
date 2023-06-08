@@ -30,6 +30,13 @@ Rent mechanic works, Map() constructor made, build() method fixed, no more dupli
 
 Forgot to push, but worked on GameMechanics and created SpecialTiles class, restart button but shifts text, keyPressed for different keys, Go mechanic works
 
+### 6/7/23
+
+Fixed major bugs, changed characters to Dora, SpecialTiles class will be implemented in the new BTSMap class
+
+### 6/8/23
+
+Hovering mechanic works (hover over a tile to see details), restart button still shifts text for some reason, Tiles now have coordinate variables, new methods displayPlayerStats() and mouseOverTile()
 
 ## ELIEZER CHO
 
