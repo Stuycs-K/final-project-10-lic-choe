@@ -3,6 +3,7 @@ public class Tiles{
   private String name;
   private int price;
   private boolean owned;
+  private PImage img;
   int startx, starty, endx, endy;
 
   public Tiles(String TName,String TType){
@@ -46,5 +47,9 @@ public class Tiles{
   }
   public void bought() {
     owned = true;
-  }    
+  }
+  
+  public PImage tilePfp() {
+    return img;
+  }
 }
