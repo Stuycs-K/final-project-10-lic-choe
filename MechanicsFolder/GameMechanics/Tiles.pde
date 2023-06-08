@@ -3,7 +3,7 @@ public class Tiles{
   private String name;
   private int price;
   private boolean owned;
-  int startx, starty, endx, endy;
+  float startx, starty, endx, endy;
 
   public Tiles(String TName,String TType){
     tileType = TType;
@@ -25,16 +25,16 @@ public class Tiles{
     this.endy = endy;
   }
   
-  public int getStartX() {
+  public float getStartX() {
     return startx;
   }
-  public int getStartY() {
+  public float getStartY() {
     return starty;
   }
-  public int getEndX() {
+  public float getEndX() {
     return endx;
   }
-  public int getEndY() {
+  public float getEndY() {
     return endy;
   }
   
