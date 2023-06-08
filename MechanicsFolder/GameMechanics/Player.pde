@@ -102,6 +102,7 @@ public class Player {
   public void mortgage(BuyableTiles t) {
     this.properties.remove(t);
     bank += t.getPrice();
+    t.sold();
   }
   
   public int takeTurn() {
