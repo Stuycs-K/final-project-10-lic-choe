@@ -7,7 +7,6 @@ public class BTSMap {
   }
   void build() {
     grid();
-    displayNameBox();
     displayName();
   }
 
@@ -15,98 +14,101 @@ public class BTSMap {
     gameMap[0] = new UnbuyableTiles("Go", "unbuyable");
     gameMap[1] = new BuyableTiles("Oriental Avenue", "buyable", 200);
     gameMap[2] = new BuyableTiles("Vermont Avenue", "buyable", 200);
-    gameMap[3] = new BuyableTiles("Connecticut Avenue", "buyable", 200);
-    gameMap[4] = new UnbuyableTiles("Nothing", "unbuyable");
-    gameMap[5] = new BuyableTiles("St. Charles Place", "buyable", 300);
-    gameMap[6] = new BuyableTiles("States Avenue", "buyable", 300);
-    gameMap[7] = new BuyableTiles("Virginia Avenue", "buyable", 300);
-    gameMap[8] = new UnbuyableTiles("Nothing", "unbuyable");
-    gameMap[9] = new BuyableTiles("Kentucky Avenue", "buyable", 350);
-    gameMap[10] = new BuyableTiles("Indiana Avenue", "buyable", 350);
-    gameMap[11] = new BuyableTiles("Illinois Avenue", "buyable", 350);
-    gameMap[12] = new Tiles("Nothing", "unbuyable");
-    gameMap[13] = new BuyableTiles("Pacific Avenue", "buyable", 450);
-    gameMap[14] = new BuyableTiles("North Carolina Avenue", "buyable", 450);
-    gameMap[15] = new BuyableTiles("Pennsylvania Avenue", "buyable", 450);
+    gameMap[3] = new UnbuyableTiles("Lottery", "unbuyable");
+    gameMap[4] = new BuyableTiles("Connecticut Avenue", "buyable", 200);
+    gameMap[5] = new UnbuyableTiles("Crazy Fangirl", "unbuyable");
+    gameMap[6] = new BuyableTiles("a", "buyable", 250);
+    gameMap[7] = new BuyableTiles("b", "buyable", 250);
+    gameMap[8] = new UnbuyableTiles("KTX Station", "unbuyable");
+    gameMap[9] = new BuyableTiles("c", "buyable", 250);
+    gameMap[10] = new UnbuyableTiles("Nothing", "unbuyable");
+    gameMap[11] = new BuyableTiles("St. Charles Place", "buyable", 300);
+    gameMap[12] = new BuyableTiles("States Avenue", "buyable", 300);
+    gameMap[13] = new UnbuyableTiles("Thief", "unbuyable");
+    gameMap[14] = new BuyableTiles("Virginia Avenue", "buyable", 300);
+    gameMap[15] = new UnbuyableTiles("Concert", "unbuyable");
+    gameMap[16] = new BuyableTiles("a", "buyable", 325);
+    gameMap[17] = new BuyableTiles("b", "buyable", 325);
+    gameMap[18] = new UnbuyableTiles("Tax Fraud", "unbuyable");
+    gameMap[19] = new BuyableTiles("c", "buyable", 325);
+    gameMap[20] = new UnbuyableTiles("Nothing", "unbuyable");
+    gameMap[21] = new BuyableTiles("Kentucky Avenue", "buyable", 350);
+    gameMap[22] = new BuyableTiles("Indiana Avenue", "buyable", 350);
+    gameMap[23] = new UnbuyableTiles("KTX Station", "unbuyable");
+    gameMap[24] = new BuyableTiles("Illinois Avenue", "buyable", 350);
+    gameMap[25] = new UnbuyableTiles("New Merch", "unbuyable");
+    gameMap[26] = new BuyableTiles("a", "buyable", 400);
+    gameMap[27] = new BuyableTiles("b", "buyable", 400);
+    gameMap[28] = new UnbuyableTiles("idk anymore", "unbuyable");
+    gameMap[29] = new BuyableTiles("c", "buyable", 400);
+    gameMap[30] = new UnbuyableTiles("Nothing", "unbuyable");
+    gameMap[31] = new BuyableTiles("Pacific Avenue", "buyable", 450);
+    gameMap[32] = new BuyableTiles("North Carolina Avenue", "buyable", 450);
+    gameMap[33] = new UnbuyableTiles("Pyramid Scheme", "unbuyable");
+    gameMap[34] = new BuyableTiles("Pennsylvania Avenue", "buyable", 450);
+    gameMap[35] = new UnbuyableTiles("Joe biden", "unbuyable");
+    gameMap[36] = new BuyableTiles("a", "buyable", 325);
+    gameMap[37] = new BuyableTiles("b", "buyable", 325);
+    gameMap[38] = new UnbuyableTiles("a", "unbuyable");
+    gameMap[39] = new BuyableTiles("c", "buyable", 325);
+ 
   }
 
   void grid() {
-     textSize(30);
-  fill(255,0,0);
-  rect(30,30,75,30);
-  fill(255);
-  text("Menu",35,55);
-    int startW =width/4;
+    textSize(30);
+    fill(255, 0, 0);
+    rect(30, 30, 75, 30);
+    fill(255);
+    text("Menu", 35, 55);
+    int startW =width/4-180;
     int startH = 5;
-    
-    int rectW = 150;
-    int rectH = 200;
+    int rectW = 100;
+    int rectH = 90;
     for (int i=0; i < gameMap.length; i++) {
-      fill(255);
-      rect(startW, startH, rectW, rectH);
-      if (i >=0 && i < 4) {
-        startW += rectW;
-      } else if (i >= 4 && i < 8) {
-        startH +=rectH ;
-      } else if (i >= 8 && i < 12) {
-        startW -= rectW;
-      } else if (i >=12 && i < 16) {
 
+       fill(255);
+        rect(startW, startH, rectW, rectH);
+        rect(startW, startH, rectW, rectH/4);
+      if (i >=0 && i < 10) {
+        startW += rectW;
+      } else if (i >= 10 && i < 20) {
+        startH +=rectH ;
+      } else if (i >= 20 && i < 30) {
+        startW -= rectW;
+      } else if (i >= 30 && i < 40) {
         startH -= rectH;
       }
     }
   }
 
-  void displayNameBox() {
-    int startW =width/4;
-    int startH =5;
-    int rectW = 150;
-    int rectH = 200;
-    for (int i=0; i < gameMap.length; i++) {
-    rect(startW, startH, rectW, rectH/4);
-      if (i >=0 && i < 4) {
-        startW += rectW;
-      } else if (i >= 4 && i < 8) {
-             startH += rectH;
-      } else if (i >= 8 && i < 12) {
-           startW -= 150;
-      } else if (i >=12 && i < 16) {
-           startH -= rectH;
-      }
-      fill(255);
-    }
-  }
-  
+
+
   void displayName() {
-    int startW =width/4;
+    int startW =width/4-180;
     int startH = 5;
-    int rectW = 150;
-    int rectH = 200;
-    text(gameMap[0].getName(),startW+20,startH+20);
+    int rectW = 100;
+    int rectH = 90;
+    text(gameMap[0].getName(), startW+20, startH+20);
     fill(0);
     textSize(16);
     for (int i=0; i < gameMap.length; i++) {
-      if(!gameMap[i].getName().equals("Nothing")){
-      text(gameMap[i].getName(),startW+2,startH+20);
+      if (!gameMap[i].getName().equals("Nothing")) {
+        text(gameMap[i].getName(), startW+2, startH+20);
       }
       if (gameMap[i].getType().equals("buyable")) {
-          text(gameMap[i].getPrice(),startW+50, startH+190);
-        }
-       
-        fill(0);
-      if (i >=0 && i < 4) {
-        startW += rectW;
-      } else if (i >= 4 && i < 8) {
-             startH += rectH;
-      } else if (i >= 8 && i < 12) {
-           startW -= 150;
-      } else if (i >=12 && i < 16) {
-           startH -= rectH;
+        text(gameMap[i].getPrice(), startW+50, startH+90);
       }
-       
+
+      fill(0);
+      if (i >=0 && i < 10) {
+        startW += rectW;
+      } else if (i >= 10 && i < 20) {
+        startH += rectH;
+      } else if (i >= 20 && i < 30) {
+        startW -= rectW;
+      } else if (i >=30 && i < 40) {
+        startH -= rectH;
+      }
     }
   }
-  
-
-  
 }

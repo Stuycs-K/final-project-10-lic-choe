@@ -69,4 +69,7 @@ tried to fix an erorr where it won't play the game unless i click avatars, but c
 
 ###6/7/23
 worked mostly on fixing errors and will go on to add more tiles later.
+
+###6/8/23
+edited the entire map, i have to add new features to it now.
 info

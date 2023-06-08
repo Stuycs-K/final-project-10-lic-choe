@@ -4,7 +4,7 @@ PImage img, bts,btsjoe, kenny,tolkien,cartman,kyle, dora, boots, swiper, diego ,
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
 Player[] players;
-Map screen;
+BTSMap screen;
 boolean loadingScreen;
 boolean avatarScreen;
 boolean gameScreen;
@@ -44,7 +44,7 @@ void setup() {
   boots= loadImage("boots.png");
   swiper = loadImage("swiper.png");
   diego = loadImage("diego.png");
-  screen = new Map();
+  screen = new BTSMap();
   start();
 }
 
@@ -189,8 +189,8 @@ void draw() {
   }else if(gameScreen){
    background(255);
   screen.build();
-  displayPlayerStat(players[0], 150, 10);
-  displayPlayerStat(players[1], 1200, 10);
+  displayPlayerStat(players[0], 10, 100);
+  displayPlayerStat(players[1], 1340, 100);
   playerLocation(players[0]);
   playerLocation(players[1]);
   text(players[0].pos(),width/2,height/2-100);
@@ -264,6 +264,7 @@ void displayPlayerStat(Player currentP, float xVal, float yVal) {
   statBox(xVal, yVal+70, 150, 50);
   statBox(xVal, yVal+290, 150, 600);
   statBox(xVal, yVal+150, 150, 100);
+  textSize(15);
   fill(0);
   float increment = 20;
   ArrayList<Tiles> ownedProperties = currentP.owned();
