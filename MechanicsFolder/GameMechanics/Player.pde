@@ -77,7 +77,7 @@ public class Player {
 
   public int move(int distance) { 
     this.position += distance;
-    this.position %= 16;
+    this.position %= 40;
     return distance;
   }
   
