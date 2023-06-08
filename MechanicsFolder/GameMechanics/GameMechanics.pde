@@ -1,4 +1,5 @@
 import java.util.Random;
+import processing.sound.*;
 int turn;
 PImage img, bts,btsjoe, kenny,tolkien,cartman,kyle, dora, boots, swiper, diego ,ssbu,gameover;
 static int PLAYERONE = 0;
@@ -23,7 +24,8 @@ int rectH = 200;
 boolean playOver;
 boolean avatarOver;
 boolean controlOver;
-
+ int prevPos1 = 0;
+int prevPos2 = 0;
 void setup() {
   size(1500, 1000);
   turn = -1;
@@ -213,22 +215,24 @@ void keyPressed() {
       turn%=2;
       if (turn == PLAYERONE) {
         movement1 = players[0].takeTurn();
+        prevPos1 = p1pos;
         p1pos = players[0].pos();
         if (players[1].properties.indexOf(screen.gameMap[p1pos]) != -1) {
           players[0].pay(screen.gameMap[p1pos].getPrice());
           players[1].add(screen.gameMap[p1pos].getPrice());
-        }else if (screen.gameMap[p1pos].getName().equals("Go")) {
-          players[0].add(200);
-        }
+        }else if (p1pos < prevPos1 || p1pos == 0) { 
+      players[0].add(200);
+    }
         println("p1pos" + p1pos);      
       } else {
         movement2 = players[1].takeTurn();
+        prevPos2 = p2pos;
         p2pos = players[1].pos();
         if (players[0].properties.indexOf(screen.gameMap[p2pos]) != -1) {
           players[1].pay(screen.gameMap[p2pos].getPrice());
           players[0].add(screen.gameMap[p2pos].getPrice());
         }
-        else if (screen.gameMap[p2pos].getName().equals("Go")) {
+        else if (p2pos < prevPos2 || p2pos == 0) {
           players[1].add(200);
         }
       println("p2pos" + p2pos);
