@@ -92,7 +92,7 @@ void loadingScreen(){
 }
 
 void avatarScreen(){
-  bts2 = loadImage("btsavatarbackground.jpg");
+  bts2 = loadImage("stage.jpg");
   image(bts2,0,0,width,height);
   fill(0);
   textSize(50);
