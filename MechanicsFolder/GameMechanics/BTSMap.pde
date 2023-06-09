@@ -99,15 +99,19 @@ public class BTSMap {
     fill(0);
     text(gameMap[0].getName(), startW+20, startH+20);
     fill(0);
+    
     textSize(16);
     for (int i=0; i < gameMap.length; i++) {
+      if (i == 1||i == 2 ||i == 4||i == 39 ||i == 37 ||i == 36){
+      fill(255);
+      }
       if (!gameMap[i].getName().equals("Nothing") && !gameMap[i].getName().equals("Go")) {
         text(gameMap[i].getName(), startW+2, startH+20);
       }
       if (gameMap[i].getType().equals("buyable")) {
-        text(gameMap[i].getPrice(), startW+50, startH+90);
+        text(gameMap[i].getPrice(), startW+30, startH+85);
+      
       }
-
       fill(0);
       if (i >=0 && i < 10) {
         startW += rectW;
