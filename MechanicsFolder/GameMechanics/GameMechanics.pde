@@ -56,7 +56,7 @@ void controlScreen(){
 btsjoe = loadImage("btsjoe.png");
 image(btsjoe,0,0,width,height);
  fill(255,0,0);
- rect(30,30,75,30);
+ rect(30,30,75,30,10);
  fill(255);
  textSize(30);
  text("Menu",35,55);
@@ -130,7 +130,7 @@ void avatarScreen(){
   text("Player 2 Avatars: ",width/2-250,height/2+100);
   textSize(30);
   fill(255,0,0);
-  rect(30,30,75,30);
+  rect(30,30,75,30,10);
   fill(255);
   text("Menu",35,55);
   fill(0);
@@ -218,17 +218,24 @@ void keyPressed() {
         movement1 = players[0].takeTurn();
         prevPos1 = p1pos;
         p1pos = players[0].pos();
+        if (screen.gameMap[p1pos].getType().equals("Airplane")) {
+          players[0].fly();
+          p1pos = players[0].pos();
+        }
         if (players[1].properties.indexOf(screen.gameMap[p1pos]) != -1) {
           players[0].pay(screen.gameMap[p1pos].getPrice());
           players[1].add(screen.gameMap[p1pos].getPrice());
         }else if (p1pos < prevPos1 || p1pos == 0) { 
-      players[0].add(200);
-    }
-        println("p1pos" + p1pos);      
+          players[0].add(200);
+        }   
       } else {
         movement2 = players[1].takeTurn();
         prevPos2 = p2pos;
         p2pos = players[1].pos();
+        if (screen.gameMap[p2pos].getType().equals("Airplane")) {
+          players[1].fly();
+          p2pos = players[1].pos();
+        }
         if (players[0].properties.indexOf(screen.gameMap[p2pos]) != -1) {
           players[1].pay(screen.gameMap[p2pos].getPrice());
           players[0].add(screen.gameMap[p2pos].getPrice());

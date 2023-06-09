@@ -14,6 +14,16 @@
       r = r1;
       g = g1;
       b = b1;
+      img = null;
+    }
+    
+    public Tiles(String TName,String TType,int r1, int g1, int b1, PImage image){
+      tileType = TType;
+      name = TName;
+      r = r1;
+      g = g1;
+      b = b1;
+      img = image;
     }
     public int tileColor(){
       return color(r,g,b);
@@ -54,6 +64,10 @@
     }
     public void bought() {
       owned = true;
+    }
+    
+    public boolean hasPfp() {
+      return img != null;
     }
     
     public PImage tilePfp() {

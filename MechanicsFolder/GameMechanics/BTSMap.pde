@@ -26,7 +26,7 @@ public class BTSMap {
     gameMap[12] = new BuyableTiles("Gimcheon-si", "buyable", 300,204,0,102);
     gameMap[13] = new UnbuyableTiles("Thief", "unbuyable",25,25,25);
     gameMap[14] = new BuyableTiles("Gwangyang-si", "buyable", 300,204,0,102);
-    gameMap[15] = new UnbuyableTiles("Concert", "unbuyable",25,25,25);
+    gameMap[15] = new UnbuyableTiles("Airport", "Airport",25,25,25,loadImage("airport.jpg"));
     gameMap[16] = new BuyableTiles("Yangju-si", "buyable", 325,204,102,0);
     gameMap[17] = new BuyableTiles("Chungju-si", "buyable", 325,204,102,0);
     gameMap[18] = new UnbuyableTiles("Tax Fraud", "unbuyable",25,25,25);
@@ -46,7 +46,7 @@ public class BTSMap {
     gameMap[32] = new BuyableTiles("Cheongju-si", "buyable", 450,0,153,0);
     gameMap[33] = new UnbuyableTiles("Pyramid \nScheme", "unbuyable",25,25,25);
     gameMap[34] = new BuyableTiles("Bucheon-si", "buyable", 450,0,153,0);
-    gameMap[35] = new UnbuyableTiles("Joe Biden", "unbuyable",25,25,25);
+    gameMap[35] = new UnbuyableTiles("Airplane", "Airplane",25,25,25,loadImage("airplane.jpg"));
     gameMap[36] = new BuyableTiles("Incheon", "buyable", 325,0,0,204);
     gameMap[37] = new BuyableTiles("Busan", "buyable", 325,0,0,204);
     gameMap[38] = new UnbuyableTiles("a", "unbuyable",25,25,25);
@@ -57,7 +57,7 @@ public class BTSMap {
   void grid() {
     textSize(30);
     fill(255, 0, 0);
-    rect(30, 30, 75, 30);
+    rect(30, 30, 75, 30, 10);
     fill(255);
     text("Menu", 35, 55);
     int startW =width/4-180;
@@ -66,11 +66,14 @@ public class BTSMap {
     int rectH = 90;
     for (int i=0; i < gameMap.length; i++) {
 
-       fill(255);
+        fill(255);
         rect(startW, startH, rectW, rectH);
+        if (gameMap[i].hasPfp()) {
+          image(gameMap[i].tilePfp(), startW, startH, rectW, rectH);
+        }
         gameMap[i].setCoords(startW, startH, startW+rectW, startH+rectH);
         if (gameMap[i].getType().equals("buyable")){
-        fill(gameMap[i].tileColor());
+          fill(gameMap[i].tileColor());
          rect(startW, startH, rectW, rectH/4);
         }
        
