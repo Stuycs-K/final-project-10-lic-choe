@@ -79,4 +79,7 @@ worked mostly on fixing errors and will go on to add more tiles later.
 
 ###6/8/23
 edited the entire map, i have to add new features to it now.
+
+###6/9/23
+1 am: i added some new tiles and began to implement their effects.
 info
