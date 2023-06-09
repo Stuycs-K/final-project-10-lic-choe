@@ -1,7 +1,7 @@
 import java.util.Random;
 import processing.sound.*;
 int turn;
-PImage img, bts,btsjoe,bts2, kenny,tolkien,cartman,kyle, dora, boots, swiper, diego,gameover;
+PImage img, bts, btsjoe, bts2, kenny, tolkien, cartman, kyle, dora, boots, swiper, diego, gameover;
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
 Player[] players;
@@ -17,7 +17,7 @@ int p1pos = 0;
 int p2pos = 0;
 int movement1;
 int movement2;
-int startW =width/4+400;  
+int startW =width/4+400;
 int startH = 100;
 int rectW = 145;
 int rectH = 200;
@@ -52,116 +52,128 @@ void setup() {
   start();
 }
 
-void controlScreen(){
-btsjoe = loadImage("btsjoe.png");
-image(btsjoe,0,0,width,height);
- fill(255,0,0);
- rect(30,30,75,30,10);
- fill(255);
- textSize(30);
- text("Menu",35,55);
- fill(255,0,0);
- rect(width/2-730, 800, 700, 50, 30);
- rect(width/2-730, 725, 700, 50, 30);
- rect(width/2-730, 650, 700, 50, 30);
+void controlScreen() {
+  btsjoe = loadImage("btsjoe.png");
+  image(btsjoe, 0, 0, width, height);
+  fill(255, 0, 0);
+  rect(30, 30, 75, 30, 10);
+  fill(255);
+  textSize(30);
+  text("Menu", 35, 55);
+  fill(255, 0, 0);
+  rect(width/2-730, 950, 700, 50, 30);
+  rect(width/2+30, 950, 700, 50, 30);
+  rect(width/2-730, 875, 700, 50, 30);
+  rect(width/2+30, 875, 700, 50, 30);
+  rect(width/2-730, 800, 700, 50, 30);
+  rect(width/2-730, 725, 700, 50, 30);
+  rect(width/2-730, 650, 700, 50, 30);
   rect(width/2+30, 800, 700, 50, 30);
- rect(width/2+30, 725, 700, 50, 30);
- rect(width/2+30, 650, 700, 50, 30);
- fill(255);
- text("To roll your dice, press \"enter\"!",width/2-700,685);
- text("To sell your property, press \"m\"and click on the tile!", width/2-700, 760);
- text("To buy property, press \"b\"!", width/2-700,835);
- text("Person who goes to 0 dollars loses!",width/2+60, 835);
- text("There are special tiles scattered throughout the map!",width/2+60, 760);
- text("Hover over a tile to look at it!",width/2+60, 685);
+  rect(width/2+30, 725, 700, 50, 30);
+  rect(width/2+30, 650, 700, 50, 30);
+  rect(width/2-730, 575, 700, 50, 30);
+  rect(width/2+30, 575, 700, 50, 30);
+  fill(255);
+  text("To roll your dice, press \"enter\"!", width/2-700, 610);
+  text("To sell your property, press \"m\"and click on the tile!", width/2-700, 685);
+  text("To buy property, press \"b\"!", width/2+60, 610);
+  text("Player who goes to 0 dollars loses!", width/2+60,685);
+  text("There are special tiles scattered throughout the map!", width/2+60, 760);
+  text("Hover over a tile to look at it!", width/2-700, 760);
+   text("Airplane teleports you to Airport.", width/2+60,835);
+  text("Concert, new merch, fortnite collabs get you money.", width/2-700,835);
+  text("Lottery and wallet have a channce of giving money.", width/2-700,910);
+  text("Pyramid scheme and tax fraud make you lose half.", width/2+60,910);
+   text("Thieves steal your money.", width/2+60,985);
+   text("Crazy fangirls might steal your money.", width/2-700,985);
 }
-void loadingScreen(){
+void loadingScreen() {
   img = loadImage("monoplylogo.png");
   bts = loadImage("bts.png");
-  image(bts,0,0,width,height);
-  fill(255,0,0);
+  image(bts, 0, 0, width, height);
+  fill(255, 0, 0);
   rect(width/2-250, 800, 500, 50, 30);
   rect(width/2-250, 650, 500, 50, 30);
   rect(width/2-250, 725, 500, 50, 30);
   fill(255);
   textSize(40);
-  text("Play Game",width/2-130,690);
-  text("Select Avatar", width/2-130,840);
-  text("Rules", width/2-130,765);
+  text("Play Game", width/2-130, 690);
+  text("Select Avatar", width/2-130, 840);
+  text("Rules", width/2-130, 765);
   image(img, 200, 10);
 }
 
-void avatarScreen(){
+void avatarScreen() {
   bts2 = loadImage("stage.jpg");
-  image(bts2,0,0,width,height);
+  image(bts2, 0, 0, width, height);
   fill(0);
   textSize(50);
-  fill(255,0,0);
+  fill(255, 0, 0);
   rect(width/2-300, height/2-250, 450, 70, 30);
   rect(width/2-300, height/2+50, 450, 70, 30);
   if (players[0].getPfp().equals("kenny")) {
     rect(200, height/2-150, 150, 150);
   }
-  image(kenny,200,height/2-150,150,150);
+  image(kenny, 200, height/2-150, 150, 150);
   if (players[0].getPfp().equals("tolkien")) {
-    rect(525,height/2-150, 150, 150);
+    rect(525, height/2-150, 150, 150);
   }
-  image(tolkien,450,height/2-150,300,150);
+  image(tolkien, 450, height/2-150, 300, 150);
   if (players[0].getPfp().equals("cartman")) {
     rect(800, height/2-150, 150, 150);
   }
-  image(cartman,800,height/2-150,150,150);
+  image(cartman, 800, height/2-150, 150, 150);
   if (players[0].getPfp().equals("kyle")) {
     rect(1100, height/2-150, 150, 150);
   }
-  image(kyle,1100,height/2-150,150,150);
+  image(kyle, 1100, height/2-150, 150, 150);
   if (players[1].getPfp().equals("dora")) {
     rect(200, height/2+150, 150, 150);
   }
-  image(dora,200,height/2+150,150,150);
+  image(dora, 200, height/2+150, 150, 150);
   if (players[1].getPfp().equals("boots")) {
     rect(500, height/2+150, 175, 175);
   }
-  image(boots,500,height/2+150,150,150);
+  image(boots, 500, height/2+150, 150, 150);
   if (players[1].getPfp().equals("swiper")) {
     rect(800, height/2+150, 175, 175);
   }
-  image(swiper,800,height/2+150,150,150);
+  image(swiper, 800, height/2+150, 150, 150);
   if (players[1].getPfp().equals("diego")) {
     rect(1100, height/2+150, 175, 175);
   }
-  image(diego,1100,height/2+150,150,150);
+  image(diego, 1100, height/2+150, 150, 150);
   fill(255);
-  text("Player 1 Avatars: ",width/2-250,height/2-200);
-  text("Player 2 Avatars: ",width/2-250,height/2+100);
+  text("Player 1 Avatars: ", width/2-250, height/2-200);
+  text("Player 2 Avatars: ", width/2-250, height/2+100);
   textSize(30);
-  fill(255,0,0);
-  rect(30,30,75,30,10);
+  fill(255, 0, 0);
+  rect(30, 30, 75, 30, 10);
   fill(255);
-  text("Menu",35,55);
+  text("Menu", 35, 55);
   fill(0);
   textSize(75);
-  if (overRect(200,height/2-150,150,150)){
-    text("Kenny",width/2-100,55);
-  } else if (overRect(500,height/2-150,150,150)){
-  text("Tolkien",width/2-100,55);
-  }else if (overRect(800,height/2-150,150,150)){
-  text("Cartman",width/2-100,55);
-  }else if (overRect(1100,height/2-150,150,150)){
-  text("Kyle",width/2-100,55);
-  }else if (overRect(200,height/2+150,150,150)){
-  text("dora",width/2-100,55);
-  }else if (overRect(500,height/2+150,150,150)){
-  text("boots",width/2-100,55);
-  }else if (overRect(800,height/2+150,150,150)){
-  text("swiper",width/2-100,55);
-  }else if (overRect(1100,height/2+150,150,150)){
-  text("diego",width/2-100,55);
+  if (overRect(200, height/2-150, 150, 150)) {
+    text("Kenny", width/2-100, 55);
+  } else if (overRect(500, height/2-150, 150, 150)) {
+    text("Tolkien", width/2-100, 55);
+  } else if (overRect(800, height/2-150, 150, 150)) {
+    text("Cartman", width/2-100, 55);
+  } else if (overRect(1100, height/2-150, 150, 150)) {
+    text("Kyle", width/2-100, 55);
+  } else if (overRect(200, height/2+150, 150, 150)) {
+    text("dora", width/2-100, 55);
+  } else if (overRect(500, height/2+150, 150, 150)) {
+    text("boots", width/2-100, 55);
+  } else if (overRect(800, height/2+150, 150, 150)) {
+    text("swiper", width/2-100, 55);
+  } else if (overRect(1100, height/2+150, 150, 150)) {
+    text("diego", width/2-100, 55);
   }
 }
 
 void start() {
- 
+
   players = new Player[2];
   turn = -1;
   players[0] = new Player("Player One");
@@ -170,7 +182,6 @@ void start() {
   players[1].setColor(color(0, 0, 255));
   players[0].setPfp("kenny", kenny);
   players[1].setPfp("dora", dora);
-  
 }
 
 void end() {
@@ -181,8 +192,7 @@ void end() {
   image(gameover, 0, 0, 1500, 1000);
   if (players[0].broke()) {
     text("PLAYER 2 WINS!!!", width/2, height/2);
-  }
-  else {
+  } else {
     text("PLAYER 1 WINS!!!", 750, 500);
   }
   text ("press r to restart", 750, 750);
@@ -190,33 +200,32 @@ void end() {
 
 void draw() {
   update(mouseX, mouseY);
-  if (loadingScreen){
+  if (loadingScreen) {
     loadingScreen();
   } else if (controlScreen) {
     controlScreen();
-  }else if(avatarScreen){
-    avatarScreen();    
-  }else if(gameScreen){
-   background(255);
-  screen.build();
-  displayPlayerStat(players[0], 10, 100);
-  displayPlayerStat(players[1], 1340, 100);
-  playerLocation(players[0]);
-  playerLocation(players[1]);
-  text(players[0].pos(),width/2,height/2-100);
-  text(players[1].pos(),width/2,height/2+100);
-  if (mouseOverTile() != -1) {
-    displayTileStat(mouseOverTile());
+  } else if (avatarScreen) {
+    avatarScreen();
+  } else if (gameScreen) {
+    background(255);
+    screen.build();
+    displayPlayerStat(players[0], 10, 100);
+    displayPlayerStat(players[1], 1340, 100);
+    playerLocation(players[0]);
+    playerLocation(players[1]);
+    text(players[0].pos(), width/2, height/2-100);
+    text(players[1].pos(), width/2, height/2+100);
+    if (mouseOverTile() != -1) {
+      displayTileStat(mouseOverTile());
+    }
+    if (players[0].broke() || players[1].broke()) {
+      end();
+    }
+    if (screen.gameMap[p1pos].getName().equals("Pyramid \nScheme") ||screen.gameMap[p2pos].getName().equals("Pyramid \nScheme")) {
+      textSize(40);
+      text("Oh no, you got caught scamming the government!\nThe government seized half your money!", 300, 300);
+    }
   }
-  if (players[0].broke() || players[1].broke()) {
-    end();
-  }
-  if (screen.gameMap[p1pos].getName().equals("Pyramid \nScheme") ||screen.gameMap[p2pos].getName().equals("Pyramid \nScheme")) {  
-       textSize(40);
-        text("Oh no, you got caught scamming the government!\nThe government seized half your money!", 300,300);
-     }
-  }
- 
 }
 
 void keyPressed() {
@@ -234,14 +243,13 @@ void keyPressed() {
         }
         if (screen.gameMap[p1pos].getName().equals("Pyramid \nScheme")) {
           players[0].pay(players[0].bank()*.5);
-          
         }
         if (players[1].properties.indexOf(screen.gameMap[p1pos]) != -1) {
           players[0].pay(screen.gameMap[p1pos].getPrice());
           players[1].add(screen.gameMap[p1pos].getPrice());
-        }else if (p1pos < prevPos1 || p1pos == 0) { 
+        } else if (p1pos < prevPos1 || p1pos == 0) {
           players[0].add(200);
-        }   
+        }
       } else {
         movement2 = players[1].takeTurn();
         prevPos2 = p2pos;
@@ -252,16 +260,14 @@ void keyPressed() {
         }
         if (screen.gameMap[p2pos].getName().equals("Pyramid \nScheme")) {
           players[1].pay(players[1].bank()*.5);
-
         }
         if (players[0].properties.indexOf(screen.gameMap[p2pos]) != -1) {
           players[1].pay(screen.gameMap[p2pos].getPrice());
           players[0].add(screen.gameMap[p2pos].getPrice());
-        }
-        else if (p2pos < prevPos2 || p2pos == 0) {
+        } else if (p2pos < prevPos2 || p2pos == 0) {
           players[1].add(200);
         }
-      println("p2pos" + p2pos);
+        println("p2pos" + p2pos);
       }
     }
     if (key == 'b') {
@@ -271,15 +277,14 @@ void keyPressed() {
         }
       } else {
         if (screen.gameMap[p2pos].getType().equals("buyable") && !screen.gameMap[p2pos].isOwned()) {
-          players[1].buy(screen.gameMap[p2pos]);  
+          players[1].buy(screen.gameMap[p2pos]);
         }
       }
     }
     if (key == 'm') {
       if (turn == PLAYERONE) {
         mortgaging1 = true;
-      }
-      else {
+      } else {
         mortgaging2 = true;
       }
     }
@@ -287,10 +292,8 @@ void keyPressed() {
       mortgaging1 = false;
       mortgaging2 = false;
     }
-  }
-  else if (avatarScreen) {
-  }
-  else if (endScreen) {
+  } else if (avatarScreen) {
+  } else if (endScreen) {
     if (key == 'r') {
       setup();
     }
@@ -305,17 +308,16 @@ void statBox(float x, float y, int xS, int yS) {
 void displayTileStat(int tilenum) {
   noFill();
   if (players[0].owned().indexOf(screen.gameMap[tilenum]) != -1) {
-    stroke(255,0,0);
+    stroke(255, 0, 0);
+  } else if (players[1].owned().indexOf(screen.gameMap[tilenum]) != -1) {
+    stroke (0, 0, 255);
   }
-  else if (players[1].owned().indexOf(screen.gameMap[tilenum]) != -1) {
-    stroke (0,0,255);
-  }
-  rect(650,300,200,200);
-  line(650,330,850,330);
+  rect(650, 300, 200, 200);
+  line(650, 330, 850, 330);
   textAlign(CENTER);
   text(screen.gameMap[tilenum].getName(), 750, 320);
-  if (screen.gameMap[tilenum].getType().equals("buyable")){
-  text("Price: " + screen.gameMap[tilenum].getPrice(), 750, 375);
+  if (screen.gameMap[tilenum].getType().equals("buyable")) {
+    text("Price: " + screen.gameMap[tilenum].getPrice(), 750, 375);
   }
   textAlign(LEFT);
   fill(255);
@@ -342,13 +344,12 @@ void displayPlayerStat(Player currentP, float xVal, float yVal) {
   }
   text("Player Name:", xVal+20, yVal+15);
   if (currentP.name().equals("Player One")) {
-    fill(255,0,0);
-  }
-  else {
-    fill(0,0,255);
+    fill(255, 0, 0);
+  } else {
+    fill(0, 0, 255);
   }
   text(currentP.name(), xVal+20, yVal + 40);
-  fill(0,0,0);
+  fill(0, 0, 0);
   text("Player Balance:", xVal+20, yVal+85);
   text(currentP.bank(), xVal+20, yVal +110);
   text("Player Property:", xVal+20, yVal + 307);
@@ -370,75 +371,74 @@ void displayPlayer(color playerC, float x, float y) {
   ellipse(x, y, radi, radi);
 }
 
-void displayPlayer(PImage playerIcon,float x, float y){
-  image(playerIcon,x,y,50,50);
+void displayPlayer(PImage playerIcon, float x, float y) {
+  image(playerIcon, x, y, 50, 50);
 }
 
 
-  
-void mousePressed(){
-if (loadingScreen){
-  if (avatarOver){
-    avatarScreen = true;
-    loadingScreen = false;
+
+void mousePressed() {
+  if (loadingScreen) {
+    if (avatarOver) {
+      avatarScreen = true;
+      loadingScreen = false;
+    }
+    if (playOver) {
+      loadingScreen = false;
+      gameScreen = true;
+    }
+    if (controlOver) {
+      loadingScreen = false;
+      controlScreen = true;
+    }
   }
-  if (playOver){
-    loadingScreen = false;
-    gameScreen = true;
+  if (avatarScreen) {
+    if (menuButtonOver) {
+      loadingScreen = true;
+      avatarScreen = false;
+    }
+    if (overRect(200, height/2-150, 150, 150)) {
+      players[0].setPfp("kenny", kenny);
+    } else if (overRect(500, height/2-150, 150, 150)) {
+      players[0].setPfp("tolkien", tolkien);
+    } else if (overRect(800, height/2-150, 150, 150)) {
+      players[0].setPfp("cartman", tolkien);
+    } else if (overRect(1100, height/2-150, 150, 150)) {
+      players[0].setPfp("kyle", kyle);
+    } else if (overRect(200, height/2+150, 150, 150)) {
+      players[1].setPfp("dora", dora);
+    } else if (overRect(500, height/2+150, 150, 150)) {
+      players[1].setPfp("boots", boots);
+    } else if (overRect(800, height/2+150, 150, 150)) {
+      players[1].setPfp("swiper", swiper);
+    } else if (overRect(1100, height/2+150, 150, 150)) {
+      players[1].setPfp("diego", diego);
+    }
   }
-  if (controlOver){
-    loadingScreen = false;
-    controlScreen = true;
+  if (gameScreen) {
+    if (menuButtonOver) {
+      loadingScreen = true;
+      gameScreen = false;
+    }
+    if (mortgaging1 && players[0].owned().indexOf(screen.gameMap[mouseOverTile()]) != -1) {
+      players[0].mortgage(screen.gameMap[mouseOverTile()]);
+      mortgaging1 = false;
+    } else if (mortgaging2 && players[1].owned().indexOf(screen.gameMap[mouseOverTile()]) != -1) {
+      players[1].mortgage(screen.gameMap[mouseOverTile()]);
+      mortgaging2 = false;
+    }
   }
-}
- if (avatarScreen){
-   if (menuButtonOver){
-     loadingScreen = true;
-     avatarScreen = false;
-   } 
-    if (overRect(200,height/2-150,150,150)){
-    players[0].setPfp("kenny", kenny);
-  } else if (overRect(500,height/2-150,150,150)){
-    players[0].setPfp("tolkien", tolkien); 
-  }else if (overRect(800,height/2-150,150,150)){
- players[0].setPfp("cartman", tolkien); 
-    }else if (overRect(1100,height/2-150,150,150)){
-    players[0].setPfp("kyle", kyle); 
-  }else if (overRect(200,height/2+150,150,150)){
-     players[1].setPfp("dora", dora); 
-  }else if (overRect(500,height/2+150,150,150)){
-  players[1].setPfp("boots", boots);
-  }else if (overRect(800,height/2+150,150,150)){
-  players[1].setPfp("swiper", swiper); 
-    }else if (overRect(1100,height/2+150,150,150)){
- players[1].setPfp("diego", diego); 
-}
- }
- if (gameScreen){
-   if (menuButtonOver){
-     loadingScreen = true;
-     gameScreen = false;
-   }
-   if (mortgaging1 && players[0].owned().indexOf(screen.gameMap[mouseOverTile()]) != -1) {
-     players[0].mortgage(screen.gameMap[mouseOverTile()]);
-     mortgaging1 = false;
-   }
-   else if (mortgaging2 && players[1].owned().indexOf(screen.gameMap[mouseOverTile()]) != -1) {
-     players[1].mortgage(screen.gameMap[mouseOverTile()]);
-     mortgaging2 = false;
-   }
- }
- if (controlScreen){
-   if (menuButtonOver){
-     loadingScreen = true;
-     controlScreen = false;
-   }
- }
+  if (controlScreen) {
+    if (menuButtonOver) {
+      loadingScreen = true;
+      controlScreen = false;
+    }
+  }
 }
 
-boolean overRect(int x, int y, int width, int height)  {
-  if (mouseX >= x && mouseX <= x+width && 
-      mouseY >= y && mouseY <= y+height) {
+boolean overRect(int x, int y, int width, int height) {
+  if (mouseX >= x && mouseX <= x+width &&
+    mouseY >= y && mouseY <= y+height) {
     return true;
   } else {
     return false;
@@ -448,7 +448,7 @@ boolean overRect(int x, int y, int width, int height)  {
 void update(int x, int y) {
   avatarOver = overRect(width/2-250, 800, 500, 50);
   playOver = overRect(width/2-250, 650, 500, 50);
-  menuButtonOver = overRect(30,30,75,30);
+  menuButtonOver = overRect(30, 30, 75, 30);
   controlOver = overRect(width/2-250, 725, 500, 50);
 }
 
@@ -461,12 +461,10 @@ int mouseOverTile() {
   return -1;
 }
 
- void playerLocation(Player player) {
-   if (player.name().equals(players[0].name())){
-   displayPlayer(player.getPfpimg(),screen.gameMap[player.pos()].getStartX()+5,screen.gameMap[player.pos()].getStartY()+30);
-   } else {
-   displayPlayer(player.getPfpimg(),screen.gameMap[player.pos()].getStartX()+45,screen.gameMap[player.pos()].getStartY()+30);
-   }
+void playerLocation(Player player) {
+  if (player.name().equals(players[0].name())) {
+    displayPlayer(player.getPfpimg(), screen.gameMap[player.pos()].getStartX()+5, screen.gameMap[player.pos()].getStartY()+30);
+  } else {
+    displayPlayer(player.getPfpimg(), screen.gameMap[player.pos()].getStartX()+45, screen.gameMap[player.pos()].getStartY()+30);
   }
-
-  
+}
