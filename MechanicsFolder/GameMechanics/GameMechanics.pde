@@ -61,13 +61,19 @@ image(btsjoe,0,0,width,height);
  textSize(30);
  text("Menu",35,55);
  fill(255,0,0);
- rect(width/2-350, 800, 700, 50, 30);
- rect(width/2-350, 725, 700, 50, 30);
- rect(width/2-350, 650, 700, 50, 30);
+ rect(width/2-730, 800, 700, 50, 30);
+ rect(width/2-730, 725, 700, 50, 30);
+ rect(width/2-730, 650, 700, 50, 30);
+  rect(width/2+30, 800, 700, 50, 30);
+ rect(width/2+30, 725, 700, 50, 30);
+ rect(width/2+30, 650, 700, 50, 30);
  fill(255);
- text("To roll your dice, press \"enter\"!",width/2-300,685);
- text("To sell property for 75% of its cost, press \"m\"!", width/2-300, 760);
- text("To buy property, press \"b\"!", width/2-300,835);
+ text("To roll your dice, press \"enter\"!",width/2-700,685);
+ text("To sell your property, press \"m\"and click on the tile!", width/2-700, 760);
+ text("To buy property, press \"b\"!", width/2-700,835);
+ text("Person who goes to 0 dollars loses!",width/2+60, 835);
+ text("There are special tiles scattered throughout the map!",width/2+60, 760);
+ text("Hover over a tile to look at it!",width/2+60, 685);
 }
 void loadingScreen(){
   img = loadImage("monoplylogo.png");
@@ -81,7 +87,7 @@ void loadingScreen(){
   textSize(40);
   text("Play Game",width/2-130,690);
   text("Select Avatar", width/2-130,840);
-  text("Controls", width/2-130,765);
+  text("Rules", width/2-130,765);
   image(img, 200, 10);
 }
 
