@@ -99,9 +99,12 @@ public class Player {
     }
   }
 
-  public void mortgage(BuyableTiles t) {
-    this.properties.remove(t);
-    bank += t.getPrice();
+  public void mortgage(Tiles t) {
+    if (t.getType().equals("buyable")) {
+      this.properties.remove(t);
+      bank += t.getPrice() * 0.75;
+      t.sold();
+    }
   }
   
   public int takeTurn() {

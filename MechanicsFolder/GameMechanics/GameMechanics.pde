@@ -1,7 +1,7 @@
 import java.util.Random;
 import processing.sound.*;
 int turn;
-PImage img, bts,btsjoe, kenny,tolkien,cartman,kyle, dora, boots, swiper, diego ,ssbu,gameover;
+PImage img, bts,btsjoe,bts2, kenny,tolkien,cartman,kyle, dora, boots, swiper, diego,gameover;
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
 Player[] players;
@@ -24,8 +24,10 @@ int rectH = 200;
 boolean playOver;
 boolean avatarOver;
 boolean controlOver;
- int prevPos1 = 0;
+int prevPos1 = 0;
 int prevPos2 = 0;
+boolean mortgaging1;
+boolean mortgaging2;
 void setup() {
   size(1500, 1000);
   turn = -1;
@@ -60,10 +62,12 @@ image(btsjoe,0,0,width,height);
  text("Menu",35,55);
  fill(255,0,0);
  rect(width/2-350, 800, 700, 50, 30);
+ rect(width/2-350, 725, 700, 50, 30);
  rect(width/2-350, 650, 700, 50, 30);
  fill(255);
- text("To roll, press \"enter\" on your keyboard!",width/2-220,685);
- text("To buy property, press \"b\" on your keyboard!", width/2-300,835);
+ text("To roll your dice, press \"enter\"!",width/2-300,685);
+ text("To sell property for 75% of its cost, press \"m\"!", width/2-300, 760);
+ text("To buy property, press \"b\"!", width/2-300,835);
 }
 void loadingScreen(){
   img = loadImage("monoplylogo.png");
@@ -82,11 +86,8 @@ void loadingScreen(){
 }
 
 void avatarScreen(){
-  /*
-  ssbu = loadImage("ssbu.png");
-  image(ssbu,0,0,width,height);
-  */
-  background(255);
+  bts2 = loadImage("btsavatarbackground.jpg");
+  image(bts2,0,0,width,height);
   fill(0);
   textSize(50);
   fill(255,0,0);
@@ -248,14 +249,23 @@ void keyPressed() {
           players[1].buy(screen.gameMap[p2pos]);  
         }
       }
-    }    
-  }
-  if (avatarScreen) {
-    if (key == ' ') {
-       
+    }
+    if (key == 'm') {
+      if (turn == PLAYERONE) {
+        mortgaging1 = true;
+      }
+      else {
+        mortgaging2 = true;
+      }
+    }
+    if (key == 'c') {
+      mortgaging1 = false;
+      mortgaging2 = false;
     }
   }
-  if (endScreen) {
+  else if (avatarScreen) {
+  }
+  else if (endScreen) {
     if (key == 'r') {
       setup();
     }
@@ -383,6 +393,14 @@ if (loadingScreen){
    if (menuButtonOver){
      loadingScreen = true;
      gameScreen = false;
+   }
+   if (mortgaging1 && players[0].owned().indexOf(screen.gameMap[mouseOverTile()]) != -1) {
+     players[0].mortgage(screen.gameMap[mouseOverTile()]);
+     mortgaging1 = false;
+   }
+   else if (mortgaging2 && players[1].owned().indexOf(screen.gameMap[mouseOverTile()]) != -1) {
+     players[1].mortgage(screen.gameMap[mouseOverTile()]);
+     mortgaging2 = false;
    }
  }
  if (controlScreen){
