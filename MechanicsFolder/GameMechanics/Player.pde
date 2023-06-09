@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Player {
   private String name;
-  private int bank;
+  private float bank;
   private int position;
   private ArrayList<Tiles> properties;
   private boolean bankruptcy;
@@ -59,7 +59,7 @@ public class Player {
   public color getColor(){
     return this.pColor;
   }
-  public int bank() {
+  public float bank() {
     return this.bank;
   }
 
@@ -81,10 +81,10 @@ public class Player {
     return distance;
   }
   
-  public void pay(int amount) {
+  public void pay(float amount) {
     this.bank-=amount;
   }
-  public void add(int amount) {
+  public void add(float amount) {
     this.bank+=amount;
   }
 
