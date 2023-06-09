@@ -205,6 +205,10 @@ void draw() {
   if (players[0].broke() || players[1].broke()) {
     end();
   }
+  if (screen.gameMap[p1pos].getName().equals("Pyramid \nScheme") ||screen.gameMap[p2pos].getName().equals("Pyramid \nScheme")) {  
+       textSize(40);
+        text("Oh no, you got caught scamming the government!\nThe government seized half your money!", 300,300);
+     }
   }
  
 }
@@ -222,6 +226,10 @@ void keyPressed() {
           players[0].fly();
           p1pos = players[0].pos();
         }
+        if (screen.gameMap[p1pos].getName().equals("Pyramid \nScheme")) {
+          players[0].pay(players[0].bank()*.5);
+          
+        }
         if (players[1].properties.indexOf(screen.gameMap[p1pos]) != -1) {
           players[0].pay(screen.gameMap[p1pos].getPrice());
           players[1].add(screen.gameMap[p1pos].getPrice());
@@ -235,6 +243,10 @@ void keyPressed() {
         if (screen.gameMap[p2pos].getType().equals("Airplane")) {
           players[1].fly();
           p2pos = players[1].pos();
+        }
+        if (screen.gameMap[p2pos].getName().equals("Pyramid \nScheme")) {
+          players[1].pay(players[1].bank()*.5);
+
         }
         if (players[0].properties.indexOf(screen.gameMap[p2pos]) != -1) {
           players[1].pay(screen.gameMap[p2pos].getPrice());

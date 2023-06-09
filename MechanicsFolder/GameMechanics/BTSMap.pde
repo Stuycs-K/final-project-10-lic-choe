@@ -19,7 +19,7 @@ public class BTSMap {
     gameMap[5] = new UnbuyableTiles("Crazy Fangirl", "unbuyable",25,25,25);
     gameMap[6] = new BuyableTiles("Gongju-si", "buyable", 250,0,153,153);
     gameMap[7] = new BuyableTiles("Sangju-si", "buyable", 250,0,153,153);
-    gameMap[8] = new UnbuyableTiles("KTX Station", "unbuyable",25,25,25);
+    gameMap[8] = new UnbuyableTiles("Fortnite \ncollab", "unbuyable",25,25,25);
     gameMap[9] = new BuyableTiles("Gimje-si", "buyable", 250,0,153,153);
     gameMap[10] = new UnbuyableTiles("Nothing", "unbuyable",25,25,25);
     gameMap[11] = new BuyableTiles("Jeongeup-si", "buyable", 300,204,0,102);
@@ -34,12 +34,12 @@ public class BTSMap {
     gameMap[20] = new UnbuyableTiles("Nothing", "unbuyable",25,25,25);
     gameMap[21] = new BuyableTiles("Iksan-si", "buyable", 350,204,0,0);
     gameMap[22] = new BuyableTiles("Gunsan-si", "buyable", 350,204,0,0);
-    gameMap[23] = new UnbuyableTiles("KTX Station", "unbuyable",25,25,25);
+    gameMap[23] = new UnbuyableTiles("Concert", "unbuyable",25,25,25);
     gameMap[24] = new BuyableTiles("Gunpo-si", "buyable", 350,204,0,0);
     gameMap[25] = new UnbuyableTiles("New Merch", "unbuyable",25,25,25);
     gameMap[26] = new BuyableTiles("Gimhae-si", "buyable", 400,255,255,0);
     gameMap[27] = new BuyableTiles("Yeosu-si", "buyable", 400,255,255,0);
-    gameMap[28] = new UnbuyableTiles("idk anymore", "unbuyable",25,25,25);
+    gameMap[28] = new UnbuyableTiles("Kidnappers", "unbuyable",25,25,25);
     gameMap[29] = new BuyableTiles("Gyeongju-si", "buyable", 400,255,255,0);
     gameMap[30] = new UnbuyableTiles("Nothing", "unbuyable",25,25,25);
     gameMap[31] = new BuyableTiles("Seongnam-si", "buyable", 450,0,153,0);
@@ -49,7 +49,7 @@ public class BTSMap {
     gameMap[35] = new UnbuyableTiles("Airplane", "Airplane",25,25,25,loadImage("airplane.jpg"));
     gameMap[36] = new BuyableTiles("Incheon", "buyable", 325,0,0,204);
     gameMap[37] = new BuyableTiles("Busan", "buyable", 325,0,0,204);
-    gameMap[38] = new UnbuyableTiles("a", "unbuyable",25,25,25);
+    gameMap[38] = new UnbuyableTiles("Wallet on floor", "unbuyable",25,25,25);
     gameMap[39] = new BuyableTiles("Seoul", "buyable", 325,0,0,204);
  
   }
