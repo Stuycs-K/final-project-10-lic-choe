@@ -60,10 +60,10 @@ image(btsjoe,0,0,width,height);
  text("Menu",35,55);
  fill(255,0,0);
  rect(width/2-350, 800, 700, 50, 30);
-  rect(width/2-350, 650, 700, 50, 30);
-  fill(255);
-   text("To roll, press \"enter\" on your keyboard!",width/2-220,685);
-  text("To buy property, press \"b\" on your keyboard!", width/2-300,835);
+ rect(width/2-350, 650, 700, 50, 30);
+ fill(255);
+ text("To roll, press \"enter\" on your keyboard!",width/2-220,685);
+ text("To buy property, press \"b\" on your keyboard!", width/2-300,835);
 }
 void loadingScreen(){
   img = loadImage("monoplylogo.png");
@@ -269,11 +269,22 @@ void statBox(float x, float y, int xS, int yS) {
 
 void displayTileStat(int tilenum) {
   noFill();
+  if (players[0].owned().indexOf(screen.gameMap[tilenum]) != -1) {
+    stroke(255,0,0);
+  }
+  else if (players[1].owned().indexOf(screen.gameMap[tilenum]) != -1) {
+    stroke (0,0,255);
+  }
   rect(650,300,200,200);
+  line(650,330,850,330);
   textAlign(CENTER);
-  text(screen.gameMap[tilenum].getName(), 750, 325);
+  text(screen.gameMap[tilenum].getName(), 750, 320);
+  if (screen.gameMap[tilenum].getType().equals("buyable")){
+  text("Price: " + screen.gameMap[tilenum].getPrice(), 750, 375);
+  }
   textAlign(LEFT);
   fill(255);
+  stroke(0, 0, 0);
 }
 
 void displayPlayerStat(Player currentP, float xVal, float yVal) {

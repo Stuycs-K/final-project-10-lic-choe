@@ -11,46 +11,46 @@ public class BTSMap {
   }
 
   void mapSet() {
-    gameMap[0] = new UnbuyableTiles("Go", "unbuyable");
-    gameMap[1] = new BuyableTiles("Oriental Avenue", "buyable", 200);
-    gameMap[2] = new BuyableTiles("Vermont Avenue", "buyable", 200);
-    gameMap[3] = new UnbuyableTiles("Lottery", "unbuyable");
-    gameMap[4] = new BuyableTiles("Connecticut Avenue", "buyable", 200);
-    gameMap[5] = new UnbuyableTiles("Crazy Fangirl", "unbuyable");
-    gameMap[6] = new BuyableTiles("a", "buyable", 250);
-    gameMap[7] = new BuyableTiles("b", "buyable", 250);
-    gameMap[8] = new UnbuyableTiles("KTX Station", "unbuyable");
-    gameMap[9] = new BuyableTiles("c", "buyable", 250);
-    gameMap[10] = new UnbuyableTiles("Nothing", "unbuyable");
-    gameMap[11] = new BuyableTiles("St. Charles Place", "buyable", 300);
-    gameMap[12] = new BuyableTiles("States Avenue", "buyable", 300);
-    gameMap[13] = new UnbuyableTiles("Thief", "unbuyable");
-    gameMap[14] = new BuyableTiles("Virginia Avenue", "buyable", 300);
-    gameMap[15] = new UnbuyableTiles("Concert", "unbuyable");
-    gameMap[16] = new BuyableTiles("a", "buyable", 325);
-    gameMap[17] = new BuyableTiles("b", "buyable", 325);
-    gameMap[18] = new UnbuyableTiles("Tax Fraud", "unbuyable");
-    gameMap[19] = new BuyableTiles("c", "buyable", 325);
-    gameMap[20] = new UnbuyableTiles("Nothing", "unbuyable");
-    gameMap[21] = new BuyableTiles("Kentucky Avenue", "buyable", 350);
-    gameMap[22] = new BuyableTiles("Indiana Avenue", "buyable", 350);
-    gameMap[23] = new UnbuyableTiles("KTX Station", "unbuyable");
-    gameMap[24] = new BuyableTiles("Illinois Avenue", "buyable", 350);
-    gameMap[25] = new UnbuyableTiles("New Merch", "unbuyable");
-    gameMap[26] = new BuyableTiles("a", "buyable", 400);
-    gameMap[27] = new BuyableTiles("b", "buyable", 400);
-    gameMap[28] = new UnbuyableTiles("idk anymore", "unbuyable");
-    gameMap[29] = new BuyableTiles("c", "buyable", 400);
-    gameMap[30] = new UnbuyableTiles("Nothing", "unbuyable");
-    gameMap[31] = new BuyableTiles("Pacific Avenue", "buyable", 450);
-    gameMap[32] = new BuyableTiles("North Carolina Avenue", "buyable", 450);
-    gameMap[33] = new UnbuyableTiles("Pyramid Scheme", "unbuyable");
-    gameMap[34] = new BuyableTiles("Pennsylvania Avenue", "buyable", 450);
-    gameMap[35] = new UnbuyableTiles("Joe Biden", "unbuyable");
-    gameMap[36] = new BuyableTiles("a", "buyable", 325);
-    gameMap[37] = new BuyableTiles("b", "buyable", 325);
-    gameMap[38] = new UnbuyableTiles("a", "unbuyable");
-    gameMap[39] = new BuyableTiles("c", "buyable", 325);
+    gameMap[0] = new UnbuyableTiles("Go", "unbuyable",25,25,52);
+    gameMap[1] = new BuyableTiles("Taebaek-Si", "buyable", 200,102,0,204);
+    gameMap[2] = new BuyableTiles("Sokcho-si", "buyable", 200,102,0,204);
+    gameMap[3] = new UnbuyableTiles("Lottery", "unbuyable",25,25,25);
+    gameMap[4] = new BuyableTiles("Donghae-si", "buyable", 200,102,0,204);
+    gameMap[5] = new UnbuyableTiles("Crazy Fangirl", "unbuyable",25,25,25);
+    gameMap[6] = new BuyableTiles("Gongju-si", "buyable", 250,0,153,153);
+    gameMap[7] = new BuyableTiles("Sangju-si", "buyable", 250,0,153,153);
+    gameMap[8] = new UnbuyableTiles("KTX Station", "unbuyable",25,25,25);
+    gameMap[9] = new BuyableTiles("Gimje-si", "buyable", 250,0,153,153);
+    gameMap[10] = new UnbuyableTiles("Nothing", "unbuyable",25,25,25);
+    gameMap[11] = new BuyableTiles("Jeongeup-si", "buyable", 300,204,0,102);
+    gameMap[12] = new BuyableTiles("Gimcheon-si", "buyable", 300,204,0,102);
+    gameMap[13] = new UnbuyableTiles("Thief", "unbuyable",25,25,25);
+    gameMap[14] = new BuyableTiles("Gwangyang-si", "buyable", 300,204,0,102);
+    gameMap[15] = new UnbuyableTiles("Concert", "unbuyable",25,25,25);
+    gameMap[16] = new BuyableTiles("Yangju-si", "buyable", 325,204,102,0);
+    gameMap[17] = new BuyableTiles("Chungju-si", "buyable", 325,204,102,0);
+    gameMap[18] = new UnbuyableTiles("Tax Fraud", "unbuyable",25,25,25);
+    gameMap[19] = new BuyableTiles("Gwangmyeong-si", "buyable", 325,204,102,0);
+    gameMap[20] = new UnbuyableTiles("Nothing", "unbuyable",25,25,25);
+    gameMap[21] = new BuyableTiles("Iksan-si", "buyable", 350,204,0,0);
+    gameMap[22] = new BuyableTiles("Gunsan-si", "buyable", 350,204,0,0);
+    gameMap[23] = new UnbuyableTiles("KTX Station", "unbuyable",25,25,25);
+    gameMap[24] = new BuyableTiles("Gunpo-si", "buyable", 350,204,0,0);
+    gameMap[25] = new UnbuyableTiles("New Merch", "unbuyable",25,25,25);
+    gameMap[26] = new BuyableTiles("Gimhae-si", "buyable", 400,255,255,0);
+    gameMap[27] = new BuyableTiles("Yeosu-si", "buyable", 400,255,255,0);
+    gameMap[28] = new UnbuyableTiles("idk anymore", "unbuyable",25,25,25);
+    gameMap[29] = new BuyableTiles("Gyeongju-si", "buyable", 400,255,255,0);
+    gameMap[30] = new UnbuyableTiles("Nothing", "unbuyable",25,25,25);
+    gameMap[31] = new BuyableTiles("Seongnam-si", "buyable", 450,0,153,0);
+    gameMap[32] = new BuyableTiles("Cheongju-si", "buyable", 450,0,153,0);
+    gameMap[33] = new UnbuyableTiles("Pyramid \nScheme", "unbuyable",25,25,25);
+    gameMap[34] = new BuyableTiles("Bucheon-si", "buyable", 450,0,153,0);
+    gameMap[35] = new UnbuyableTiles("Joe Biden", "unbuyable",25,25,25);
+    gameMap[36] = new BuyableTiles("Incheon", "buyable", 325,0,0,204);
+    gameMap[37] = new BuyableTiles("Busan", "buyable", 325,0,0,204);
+    gameMap[38] = new UnbuyableTiles("a", "unbuyable",25,25,25);
+    gameMap[39] = new BuyableTiles("Seoul", "buyable", 325,0,0,204);
  
   }
 
@@ -69,7 +69,11 @@ public class BTSMap {
        fill(255);
         rect(startW, startH, rectW, rectH);
         gameMap[i].setCoords(startW, startH, startW+rectW, startH+rectH);
-        rect(startW, startH, rectW, rectH/4);
+        if (gameMap[i].getType().equals("buyable")){
+        fill(gameMap[i].tileColor());
+         rect(startW, startH, rectW, rectH/4);
+        }
+       
       if (i >=0 && i < 10) {
         startW += rectW;
       } else if (i >= 10 && i < 20) {
@@ -89,11 +93,12 @@ public class BTSMap {
     int startH = 5;
     int rectW = 100;
     int rectH = 90;
+    fill(0);
     text(gameMap[0].getName(), startW+20, startH+20);
     fill(0);
     textSize(16);
     for (int i=0; i < gameMap.length; i++) {
-      if (!gameMap[i].getName().equals("Nothing")) {
+      if (!gameMap[i].getName().equals("Nothing") && !gameMap[i].getName().equals("Go")) {
         text(gameMap[i].getName(), startW+2, startH+20);
       }
       if (gameMap[i].getType().equals("buyable")) {

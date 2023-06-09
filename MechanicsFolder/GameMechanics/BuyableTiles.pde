@@ -4,8 +4,8 @@ public class BuyableTiles extends Tiles{
 
   
   
-  public BuyableTiles(String TName,String TType,int TPrice){
-    super(TName,TType);
+  public BuyableTiles(String TName,String TType,int TPrice,int r1, int g1, int b1){
+    super(TName,TType,r1,g1,b1);
     //owner = TOwner;
     price = TPrice;
   }
