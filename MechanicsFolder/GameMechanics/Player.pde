@@ -110,4 +110,9 @@ public class Player {
   public int takeTurn() {
     return this.move(int(random(2, 13)));
   }
+  
+  public void fly() {
+    this.position +=20;
+    this.position %= 40;
+  }
 }

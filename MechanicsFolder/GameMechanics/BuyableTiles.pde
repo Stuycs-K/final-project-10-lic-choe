@@ -9,6 +9,12 @@ public class BuyableTiles extends Tiles{
     //owner = TOwner;
     price = TPrice;
   }
+  
+  public BuyableTiles(String TName,String TType,int TPrice,int r1, int g1, int b1, PImage image){
+    super(TName,TType,r1,g1,b1,image);
+    //owner = TOwner;
+    price = TPrice;
+  }
 
   public int getPrice(){
     return price;
