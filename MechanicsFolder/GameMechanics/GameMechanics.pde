@@ -279,7 +279,9 @@ void displayTileStat(int tilenum) {
   line(650,330,850,330);
   textAlign(CENTER);
   text(screen.gameMap[tilenum].getName(), 750, 320);
+  if (screen.gameMap[tilenum].getType().equals("buyable")){
   text("Price: " + screen.gameMap[tilenum].getPrice(), 750, 375);
+  }
   textAlign(LEFT);
   fill(255);
   stroke(0, 0, 0);
