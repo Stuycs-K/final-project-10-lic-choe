@@ -59,34 +59,16 @@
     public PImage tilePfp() {
       return img;
     }
-  }
-<<<<<<< HEAD
-=======
-  public float getStartY() {
-    return starty;
-  }
-  public float getEndX() {
-    return endx;
-  }
-  public float getEndY() {
-    return endy;
-  }
-  
-  public int getPrice() {
-    return price;
-  }
-  public boolean isOwned() {
-    return owned;
-  }
-  public void bought() {
-    owned = true;
-  }
-  public void sold() {
+    
+     public void sold() {
     owned = false;
   }
-  
-  public PImage tilePfp() {
-    return img;
   }
-}
->>>>>>> 26b87047b44dcee23b187c07d4c33c91fbbc0214
+
+ 
+  
+ 
+ 
+
+ 
+  
