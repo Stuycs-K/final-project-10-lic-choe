@@ -38,6 +38,10 @@ Fixed major bugs, changed characters to Dora, SpecialTiles class will be impleme
 
 Hovering mechanic works (hover over a tile to see details), restart button still shifts text for some reason, Tiles now have coordinate variables, new methods displayPlayerStats() and mouseOverTile(), mortgage mechanic works now for 75% of the original cost, images can be assigned to tiles, special tiles for airplane and airport created, started to change design aspects, backgrounds also changed
 
+### 6/9/23
+
+Edited visuals, added all city icons for properties
+
 ## ELIEZER CHO
 
 ### 5/23/23
