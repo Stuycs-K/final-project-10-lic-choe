@@ -1,7 +1,7 @@
 import java.util.Random;
 import processing.sound.*;
 int turn;
-PImage img, bts, btsjoe, bts2, kenny, tolkien, cartman, kyle, dora, boots, swiper, diego, gameover,fortnite,pyramid,irs,lottery,kidnap,bt21,concert,thief,fangirl,wallet;
+PImage img, bts, btsjoe, bts2, kenny, tolkien, cartman, kyle, dora, boots, swiper, diego, gameover, fortnite, pyramid, irs, lottery, kidnap, bt21, concert, thief, fangirl, wallet;
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
 Player[] players;
@@ -87,15 +87,15 @@ void controlScreen() {
   text("To roll your dice, press \"enter\"!", width/2-700, 610);
   text("To sell your property, press \"m\"and click on the tile!", width/2-700, 685);
   text("To buy property, press \"b\"!", width/2+60, 610);
-  text("Player who goes to 0 dollars loses!", width/2+60,685);
+  text("Player who goes to 0 dollars loses!", width/2+60, 685);
   text("There are special tiles scattered throughout the map!", width/2+60, 760);
   text("Hover over a tile to look at it!", width/2-700, 760);
-   text("Airplane teleports you to Airport.", width/2+60,835);
-  text("Concert, new merch, fortnite collabs get you money.", width/2-700,835);
-  text("Lottery and wallet have a channce of giving money.", width/2-700,910);
-  text("Pyramid scheme and tax fraud make you lose half.", width/2+60,910);
-   text("Thieves steal your money.", width/2+60,985);
-   text("Crazy fangirls might steal your money.", width/2-700,985);
+  text("Airplane teleports you to Airport.", width/2+60, 835);
+  text("Concert, new merch, fortnite collabs get you money.", width/2-700, 835);
+  text("Lottery and wallet have a channce of giving money.", width/2-700, 910);
+  text("Pyramid scheme and tax fraud make you lose half.", width/2+60, 910);
+  text("Thieves steal your money.", width/2+60, 985);
+  text("Crazy fangirls might steal your money.", width/2-700, 985);
 }
 void loadingScreen() {
   img = loadImage("monoplylogo.png");
@@ -223,48 +223,47 @@ void draw() {
     displayPlayerStat(players[1], 1340, 100);
     playerLocation(players[0]);
     playerLocation(players[1]);
-    if (turn == PLAYERTWO || turn ==-1){
-      text("It is " + players[0].name() +"'s turn to roll",400,200);
-     if (turn > -1){
-     text(players[1].name() + " just rolled a " + movement2,400,220);
-     text(players[1].name() + " went from " + screen.gameMap[prevPos2].getName() + " to " + screen.gameMap[p2pos].getName() +".",400,240);
-     }
+    if (turn == PLAYERTWO || turn ==-1) {
+      text("It is " + players[0].name() +"'s turn to roll", 400, 200);
+      if (turn > -1) {
+        text(players[1].name() + " just rolled a " + movement2, 400, 220);
+        text(players[1].name() + " went from " + screen.gameMap[prevPos2].getName() + " to " + screen.gameMap[p2pos].getName() +".", 400, 240);
+      }
     } else {
-      text("It is " + players[1].name() +"'s turn to roll",400,200);
-      if (turn > -1){
-      text(players[0].name() + " just rolled a " + movement1,400,220);
-      text(players[0].name() + " went from " + screen.gameMap[prevPos1].getName() + " to " + screen.gameMap[p1pos].getName() +".",400,240);
+      text("It is " + players[1].name() +"'s turn to roll", 400, 200);
+      if (turn > -1) {
+        text(players[0].name() + " just rolled a " + movement1, 400, 220);
+        text(players[0].name() + " went from " + screen.gameMap[prevPos1].getName() + " to " + screen.gameMap[p1pos].getName() +".", 400, 240);
       }
     }
-    
+
     text(players[0].pos(), width/2, height/2-100);
     text(players[1].pos(), width/2, height/2+100);
-   
+
     if (players[0].broke() || players[1].broke()) {
       end();
     }
-   fill(0);
+    fill(0);
     if ((screen.gameMap[p1pos].getName().equals("Pyramid Scheme")&&turn ==0) ||(screen.gameMap[p2pos].getName().equals("Pyramid Scheme")&&turn ==1)) {
-      
+
       textSize(40);
-      image(pyramid,470,350,600,600);
+      image(pyramid, 470, 350, 600, 600);
       text("Oh no," +players[turn].name() +  " got caught scamming the government!\nThe government seized half of "  +players[turn].name() + "'s money!", 300, 300);
-   
-    } else if ((screen.gameMap[p1pos].getName().equals("Fortnite collab")&&turn ==0)||(screen.gameMap[p2pos].getName().equals("Fortnite collab")&&turn ==1)){
+    } else if ((screen.gameMap[p1pos].getName().equals("Fortnite collab")&&turn ==0)||(screen.gameMap[p2pos].getName().equals("Fortnite collab")&&turn ==1)) {
       textSize(40);
-      image(fortnite,295,95,900,815);
+      image(fortnite, 295, 95, 900, 815);
       text(players[turn].name() + " had a collab concert with Fortnite!\n" + players[turn].name() +"'s net worth increased by 15%!", 300, 300);
-    } else if ((screen.gameMap[p1pos].getName().equals("Tax Fraud") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("Tax Fraud")&&turn ==1)){
+    } else if ((screen.gameMap[p1pos].getName().equals("Tax Fraud") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("Tax Fraud")&&turn ==1)) {
       textSize(40);
-      image(irs,295,200,900,815);
+      image(irs, 295, 200, 900, 815);
       text(players[turn].name() +" committed tax fraud.\nThe IRS seized half " +players[turn].name() + "'s assets.", 300, 300);
     }
-    
-    
-    
-    
-     if (mouseOverTile() != -1) {
-       textSize(20);
+
+
+
+
+    if (mouseOverTile() != -1) {
+      textSize(20);
       displayTileStat(mouseOverTile());
     }
   }
@@ -283,12 +282,52 @@ void keyPressed() {
           players[0].fly();
           p1pos = players[0].pos();
         }
-        if (screen.gameMap[p1pos].getName().equals("Pyramid \nScheme")|| screen.gameMap[p1pos].getName().equals("Tax Fraud")) {
+        if (screen.gameMap[p1pos].getName().equals("Pyramid Scheme")|| screen.gameMap[p1pos].getName().equals("Tax Fraud")) {
           players[0].pay(players[0].bank()*.5);
         }
-        if (screen.gameMap[p1pos].getName().equals("Fortnite \ncollab")){
+         if (screen.gameMap[p1pos].getName().equals("Fortnite collab")) {
           players[0].add(players[0].bank() * .15);
         }
+        if (screen.gameMap[p1pos].getName().equals("Thief")) {
+          players[0].pay(150);
+        }
+        if (screen.gameMap[p1pos].getName().equals("New Merch")) {
+          players[0].add(200);
+        }
+        if (screen.gameMap[p1pos].getName().equals("Concert")) {
+          players[0].add(players[0].bank()*.5);
+        }
+        if (screen.gameMap[p1pos].getName().equals("Kidnappers")) {
+          players[0].move(int(random(0, 40)));
+        }
+        if (screen.gameMap[p1pos].getName().equals("Lottery")) {
+          float rand = random(0,1);
+          players[0].pay(players[0].bank()*.1);
+          if (rand > 0 && rand <=.33){
+            players[0].add(players[0].bank() * .25);
+          }
+        }
+         if (screen.gameMap[p1pos].getName().equals("Wallet on floor")) {
+          float rand = random(0,1);
+          if (rand > 0 && rand <=.33){
+            players[0].add(150);
+          } else if (rand >.33 && rand <=.66){
+            players[0].pay(100);
+          } 
+        }
+        if (screen.gameMap[p1pos].getName().equals("Crazy Fangirl")) {
+          float rand = random(0,1);
+          if (rand > 0 && rand <=.5){
+            players[0].pay(300);
+          } 
+        }
+        
+        
+        
+        
+        
+        
+        
         if (players[1].properties.indexOf(screen.gameMap[p1pos]) != -1) {
           players[0].pay(screen.gameMap[p1pos].getPrice());
           players[1].add(screen.gameMap[p1pos].getPrice());
@@ -303,13 +342,53 @@ void keyPressed() {
           players[1].fly();
           p2pos = players[1].pos();
         }
-        if (screen.gameMap[p2pos].getName().equals("Pyramid \nScheme") || screen.gameMap[p2pos].getName().equals("Tax Fraud")) {
+        if (screen.gameMap[p2pos].getName().equals("Pyramid Scheme") || screen.gameMap[p2pos].getName().equals("Tax Fraud")) {
           players[1].pay(players[1].bank()*.5);
         }
-        if (screen.gameMap[p2pos].getName().equals("Fortnite \ncollab")){
+        if (screen.gameMap[p2pos].getName().equals("Fortnite collab")) {
           players[1].add(players[1].bank() * .15);
         }
-    
+        if (screen.gameMap[p2pos].getName().equals("Thief")) {
+          players[1].pay(150);
+        }
+        if (screen.gameMap[p2pos].getName().equals("New Merch")) {
+          players[1].add(200);
+        }
+        if (screen.gameMap[p2pos].getName().equals("Concert")) {
+          players[1].add(players[1].bank()*.5);
+        }
+         if (screen.gameMap[p2pos].getName().equals("Kidnappers")) {
+          players[1].move(int(random(0, 40)));
+        }
+         if (screen.gameMap[p2pos].getName().equals("Lottery")) {
+          float rand = random(0,1);
+          players[1].pay(players[1].bank()*.1);
+          if (rand > 0 && rand <=.33){
+            players[1].add(players[1].bank() * .25);
+          }
+        }
+        if (screen.gameMap[p2pos].getName().equals("Wallet on floor")) {
+          float rand = random(0,1);
+          if (rand > 0 && rand <=.33){
+            players[1].add(150);
+          } else if (rand >.33 && rand <=.66){
+            players[1].pay(100);
+          } 
+        }
+        if (screen.gameMap[p2pos].getName().equals("Crazy Fangirl")) {
+          float rand = random(0,1);
+          if (rand > 0 && rand <=.5){
+            players[1].pay(300);
+          } 
+        }
+        
+        
+        
+        
+        
+        
+        
+        
         if (players[0].properties.indexOf(screen.gameMap[p2pos]) != -1) {
           players[1].pay(screen.gameMap[p2pos].getPrice());
           players[0].add(screen.gameMap[p2pos].getPrice());
@@ -338,15 +417,17 @@ void keyPressed() {
       } else {
         mortgaging2 = true;
       }
-    }
+    } //<>//
     if (key == 'c') {
       mortgaging1 = false;
       mortgaging2 = false;
     }
   } else if (avatarScreen) {
-  } else if (endScreen) {
+  } if (endScreen) {
     if (key == 'r') {
       setup();
+      loadingScreen = true;
+      endScreen = false;
     }
   }
 }
@@ -357,7 +438,7 @@ void statBox(float x, float y, int xS, int yS) {
 }
 
 void displayTileStat(int tilenum) {
-  
+
   if (players[0].owned().indexOf(screen.gameMap[tilenum]) != -1) {
     stroke(255, 0, 0);
   } else if (players[1].owned().indexOf(screen.gameMap[tilenum]) != -1) {
@@ -367,16 +448,19 @@ void displayTileStat(int tilenum) {
   rect(400, 300, 200, 200);
   fill(255);
   rect(400, 330, 200, 220);
-  image(screen.gameMap[tilenum].tilePfp(), 900, 330, 200, 220);
+  if (!screen.gameMap[tilenum].getName().equals("Rest stop")) {
+    image(screen.gameMap[tilenum].tilePfp(), 900, 330, 200, 220);
+  }
+
   textAlign(CENTER);
   fill(0);
-  text(screen.gameMap[tilenum].getName(), 500 , 320);
+  text(screen.gameMap[tilenum].getName(), 500, 320);
   if (screen.gameMap[tilenum].getType().equals("buyable")) {
     text("Price: " + screen.gameMap[tilenum].getPrice(), 500, 375);
     text("Mortgage: " + screen.gameMap[tilenum].getPrice() * 0.75, 500, 410);
-    if (screen.gameMap[tilenum].isOwned()){
+    if (screen.gameMap[tilenum].isOwned()) {
       text("Owner: " + screen.gameMap[tilenum].getOwner(), 500, 445);
-    } else{
+    } else {
       text("Nobody owns this tile!", 500, 445);
     }
   }
@@ -481,10 +565,12 @@ void mousePressed() {
       loadingScreen = true;
       gameScreen = false;
     }
-    if (mortgaging1 && players[0].owned().indexOf(screen.gameMap[mouseOverTile()]) != -1) {
+    if (mouseOverTile() == -1) {
+      
+    } else if (mortgaging1 && players[0].owned().indexOf(screen.gameMap[mouseOverTile()]) != -1 && screen.gameMap[mouseOverTile()].getOwner().equals(players[0].name())) {
       players[0].mortgage(screen.gameMap[mouseOverTile()]);
       mortgaging1 = false;
-    } else if (mortgaging2 && players[1].owned().indexOf(screen.gameMap[mouseOverTile()]) != -1) {
+    } else if (mortgaging2 && players[1].owned().indexOf(screen.gameMap[mouseOverTile()]) != -1&& screen.gameMap[mouseOverTile()].getOwner().equals(players[1].name())) {
       players[1].mortgage(screen.gameMap[mouseOverTile()]);
       mortgaging2 = false;
     }
