@@ -19,6 +19,14 @@ public class UnbuyableTiles extends Tiles{
   public int getPrice(){
     return 1000000;  
   }
+   private Player owner;
+   
+    void setOwner(Player player){
+    owner = player;
+    }
+    public String getOwner(){
+    return owner.name();
+    }
  
   
 }

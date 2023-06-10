@@ -19,7 +19,7 @@ public class BTSMap {
     gameMap[5] = new UnbuyableTiles("Crazy Fangirl", "unbuyable",25,25,25);
     gameMap[6] = new BuyableTiles("Gongju-si", "buyable", 250,0,153,153,loadImage("gongjusi.jpg"));
     gameMap[7] = new BuyableTiles("Sangju-si", "buyable", 250,0,153,153,loadImage("sangjusi.jpg"));
-    gameMap[8] = new UnbuyableTiles("Fortnite \ncollab", "unbuyable",25,25,25);
+    gameMap[8] = new UnbuyableTiles("Fortnite collab", "unbuyable",25,25,25);
     gameMap[9] = new BuyableTiles("Gimje-si", "buyable", 250,0,153,153,loadImage("gimjesi.jpg"));
     gameMap[10] = new UnbuyableTiles("Nothing", "unbuyable",25,25,25);
     gameMap[11] = new BuyableTiles("Jeongeup-si", "buyable", 300,204,0,102,loadImage("jeongeupsi.png"));
@@ -44,7 +44,7 @@ public class BTSMap {
     gameMap[30] = new UnbuyableTiles("Nothing", "unbuyable",25,25,25);
     gameMap[31] = new BuyableTiles("Seongnam-si", "buyable", 450,0,153,0,loadImage("seongnamsi.jpg"));
     gameMap[32] = new BuyableTiles("Cheongju-si", "buyable", 450,0,153,0,loadImage("cheongjusi.jpg"));
-    gameMap[33] = new UnbuyableTiles("Pyramid \nScheme", "unbuyable",25,25,25);
+    gameMap[33] = new UnbuyableTiles("Pyramid Scheme", "unbuyable",25,25,25);
     gameMap[34] = new BuyableTiles("Bucheon-si", "buyable", 450,0,153,0,loadImage("bucheonsi.png"));
     gameMap[35] = new UnbuyableTiles("Airplane", "Airplane",25,25,25,loadImage("airplane.jpg"));
     gameMap[36] = new BuyableTiles("Incheon", "buyable", 325,0,0,204,loadImage("incheon.jpg"));
@@ -100,17 +100,23 @@ public class BTSMap {
     text(gameMap[0].getName(), startW+20, startH+20);
     fill(0);
     
-    textSize(16);
+    
     for (int i=0; i < gameMap.length; i++) {
       if (i == 1||i == 2 ||i == 4||i == 39 ||i == 37 ||i == 36){
+        textSize(16);
       fill(255);
+      }
+      if (i == 8 || i == 33){
+        textSize(14);
       }
       if (!gameMap[i].getName().equals("Nothing") && !gameMap[i].getName().equals("Go")) {
         text(gameMap[i].getName(), startW+2, startH+20);
       }
       if (gameMap[i].getType().equals("buyable")) {
+        fill(255,0,0);
+        rect(startW+27,startH+72,30,15);
+        fill(255);
         text(gameMap[i].getPrice(), startW+30, startH+85);
-      
       }
       fill(0);
       if (i >=0 && i < 10) {
