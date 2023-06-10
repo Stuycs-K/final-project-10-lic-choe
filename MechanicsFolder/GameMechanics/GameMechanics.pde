@@ -30,7 +30,7 @@ boolean mortgaging1;
 boolean mortgaging2;
 void setup() {
   size(1500, 1000);
-  turn = -1;
+  turn= -1;
   loadingScreen = true;
   avatarScreen = false;
   gameScreen = false;
@@ -185,7 +185,7 @@ void avatarScreen() {
 void start() {
 
   players = new Player[2];
-  turn = -1;
+  turn =  -1;
   players[0] = new Player("Player One");
   players[1] = new Player("Player Two");
   players[0].setColor(color(255, 0, 0));
@@ -223,27 +223,49 @@ void draw() {
     displayPlayerStat(players[1], 1340, 100);
     playerLocation(players[0]);
     playerLocation(players[1]);
+    if (turn == PLAYERTWO || turn ==-1){
+      text("It is " + players[0].name() +"'s turn to roll",400,200);
+     if (turn > -1){
+     text(players[1].name() + " just rolled a " + movement2,400,220);
+     text(players[1].name() + " went from " + screen.gameMap[prevPos2].getName() + " to " + screen.gameMap[p2pos].getName() +".",400,240);
+     }
+    } else {
+      text("It is " + players[1].name() +"'s turn to roll",400,200);
+      if (turn > -1){
+      text(players[0].name() + " just rolled a " + movement1,400,220);
+      text(players[0].name() + " went from " + screen.gameMap[prevPos1].getName() + " to " + screen.gameMap[p1pos].getName() +".",400,240);
+      }
+    }
+    
     text(players[0].pos(), width/2, height/2-100);
     text(players[1].pos(), width/2, height/2+100);
-    if (mouseOverTile() != -1) {
-      displayTileStat(mouseOverTile());
-    }
+   
     if (players[0].broke() || players[1].broke()) {
       end();
     }
+   fill(0);
     if ((screen.gameMap[p1pos].getName().equals("Pyramid Scheme")&&turn ==0) ||(screen.gameMap[p2pos].getName().equals("Pyramid Scheme")&&turn ==1)) {
+      
       textSize(40);
       image(pyramid,470,350,600,600);
-      text("Oh no, you got caught scamming the government!\nThe government seized half your money!", 300, 300);
+      text("Oh no," +players[turn].name() +  " got caught scamming the government!\nThe government seized half of "  +players[turn].name() + "'s money!", 300, 300);
    
     } else if ((screen.gameMap[p1pos].getName().equals("Fortnite collab")&&turn ==0)||(screen.gameMap[p2pos].getName().equals("Fortnite collab")&&turn ==1)){
       textSize(40);
       image(fortnite,295,95,900,815);
-      text("You had a collab concert with Fortnite!\nYour net worth increased by 15%!", 300, 300);
+      text(players[turn].name() + " had a collab concert with Fortnite!\n" + players[turn].name() +"'s net worth increased by 15%!", 300, 300);
     } else if ((screen.gameMap[p1pos].getName().equals("Tax Fraud") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("Tax Fraud")&&turn ==1)){
       textSize(40);
       image(irs,295,200,900,815);
-      text("You committed tax fraud.\nThe IRS seized half your assets.", 300, 300);
+      text(players[turn].name() +" committed tax fraud.\nThe IRS seized half " +players[turn].name() + "'s assets.", 300, 300);
+    }
+    
+    
+    
+    
+     if (mouseOverTile() != -1) {
+       textSize(20);
+      displayTileStat(mouseOverTile());
     }
   }
 }
