@@ -21,7 +21,7 @@ public class BTSMap {
     gameMap[7] = new BuyableTiles("Sangju-si", "buyable", 250,0,153,153,loadImage("sangjusi.jpg"));
     gameMap[8] = new UnbuyableTiles("Fortnite collab", "unbuyable",25,25,25);
     gameMap[9] = new BuyableTiles("Gimje-si", "buyable", 250,0,153,153,loadImage("gimjesi.jpg"));
-    gameMap[10] = new UnbuyableTiles("Nothing", "unbuyable",25,25,25);
+    gameMap[10] = new UnbuyableTiles("Rest stop", "unbuyable",25,25,25);
     gameMap[11] = new BuyableTiles("Jeongeup-si", "buyable", 300,204,0,102,loadImage("jeongeupsi.png"));
     gameMap[12] = new BuyableTiles("Gimcheon-si", "buyable", 300,204,0,102,loadImage("gimcheonsi.png"));
     gameMap[13] = new UnbuyableTiles("Thief", "unbuyable",25,25,25);
@@ -31,7 +31,7 @@ public class BTSMap {
     gameMap[17] = new BuyableTiles("Chungju-si", "buyable", 325,204,102,0,loadImage("chungjusi.jpg"));
     gameMap[18] = new UnbuyableTiles("Tax Fraud", "unbuyable",25,25,25);
     gameMap[19] = new BuyableTiles("Gwangmyeong-si", "buyable", 325,204,102,0,loadImage("gwangmyeongsi.jpg"));
-    gameMap[20] = new UnbuyableTiles("Nothing", "unbuyable",25,25,25);
+    gameMap[20] = new UnbuyableTiles("Rest Stop", "unbuyable",25,25,25);
     gameMap[21] = new BuyableTiles("Iksan-si", "buyable", 350,204,0,0,loadImage("iksansi.png"));
     gameMap[22] = new BuyableTiles("Gunsan-si", "buyable", 350,204,0,0,loadImage("gunsansi.png"));
     gameMap[23] = new UnbuyableTiles("Concert", "unbuyable",25,25,25);
@@ -41,7 +41,7 @@ public class BTSMap {
     gameMap[27] = new BuyableTiles("Yeosu-si", "buyable", 400,255,255,0,loadImage("yeosusi.jpg"));
     gameMap[28] = new UnbuyableTiles("Kidnappers", "unbuyable",25,25,25);
     gameMap[29] = new BuyableTiles("Gyeongju-si", "buyable", 400,255,255,0,loadImage("gyeongjusi.png"));
-    gameMap[30] = new UnbuyableTiles("Nothing", "unbuyable",25,25,25);
+    gameMap[30] = new UnbuyableTiles("Rest stop", "unbuyable",25,25,25);
     gameMap[31] = new BuyableTiles("Seongnam-si", "buyable", 450,0,153,0,loadImage("seongnamsi.jpg"));
     gameMap[32] = new BuyableTiles("Cheongju-si", "buyable", 450,0,153,0,loadImage("cheongjusi.jpg"));
     gameMap[33] = new UnbuyableTiles("Pyramid Scheme", "unbuyable",25,25,25);
