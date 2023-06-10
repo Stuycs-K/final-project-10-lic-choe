@@ -11,13 +11,13 @@ public class BTSMap {
   }
 
   void mapSet() {
-    gameMap[0] = new UnbuyableTiles("Go", "unbuyable",25,25,52);
-    gameMap[1] = new BuyableTiles("Taebaek-Si", "buyable", 200,102,0,204);
-    gameMap[2] = new BuyableTiles("Sokcho-si", "buyable", 200,102,0,204);
+    gameMap[0] = new UnbuyableTiles("Go", "unbuyable",25,25,52,loadImage("go.jpg"));
+    gameMap[1] = new BuyableTiles("Taebaek-Si", "buyable", 200,102,0,204,loadImage("taebaeksi.jpg"));
+    gameMap[2] = new BuyableTiles("Sokcho-si", "buyable", 200,102,0,204,loadImage("sokchosi.jpg"));
     gameMap[3] = new UnbuyableTiles("Lottery", "unbuyable",25,25,25);
-    gameMap[4] = new BuyableTiles("Donghae-si", "buyable", 200,102,0,204);
+    gameMap[4] = new BuyableTiles("Donghae-si", "buyable", 200,102,0,204,loadImage("donghaesi.jpg"));
     gameMap[5] = new UnbuyableTiles("Crazy Fangirl", "unbuyable",25,25,25);
-    gameMap[6] = new BuyableTiles("Gongju-si", "buyable", 250,0,153,153);
+    gameMap[6] = new BuyableTiles("Gongju-si", "buyable", 250,0,153,153,loadImage("gongjusi.jpg"));
     gameMap[7] = new BuyableTiles("Sangju-si", "buyable", 250,0,153,153);
     gameMap[8] = new UnbuyableTiles("Fortnite \ncollab", "unbuyable",25,25,25);
     gameMap[9] = new BuyableTiles("Gimje-si", "buyable", 250,0,153,153);
