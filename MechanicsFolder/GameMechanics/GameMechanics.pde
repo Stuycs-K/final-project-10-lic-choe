@@ -224,6 +224,12 @@ void draw() {
     if (screen.gameMap[p1pos].getName().equals("Pyramid \nScheme") ||screen.gameMap[p2pos].getName().equals("Pyramid \nScheme")) {
       textSize(40);
       text("Oh no, you got caught scamming the government!\nThe government seized half your money!", 300, 300);
+    } else if (screen.gameMap[p1pos].getName().equals("Fortnite \ncollab") ||screen.gameMap[p2pos].getName().equals("Fortnite \ncollab")){
+      textSize(40);
+      text("You had a collab concert with Fortnite!\nYour net worth increased by 15%!", 300, 300);
+    } else if (screen.gameMap[p1pos].getName().equals("Tax Fraud") ||screen.gameMap[p2pos].getName().equals("Tax Fraud")){
+      textSize(40);
+      text("You committed tax fraud.\nThe IRS seized half your assets.", 300, 300);
     }
   }
 }
@@ -241,8 +247,11 @@ void keyPressed() {
           players[0].fly();
           p1pos = players[0].pos();
         }
-        if (screen.gameMap[p1pos].getName().equals("Pyramid \nScheme")) {
+        if (screen.gameMap[p1pos].getName().equals("Pyramid \nScheme")|| screen.gameMap[p1pos].getName().equals("Tax Fraud")) {
           players[0].pay(players[0].bank()*.5);
+        }
+        if (screen.gameMap[p1pos].getName().equals("Fortnite \ncollab")){
+          players[0].add(players[0].bank() * .15);
         }
         if (players[1].properties.indexOf(screen.gameMap[p1pos]) != -1) {
           players[0].pay(screen.gameMap[p1pos].getPrice());
@@ -258,9 +267,13 @@ void keyPressed() {
           players[1].fly();
           p2pos = players[1].pos();
         }
-        if (screen.gameMap[p2pos].getName().equals("Pyramid \nScheme")) {
+        if (screen.gameMap[p2pos].getName().equals("Pyramid \nScheme") || screen.gameMap[p2pos].getName().equals("Tax Fraud")) {
           players[1].pay(players[1].bank()*.5);
         }
+        if (screen.gameMap[p2pos].getName().equals("Fortnite \ncollab")){
+          players[1].add(players[1].bank() * .15);
+        }
+    
         if (players[0].properties.indexOf(screen.gameMap[p2pos]) != -1) {
           players[1].pay(screen.gameMap[p2pos].getPrice());
           players[0].add(screen.gameMap[p2pos].getPrice());
