@@ -6,8 +6,13 @@
     private PImage img;
     float startx, starty, endx, endy;
     int r,g,b;
-    
-  
+    private Player owner;
+    void setOwner(Player player){
+    owner = player;
+    }
+   public String getOwner(){
+    return owner.name();
+    }
     public Tiles(String TName,String TType,int r1, int g1, int b1){
       tileType = TType;
       name = TName;

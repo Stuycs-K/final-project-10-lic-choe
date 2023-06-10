@@ -1,7 +1,7 @@
 import java.util.Random;
 import processing.sound.*;
 int turn;
-PImage img, bts, btsjoe, bts2, kenny, tolkien, cartman, kyle, dora, boots, swiper, diego, gameover;
+PImage img, bts, btsjoe, bts2, kenny, tolkien, cartman, kyle, dora, boots, swiper, diego, gameover,fortnite,pyramid,irs,lottery,kidnap,bt21,concert,thief,fangirl,wallet;
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
 Player[] players;
@@ -48,6 +48,16 @@ void setup() {
   boots= loadImage("boots.png");
   swiper = loadImage("swiper.png");
   diego = loadImage("diego.png");
+  fortnite = loadImage("fortnite.png");
+  pyramid=loadImage("pyramid.png");
+  irs=loadImage("IRS.png");
+  lottery = loadImage("lottery.jpg");
+  kidnap =loadImage("kidnap.jpg");
+  bt21=loadImage("bts21.jpg");
+  concert=loadImage("concert.png");
+  thief=loadImage("thief.jpg");
+  fangirl = loadImage("fangirl.jpg");
+  wallet = loadImage("wallet.png");
   screen = new BTSMap();
   start();
 }
@@ -207,7 +217,7 @@ void draw() {
   } else if (avatarScreen) {
     avatarScreen();
   } else if (gameScreen) {
-    background(255);
+    background(191, 219, 174);
     screen.build();
     displayPlayerStat(players[0], 10, 100);
     displayPlayerStat(players[1], 1340, 100);
@@ -221,14 +231,18 @@ void draw() {
     if (players[0].broke() || players[1].broke()) {
       end();
     }
-    if (screen.gameMap[p1pos].getName().equals("Pyramid \nScheme") ||screen.gameMap[p2pos].getName().equals("Pyramid \nScheme")) {
+    if ((screen.gameMap[p1pos].getName().equals("Pyramid Scheme")&&turn ==0) ||(screen.gameMap[p2pos].getName().equals("Pyramid Scheme")&&turn ==1)) {
       textSize(40);
+      image(pyramid,470,350,600,600);
       text("Oh no, you got caught scamming the government!\nThe government seized half your money!", 300, 300);
-    } else if (screen.gameMap[p1pos].getName().equals("Fortnite \ncollab") ||screen.gameMap[p2pos].getName().equals("Fortnite \ncollab")){
+   
+    } else if ((screen.gameMap[p1pos].getName().equals("Fortnite collab")&&turn ==0)||(screen.gameMap[p2pos].getName().equals("Fortnite collab")&&turn ==1)){
       textSize(40);
+      image(fortnite,295,95,900,815);
       text("You had a collab concert with Fortnite!\nYour net worth increased by 15%!", 300, 300);
-    } else if (screen.gameMap[p1pos].getName().equals("Tax Fraud") ||screen.gameMap[p2pos].getName().equals("Tax Fraud")){
+    } else if ((screen.gameMap[p1pos].getName().equals("Tax Fraud") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("Tax Fraud")&&turn ==1)){
       textSize(40);
+      image(irs,295,200,900,815);
       text("You committed tax fraud.\nThe IRS seized half your assets.", 300, 300);
     }
   }
@@ -287,10 +301,12 @@ void keyPressed() {
       if (turn == PLAYERONE) {
         if (screen.gameMap[p1pos].getType().equals("buyable") && !screen.gameMap[p1pos].isOwned()) {
           players[0].buy(screen.gameMap[p1pos]);
+          screen.gameMap[p1pos].setOwner(players[0]);
         }
       } else {
         if (screen.gameMap[p2pos].getType().equals("buyable") && !screen.gameMap[p2pos].isOwned()) {
           players[1].buy(screen.gameMap[p2pos]);
+          screen.gameMap[p2pos].setOwner(players[1]);
         }
       }
     }
@@ -319,18 +335,26 @@ void statBox(float x, float y, int xS, int yS) {
 }
 
 void displayTileStat(int tilenum) {
-  noFill();
+  
   if (players[0].owned().indexOf(screen.gameMap[tilenum]) != -1) {
     stroke(255, 0, 0);
   } else if (players[1].owned().indexOf(screen.gameMap[tilenum]) != -1) {
     stroke (0, 0, 255);
   }
+  fill(screen.gameMap[tilenum].tileColor());
   rect(650, 300, 200, 200);
-  line(650, 330, 850, 330);
+  fill(255);
+  rect(650, 330, 200, 220);
   textAlign(CENTER);
+  fill(0);
   text(screen.gameMap[tilenum].getName(), 750, 320);
   if (screen.gameMap[tilenum].getType().equals("buyable")) {
     text("Price: " + screen.gameMap[tilenum].getPrice(), 750, 375);
+    if (screen.gameMap[tilenum].isOwned()){
+    text("Owner: " + screen.gameMap[tilenum].getOwner(), 750, 410);
+    } else{
+    text("Nobody owns this tile!", 750,410);
+    }
   }
   textAlign(LEFT);
   fill(255);
