@@ -50,7 +50,7 @@ public class BTSMap {
     gameMap[36] = new BuyableTiles("Incheon", "buyable", 325,0,0,204,loadImage("incheon.jpg"));
     gameMap[37] = new BuyableTiles("Busan", "buyable", 325,0,0,204,loadImage("busan.jpg"));
     gameMap[38] = new UnbuyableTiles("Wallet on floor", "unbuyable",25,25,25);
-    gameMap[39] = new BuyableTiles("Seoul", "buyable", 325,0,0,204);
+    gameMap[39] = new BuyableTiles("Seoul", "buyable", 325,0,0,204,loadImage("seoul.jpg"));
  
   }
 
