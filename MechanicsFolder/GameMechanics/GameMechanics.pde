@@ -364,18 +364,20 @@ void displayTileStat(int tilenum) {
     stroke (0, 0, 255);
   }
   fill(screen.gameMap[tilenum].tileColor());
-  rect(650, 300, 200, 200);
+  rect(400, 300, 200, 200);
   fill(255);
-  rect(650, 330, 200, 220);
+  rect(400, 330, 200, 220);
+  image(screen.gameMap[tilenum].tilePfp(), 900, 330, 200, 220);
   textAlign(CENTER);
   fill(0);
-  text(screen.gameMap[tilenum].getName(), 750, 320);
+  text(screen.gameMap[tilenum].getName(), 500 , 320);
   if (screen.gameMap[tilenum].getType().equals("buyable")) {
-    text("Price: " + screen.gameMap[tilenum].getPrice(), 750, 375);
+    text("Price: " + screen.gameMap[tilenum].getPrice(), 500, 375);
+    text("Mortgage: " + screen.gameMap[tilenum].getPrice() * 0.75, 500, 410);
     if (screen.gameMap[tilenum].isOwned()){
-    text("Owner: " + screen.gameMap[tilenum].getOwner(), 750, 410);
+      text("Owner: " + screen.gameMap[tilenum].getOwner(), 500, 445);
     } else{
-    text("Nobody owns this tile!", 750,410);
+      text("Nobody owns this tile!", 500, 445);
     }
   }
   textAlign(LEFT);
