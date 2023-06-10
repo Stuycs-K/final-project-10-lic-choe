@@ -103,11 +103,13 @@ public class BTSMap {
     
     for (int i=0; i < gameMap.length; i++) {
       if (i == 1||i == 2 ||i == 4||i == 39 ||i == 37 ||i == 36){
-        textSize(16);
+        
       fill(255);
       }
-      if (i == 8 || i == 33){
-        textSize(14);
+      if (i == 8 || i == 33 || i ==19){
+        textSize(13);
+      } else {
+        textSize(16);
       }
       if (!gameMap[i].getName().equals("Nothing") && !gameMap[i].getName().equals("Go")) {
         text(gameMap[i].getName(), startW+2, startH+20);
