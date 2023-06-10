@@ -19,7 +19,7 @@ public class Player {
     this.properties = new ArrayList<>();
     this.bankruptcy = false;
   }
-  
+ 
   public boolean ownsPfp(){
     return hasPfp;
   }
