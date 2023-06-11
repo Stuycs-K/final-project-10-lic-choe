@@ -1,7 +1,7 @@
 import java.util.Random; //<>//
 import processing.sound.*;
 int turn;
-PImage img, bts, btsjoe, bts2, kenny, tolkien, cartman, kyle, dora, boots, swiper, diego, gameover, fortnite, pyramid, irs, lottery, kidnap, bt21, concert, thief, fangirl, wallet;
+PImage img, bts, btsjoe, bts2, kenny, tolkien, cartman, kyle, dora, boots, swiper, diego, gameover, disneyplus, pyramid, irs, lottery, kidnap, bt21, concert, thief, fangirl, wallet; //<>//
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
 Player[] players;
@@ -50,9 +50,9 @@ void setup() {
   boots= loadImage("boots.png");
   swiper = loadImage("swiper.png");
   diego = loadImage("diego.png");
-  fortnite = loadImage("fortnite.png");
+  disneyplus = loadImage("disneyplus.jpg");
   pyramid=loadImage("pyramid.png");
-  irs=loadImage("IRS.png");
+  irs=loadImage("IRS.jpg");
   lottery = loadImage("lottery.jpg");
   kidnap =loadImage("kidnap.jpg");
   bt21=loadImage("bts21.jpg");
@@ -93,7 +93,7 @@ void controlScreen() {
   text("There are special tiles scattered throughout the map!", width/2+60, 760);
   text("Hover over a tile to look at it!", width/2-700, 760);
   text("Airplane teleports you to Airport.", width/2+60, 835);
-  text("Concert, new merch, fortnite collabs get you money.", width/2-700, 835);
+  text("Concert, new merch, and Disney+ collab get you money.", width/2-700, 835);
   text("Lottery and wallet have a channce of giving money.", width/2-700, 910);
   text("Pyramid scheme and tax fraud make you lose half.", width/2+60, 910);
   text("Thieves steal your money.", width/2+60, 985);
@@ -225,88 +225,85 @@ void draw() {
     displayPlayerStat(players[1], 1340, 100);
     playerLocation(players[0]);
     playerLocation(players[1]);
-    fill(220,220,220);
-    rect(700,100,70,25);
+    if (mouseOverTile() != -1) {
+      textSize(20);
+      displayTileStat(mouseOverTile());
+    }
+    fill(220, 220, 220);
+    rect(700, 100, 70, 25);
     fill(0);
     textSize(15);
-    text("NOTICE",710,120);
+    text("NOTICE", 710, 120);
     if (turn == PLAYERTWO || turn ==-1) {
       textSize(30);
-      fill(255,0,0);
-      rect(300,170,880,45,50);
+      fill(255, 0, 0);
+      rect(300, 170, 880, 45, 50);
       fill(255);
       text("It is " + players[0].name() +"'s turn to roll", 590, 200);
       if (turn > -1) {
-         fill(255,0,0);
-      rect(300,260,880,45,50);
-      rect(300,350,880,45,50);
-      fill(255);
+        fill(255, 0, 0);
+        rect(300, 260, 880, 45, 50);
+        rect(300, 350, 880, 45, 50);
+        fill(255);
         text(players[1].name() + " just rolled a " + movement2, 580, 290);
         text(players[1].name() + " went from " + screen.gameMap[prevPos2].getName() + " to " + screen.gameMap[p2pos].getName() +".", 400, 380);
       }
     } else {
       textSize(30);
-      fill(255,0,0);
-      rect(300,170,880,45,50);
+      fill(255, 0, 0);
+      rect(300, 170, 880, 45, 50);
       fill(255);
       text("It is " + players[1].name() +"'s turn to roll", 590, 200);
       if (turn > -1) {
-        fill(255,0,0);
-      rect(300,260,880,45,50);
-      rect(300,350,880,45,50);
-      fill(255);
+        fill(255, 0, 0);
+        rect(300, 260, 880, 45, 50);
+        rect(300, 350, 880, 45, 50);
+        fill(255);
         text(players[0].name() + " just rolled a " + movement1, 580, 290);
         text(players[0].name() + " went from " + screen.gameMap[prevPos1].getName() + " to " + screen.gameMap[p1pos].getName() +".", 400, 380);
       }
     }
     /*
     text(players[0].pos(), width/2, height/2-100);
-    text(players[1].pos(), width/2, height/2+100);
+     text(players[1].pos(), width/2, height/2+100);
     */
-    
     if (players[0].broke() || players[1].broke()) {
       end();
     }
     fill(0);
     if ((screen.gameMap[p1pos].getName().equals("Pyramid Scheme")&&turn ==0) ||(screen.gameMap[p2pos].getName().equals("Pyramid Scheme")&&turn ==1)) {
-       fill(191,219,174);
-      rect(295,95,900,815);
+      fill(191, 219, 174);
+      rect(295, 95, 900, 815);
       textSize(35);
       image(pyramid, 470, 350, 600, 600);
-      fill(255,0,0);
-      rect(300,790,880,40,50);
-       rect(300,840,880,45,50);
+      fill(255, 0, 0);
+      rect(300, 790, 880, 40, 50);
+      rect(300, 840, 880, 45, 50);
       fill(255);
       text("Oh no, " +players[turn].name() +  " got caught in a pyramid scheme!\nThe government seized half of "  +players[turn].name() + "'s money!", 305, 820);
-    } 
-  
-    else if ((screen.gameMap[p1pos].getName().equals("Fortnite collab")&&turn ==0)||(screen.gameMap[p2pos].getName().equals("Fortnite collab")&&turn ==1)) {
+    } else if ((screen.gameMap[p1pos].getName().equals("Disney+ collab")&&turn ==0)||(screen.gameMap[p2pos].getName().equals("Disney+ collab")&&turn ==1)) {
       textSize(40);
-      image(fortnite, 295, 95, 900, 815);
-      fill(255,0,0);
-      rect(300,790,880,50,50);
-       rect(300,850,880,50,50);
+      image(disneyplus, 295, 95, 900, 815);
+      fill(255, 0, 0);
+      rect(300, 790, 880, 50, 50);
+      rect(300, 850, 880, 50, 50);
       fill(255);
-      text(players[turn].name() + " had a collab concert with Fortnite!\n" + players[turn].name() +"'s net worth increased by 15%!", 305, 820);
-    } 
- 
-    else if ((screen.gameMap[p1pos].getName().equals("Tax Fraud") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("Tax Fraud")&&turn ==1)) {
-      fill(191,219,174);
-      rect(295,95,900,815);
+      text(players[turn].name() + " had a collab concert with Disney+!\n" + players[turn].name() +"'s net worth increased by 15%!", 305, 820);
+    } else if ((screen.gameMap[p1pos].getName().equals("Tax Fraud") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("Tax Fraud")&&turn ==1)) {
+      fill(191, 219, 174);
+      rect(295, 95, 900, 815);
       textSize(40);
       image(irs, 295, 200, 900, 400);
-      fill(255,0,0);
-      rect(300,790,880,50,50);
-      rect(300,850,880,50,50);
+      fill(255, 0, 0);
+      rect(300, 790, 880, 50, 50);
+      rect(300, 850, 880, 50, 50);
       fill(255);
       text(players[turn].name() +" committed tax fraud.\nThe IRS seized half " +players[turn].name() + "'s assets.", 308, 822);
-    } 
-    
-    else if (screen.gameMap[p1pos].getName().equals("Lottery") &&turn ==0) {
+    } else if (screen.gameMap[p1pos].getName().equals("Lottery") &&turn ==0) {
       textSize(30);
       image(lottery, 295, 95, 900, 815);
-      fill(255,0,0);
-      rect(300,790,880,50,50);
+      fill(255, 0, 0);
+      rect(300, 790, 880, 50, 50);
       fill(255);
       if (lot1 > 0 && lot1 <= .33) {
         textSize(25);
@@ -314,13 +311,11 @@ void draw() {
       } else {
         text(players[turn].name() +" spent 10% of their net worth for a ticket and got nothing.", 305, 820);
       }
-    } 
-  
-    else if (screen.gameMap[p2pos].getName().equals("Lottery")&&turn ==1) {
+    } else if (screen.gameMap[p2pos].getName().equals("Lottery")&&turn ==1) {
       textSize(30);
       image(lottery, 295, 95, 900, 815);
-      fill(255,0,0);
-      rect(300,790,880,50,50);
+      fill(255, 0, 0);
+      rect(300, 790, 880, 50, 50);
       fill(255);
       if (lot2 > 0 && lot2 <= .33) {
         textSize(25);
@@ -328,12 +323,10 @@ void draw() {
       } else {
         text(players[turn].name() +" spent 10% of their net worth for a ticket and got nothing.", 305, 820);
       }
-    } 
-    
-    else if ((screen.gameMap[p1pos].getName().equals("Crazy Fangirl") &&turn ==0)) {
-        image(fangirl, 295, 95, 900, 815);
-        fill(255,0,0);
-      rect(300,790,880,50,50);
+    } else if ((screen.gameMap[p1pos].getName().equals("Crazy Fangirl") &&turn ==0)) {
+      image(fangirl, 295, 95, 900, 815);
+      fill(255, 0, 0);
+      rect(300, 790, 880, 50, 50);
       fill(255);
       textSize(20);
       if (fan1 > 0 && fan1 <=.5) {
@@ -341,73 +334,57 @@ void draw() {
       } else {
         text("Phew, wild fangirls ambushed " +players[turn].name()+ ", but "+players[turn].name() + " managed to escape from the fangirls. Nice job.", 305, 820);
       }
-    
-    } 
-
-    else if (screen.gameMap[p2pos].getName().equals("Crazy Fangirl")&&turn ==1) {
+    } else if (screen.gameMap[p2pos].getName().equals("Crazy Fangirl")&&turn ==1) {
       textSize(20);
       image(fangirl, 295, 95, 900, 815);
-      fill(255,0,0);
-      rect(300,790,880,50,50);
+      fill(255, 0, 0);
+      rect(300, 790, 880, 50, 50);
       fill(255);
       if (fan2 > 0 && fan2 <=.5) {
-           text("Wild fangirls ambushed "+ players[turn].name()+", stealing $300.\nBetter luck next time!", 305, 820);
+        text("Wild fangirls ambushed "+ players[turn].name()+", stealing $300.\nBetter luck next time!", 305, 820);
       } else {
-         text("Wild fangirls ambushed " +players[turn].name()+ ", but "+players[turn].name() + " managed to escape from the fangirls. Nice job.", 305, 820);
+        text("Wild fangirls ambushed " +players[turn].name()+ ", but "+players[turn].name() + " managed to escape from the fangirls. Nice job.", 305, 820);
       }
-      
-    } 
-
-    else if ((screen.gameMap[p1pos].getName().equals("Thief") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("Thief")&&turn ==1)) {
+    } else if ((screen.gameMap[p1pos].getName().equals("Thief") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("Thief")&&turn ==1)) {
       textSize(40);
       image(thief, 295, 95, 900, 815);
-      fill(255,0,0);
-      rect(300,790,880,50,50);
+      fill(255, 0, 0);
+      rect(300, 790, 880, 50, 50);
       fill(255);
       text(players[turn].name() +" got ambushed by a thief and lost $150.", 305, 823);
-    } 
-
-    else if ((screen.gameMap[p1pos].getName().equals("Airplane") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("Airplane")&&turn ==1)) {
+    } else if ((screen.gameMap[p1pos].getName().equals("Airplane") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("Airplane")&&turn ==1)) {
       textSize(35);
       image(screen.gameMap[35].tilePfp(), 295, 95, 900, 815);
-      fill(255,0,0);
-      rect(300,790,880,50,50);
+      fill(255, 0, 0);
+      rect(300, 790, 880, 50, 50);
       fill(255);
       text(players[turn].name() +" got on an airplane and flew to the airport.", 305, 820);
-    } 
-    
-    else if ((screen.gameMap[p1pos].getName().equals("Concert") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("Concert")&&turn ==1)) {
+    } else if ((screen.gameMap[p1pos].getName().equals("Concert") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("Concert")&&turn ==1)) {
       textSize(25);
       image(concert, 295, 95, 900, 815);
-      fill(255,0,0);
-      rect(300,790,880,50,50);
+      fill(255, 0, 0);
+      rect(300, 790, 880, 50, 50);
       fill(255);
       text(players[turn].name() +" Had a successful concert and increased in net worth by 50%", 305, 820);
-    } 
- 
-    else if ((screen.gameMap[p1pos].getName().equals("New Merch") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("New Merch")&&turn ==1)) {
+    } else if ((screen.gameMap[p1pos].getName().equals("New Merch") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("New Merch")&&turn ==1)) {
       textSize(35);
       image(bt21, 295, 95, 900, 815);
-      fill(255,0,0);
-      rect(300,790,880,50,50);
+      fill(255, 0, 0);
+      rect(300, 790, 880, 50, 50);
       fill(255);
       text(players[turn].name() +" dropped some new merch and earned $200.", 305, 820);
-    } 
-
-    else if ((screen.gameMap[p1pos].getName().equals("Kidnappers") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("Kidnappers")&&turn ==1)) {
+    } else if ((screen.gameMap[p1pos].getName().equals("Kidnappers") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("Kidnappers")&&turn ==1)) {
       textSize(30);
       image(kidnap, 295, 95, 900, 815);
-      fill(255,0,0);
-      rect(300,790,880,50,50);
+      fill(255, 0, 0);
+      rect(300, 790, 880, 50, 50);
       fill(255);
       text(players[turn].name() +" got kidnapped and woke up at " + screen.gameMap[players[turn].pos()].getName() + ".", 305, 820);
-    } 
-    
-    else if (screen.gameMap[p1pos].getName().equals("Wallet on floor") &&turn ==0) {
+    } else if (screen.gameMap[p1pos].getName().equals("Wallet on floor") &&turn ==0) {
       textSize(35);
       image(wallet, 295, 95, 900, 815);
-      fill(255,0,0);
-      rect(300,790,880,50,50);
+      fill(255, 0, 0);
+      rect(300, 790, 880, 50, 50);
       fill(255);
       if (wallet1 > 0 && wallet1 <=.33) {
         text(players[turn].name() +" found a wallet with $150 inside!", 305, 820);
@@ -417,13 +394,11 @@ void draw() {
       } else {
         text(players[turn].name() +" found an empty wallet on the ground", 305, 820);
       }
-      
-    } 
-    else if (screen.gameMap[p2pos].getName().equals("Wallet on floor")&&turn ==1) {
+    } else if (screen.gameMap[p2pos].getName().equals("Wallet on floor")&&turn ==1) {
       textSize(35);
       image(wallet, 295, 95, 900, 815);
-      fill(255,0,0);
-      rect(300,790,880,50,50);
+      fill(255, 0, 0);
+      rect(300, 790, 880, 50, 50);
       fill(255);
       if (wallet2 > 0 && wallet2 <=.33) {
         text(players[turn].name() +" found a wallet with $150 inside!", 305, 820);
@@ -433,14 +408,6 @@ void draw() {
       } else {
         text(players[turn].name() +" found an empty wallet on the ground", 305, 820);
       }
-    }
-
-
-
-
-    if (mouseOverTile() != -1) {
-      textSize(20);
-      displayTileStat(mouseOverTile());
     }
   }
 }
@@ -461,7 +428,7 @@ void keyPressed() {
         if (screen.gameMap[p1pos].getName().equals("Pyramid Scheme")|| screen.gameMap[p1pos].getName().equals("Tax Fraud")) {
           players[0].pay(players[0].bank()*.5);
         }
-        if (screen.gameMap[p1pos].getName().equals("Fortnite collab")) {
+        if (screen.gameMap[p1pos].getName().equals("Disney+ collab")) {
           players[0].add(players[0].bank() * .15);
         }
         if (screen.gameMap[p1pos].getName().equals("Thief")) {
@@ -515,7 +482,7 @@ void keyPressed() {
         if (screen.gameMap[p2pos].getName().equals("Pyramid Scheme") || screen.gameMap[p2pos].getName().equals("Tax Fraud")) {
           players[1].pay(players[1].bank()*.5);
         }
-        if (screen.gameMap[p2pos].getName().equals("Fortnite collab")) {
+        if (screen.gameMap[p2pos].getName().equals("Disney+ collab")) {
           players[1].add(players[1].bank() * .15);
         }
         if (screen.gameMap[p2pos].getName().equals("Thief")) {
@@ -601,33 +568,62 @@ void statBox(float x, float y, int xS, int yS) {
 }
 
 void displayTileStat(int tilenum) {
-
-  if (players[0].owned().indexOf(screen.gameMap[tilenum]) != -1) {
-    stroke(255, 0, 0);
-  } else if (players[1].owned().indexOf(screen.gameMap[tilenum]) != -1) {
-    stroke (0, 0, 255);
+  if (!screen.gameMap[tilenum].getName().equals("Rest stop")) {
+    image(screen.gameMap[tilenum].tilePfp(), width/4-80, 95, 900, 810);
   }
   fill(screen.gameMap[tilenum].tileColor());
-  rect(400, 300, 200, 200);
+  rect(width/2-200, 300, 400, 400);
   fill(255);
-  rect(400, 330, 200, 220);
-  if (!screen.gameMap[tilenum].getName().equals("Rest stop")) {
-    image(screen.gameMap[tilenum].tilePfp(), 900, 330, 200, 220);
-  }
+  rect(width/2-200, 330, 400, 400);
 
   textAlign(CENTER);
+
+  if (screen.gameMap[tilenum].getType().equals("unbuyable") || tilenum == 1 || tilenum == 2 || tilenum == 4 || tilenum == 39 || tilenum == 37 || tilenum == 36) {
+    fill(255);
+  } else if (players[1].owned().indexOf(screen.gameMap[tilenum]) != -1) {
+    fill(0);
+  }
+  text(screen.gameMap[tilenum].getName(), width/2, 320);
   fill(0);
-  text(screen.gameMap[tilenum].getName(), 500, 320);
   if (screen.gameMap[tilenum].getType().equals("buyable")) {
-    text("Price: " + screen.gameMap[tilenum].getPrice(), 500, 375);
-    text("Mortgage: " + screen.gameMap[tilenum].getPrice() * 0.75, 500, 410);
+    text("Price: " + screen.gameMap[tilenum].getPrice(), width/2, 375);
+    text("Mortgage: " + screen.gameMap[tilenum].getPrice() * 0.75, width/2, 410);
     if (screen.gameMap[tilenum].isOwned()) {
-      text("Owner: " + screen.gameMap[tilenum].getOwner(), 500, 445);
+      text("Owner: " + screen.gameMap[tilenum].getOwner(), width/2, 445);
     } else {
-      text("Nobody owns this tile!", 500, 445);
+      text("Nobody owns this tile!", width/2, 445);
+    }
+  } else {
+    rectMode(CENTER);
+    textSize(25);
+    if (screen.gameMap[tilenum].getName().equals("Lottery")) {
+      text("Your balance is multipled by 0.9x, there is a 33% chance your balance is then doubled, and a 66% chance that nothing happens", width/2, 510, 360, 200);
+    } else if (screen.gameMap[tilenum].getName().equals("Crazy Fangirl")) {
+      text("There is a 50% chance that you lose $100", width/2, 510, 360, 250);
+    } else if (screen.gameMap[tilenum].getName().equals("Disney+ collab")) {
+      text("Your balance is multiplied by 1.15x", width/2, 480, 360, 250);
+    } else if (screen.gameMap[tilenum].getName().equals("Thief")) {
+      text("You lose $150", width/2, 480, 360, 250);
+    } else if (screen.gameMap[tilenum].getName().equals("Airport")) {
+      text("You immediately teleport to the 'Airplane' tile!", width/2, 480, 360, 250);
+    } else if (screen.gameMap[tilenum].getName().equals("Tax Fraud")) {
+      text("Your balance is halved", width/2, 480, 360, 250);
+    } else if (screen.gameMap[tilenum].getName().equals("Concert")) {
+      text("Your balance is multiplied by 1.5x", width/2, 480, 360, 250);
+    } else if (screen.gameMap[tilenum].getName().equals("New Merch")) {
+      text("You gain $200", width/2, 445, 180, 250);
+    } else if (screen.gameMap[tilenum].getName().equals("Kidnappers")) {
+      text("You immediately teleport to a random tile", width/2, 480, 360, 250);
+    } else if (screen.gameMap[tilenum].getName().equals("Pyramid Scheme")) {
+      text("Your balance is halved", width/2, 480, 360, 250);
+    } else if (screen.gameMap[tilenum].getName().equals("Airplane")) {
+      text("You will be teleported here from the 'Airport' tile!", width/2, 480, 360, 250);
+    } else if (screen.gameMap[tilenum].getName().equals("Wallet on floor")) {
+      text("There is a 33% chance that you lose $100, a 33% chance that you gain $150, and a 33% chance nothing happens", width/2, 480, 360, 250);
     }
   }
   textAlign(LEFT);
+  rectMode(CORNER);
   fill(255);
   stroke(0, 0, 0);
 }
