@@ -667,7 +667,7 @@ void displayPlayer(PImage playerIcon, float x, float y) {
 
 
 
-void mousePressed() {
+  void mousePressed() {
   if (loadingScreen) {
     if (avatarOver) {
       avatarScreen = true;
