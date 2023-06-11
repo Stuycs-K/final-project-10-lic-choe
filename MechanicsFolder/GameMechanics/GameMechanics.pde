@@ -1,7 +1,7 @@
-import java.util.Random; //<>// //<>//
+import java.util.Random; //<>//
 import processing.sound.*;
 int turn;
-PImage img, bts, btsjoe, bts2, kenny, tolkien, cartman, kyle, dora, boots, swiper, diego, gameover, disneyplus, pyramid, irs, lottery, kidnap, bt21, concert, thief, fangirl, wallet;
+PImage img, bts, btsjoe, bts2, kenny, tolkien, cartman, kyle, dora, boots, swiper, diego, gameover, disneyplus, pyramid, irs, lottery, kidnap, bt21, concert, thief, fangirl, wallet; //<>//
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
 Player[] players;
@@ -266,8 +266,7 @@ void draw() {
     /*
     text(players[0].pos(), width/2, height/2-100);
      text(players[1].pos(), width/2, height/2+100);
-     */
-
+    */
     if (players[0].broke() || players[1].broke()) {
       end();
     }
