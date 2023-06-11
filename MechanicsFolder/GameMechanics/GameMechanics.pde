@@ -234,7 +234,7 @@ void draw() {
     fill(0);
     textSize(15);
     text("NOTICE", 710, 120);
-    if (turn == PLAYERTWO || turn ==-1) {
+    if (turn == PLAYERONE || turn ==-1) {
       textSize(30);
       fill(255, 0, 0);
       rect(300, 170, 880, 45, 50);
@@ -245,8 +245,8 @@ void draw() {
         rect(300, 260, 880, 45, 50);
         rect(300, 350, 880, 45, 50);
         fill(255);
-        text(players[1].name() + " just rolled a " + movement2, 580, 290);
-        text(players[1].name() + " went from " + screen.gameMap[prevPos2].getName() + " to " + screen.gameMap[p2pos].getName() +".", 400, 380);
+        text(players[0].name() + " just rolled a " + movement2, 580, 290);
+        text(players[0].name() + " went from " + screen.gameMap[prevPos2].getName() + " to " + screen.gameMap[p2pos].getName() +".", 400, 380);
       }
     } else {
       textSize(30);
@@ -259,8 +259,8 @@ void draw() {
         rect(300, 260, 880, 45, 50);
         rect(300, 350, 880, 45, 50);
         fill(255);
-        text(players[0].name() + " just rolled a " + movement1, 580, 290);
-        text(players[0].name() + " went from " + screen.gameMap[prevPos1].getName() + " to " + screen.gameMap[p1pos].getName() +".", 400, 380);
+        text(players[1].name() + " just rolled a " + movement1, 580, 290);
+        text(players[1].name() + " went from " + screen.gameMap[prevPos1].getName() + " to " + screen.gameMap[p1pos].getName() +".", 400, 380);
       }
     }
     /*
