@@ -225,10 +225,7 @@ void draw() {
     displayPlayerStat(players[1], 1340, 100);
     playerLocation(players[0]);
     playerLocation(players[1]);
-    if (mouseOverTile() != -1) {
-      textSize(20);
-      displayTileStat(mouseOverTile());
-    }
+   
     fill(220, 220, 220);
     rect(700, 100, 70, 25);
     fill(0);
@@ -408,6 +405,10 @@ void draw() {
       } else {
         text(players[turn].name() +" found an empty wallet on the ground", 305, 820);
       }
+    }
+     if (mouseOverTile() != -1) {
+      textSize(20);
+      displayTileStat(mouseOverTile());
     }
   }
 }
