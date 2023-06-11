@@ -1,5 +1,4 @@
 import java.util.Random; //<>// //<>//
-import processing.sound.*;
 int turn;
 PImage img, bts, btsjoe, bts2, kenny, tolkien, cartman, kyle, dora, boots, swiper, diego, gameover, disneyplus, pyramid, irs, lottery, kidnap, bt21, concert, thief, fangirl, wallet;
 static int PLAYERONE = 0;
@@ -197,17 +196,25 @@ void start() {
 }
 
 void end() {
+  background(255);
+  gameScreen = false;
   endScreen = true;
   gameover = loadImage("gameOver.jpg");
   textSize(200);
-  //textAlign(CENTER);
+  
   image(gameover, 0, 0, 1500, 1000);
+  fill(255,0,0);
+  rect(0, 90,1500,200,60);
+  fill(255);
   if (players[0].broke()) {
-    text("PLAYER 2 WINS!!!", width/2, height/2);
+    text("PLAYER 2 WINS!!!", 0, 250);
   } else {
-    text("PLAYER 1 WINS!!!", 750, 500);
+    text("PLAYER 1 WINS!!!", 0, 250);
   }
-  text ("press r to restart", 750, 750);
+  fill(255,0,0);
+  rect(0, height/2+250,1500,200,60);
+  fill(255);
+  text ("Hold \"r\" to restart", 0, height/2+410);
 }
 
 void draw() {
@@ -264,9 +271,7 @@ void draw() {
     text(players[0].pos(), width/2, height/2-100);
      text(players[1].pos(), width/2, height/2+100);
      */
-    if (players[0].broke() || players[1].broke()) {
-      end();
-    }
+   
     fill(0);
     if ((screen.gameMap[p1pos].getName().equals("Pyramid Scheme")&&turn ==0) ||(screen.gameMap[p2pos].getName().equals("Pyramid Scheme")&&turn ==1)) {
       fill(191, 219, 174);
@@ -409,6 +414,9 @@ void draw() {
     if (mouseOverTile() != -1) {
       textSize(20);
       displayTileStat(mouseOverTile());
+    }
+     if (players[0].broke() || players[1].broke()) {
+      end();
     }
   }
 }
