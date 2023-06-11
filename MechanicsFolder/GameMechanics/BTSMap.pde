@@ -19,7 +19,7 @@ public class BTSMap {
     gameMap[5] = new UnbuyableTiles("Crazy Fangirl", "unbuyable",25,25,25,loadImage("fangirl.jpg"));
     gameMap[6] = new BuyableTiles("Gongju-si", "buyable", 250,0,153,153,loadImage("gongjusi.jpg"));
     gameMap[7] = new BuyableTiles("Sangju-si", "buyable", 250,0,153,153,loadImage("sangjusi.jpg"));
-    gameMap[8] = new UnbuyableTiles("Fortnite collab", "unbuyable",25,25,25,loadImage("fortnite.png"));
+    gameMap[8] = new UnbuyableTiles("Disney+ collab", "unbuyable",25,25,25,loadImage("disneyplus.jpg"));
     gameMap[9] = new BuyableTiles("Gimje-si", "buyable", 250,0,153,153,loadImage("gimjesi.jpg"));
     gameMap[10] = new UnbuyableTiles("Rest stop", "unbuyable",25,25,25);
     gameMap[11] = new BuyableTiles("Jeongeup-si", "buyable", 300,204,0,102,loadImage("jeongeupsi.png"));
@@ -29,7 +29,7 @@ public class BTSMap {
     gameMap[15] = new UnbuyableTiles("Airport", "Airport",25,25,25,loadImage("airport.jpg"));
     gameMap[16] = new BuyableTiles("Yangju-si", "buyable", 325,204,102,0,loadImage("yangjusi.jpg"));
     gameMap[17] = new BuyableTiles("Chungju-si", "buyable", 325,204,102,0,loadImage("chungjusi.jpg"));
-    gameMap[18] = new UnbuyableTiles("Tax Fraud", "unbuyable",25,25,25,loadImage("IRS.png"));
+    gameMap[18] = new UnbuyableTiles("Tax Fraud", "unbuyable",25,25,25,loadImage("IRS.jpg"));
     gameMap[19] = new BuyableTiles("Gwangmyeong-si", "buyable", 325,204,102,0,loadImage("gwangmyeongsi.jpg"));
     gameMap[20] = new UnbuyableTiles("Rest stop", "unbuyable",25,25,25);
     gameMap[21] = new BuyableTiles("Iksan-si", "buyable", 350,204,0,0,loadImage("iksansi.png"));
