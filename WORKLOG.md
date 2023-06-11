@@ -89,4 +89,7 @@ edited the entire map, i have to add new features to it now.
 
 ###6/10/23
 i added a bunch of new features for tiles, have to debug because it caused an error in showing whose turn it is and stuff.
+
+###6/11/23
+finding bugs and fixing them for today
 info
