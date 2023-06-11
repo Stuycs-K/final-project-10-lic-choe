@@ -31,7 +31,7 @@ public class BTSMap {
     gameMap[17] = new BuyableTiles("Chungju-si", "buyable", 325,204,102,0,loadImage("chungjusi.jpg"));
     gameMap[18] = new UnbuyableTiles("Tax Fraud", "unbuyable",25,25,25,loadImage("IRS.png"));
     gameMap[19] = new BuyableTiles("Gwangmyeong-si", "buyable", 325,204,102,0,loadImage("gwangmyeongsi.jpg"));
-    gameMap[20] = new UnbuyableTiles("Rest Stop", "unbuyable",25,25,25);
+    gameMap[20] = new UnbuyableTiles("Rest stop", "unbuyable",25,25,25);
     gameMap[21] = new BuyableTiles("Iksan-si", "buyable", 350,204,0,0,loadImage("iksansi.png"));
     gameMap[22] = new BuyableTiles("Gunsan-si", "buyable", 350,204,0,0,loadImage("gunsansi.png"));
     gameMap[23] = new UnbuyableTiles("Concert", "unbuyable",25,25,25,loadImage("concert.png"));
@@ -47,10 +47,10 @@ public class BTSMap {
     gameMap[33] = new UnbuyableTiles("Pyramid Scheme", "unbuyable",25,25,25,loadImage("pyramid.png"));
     gameMap[34] = new BuyableTiles("Bucheon-si", "buyable", 450,0,153,0,loadImage("bucheonsi.png"));
     gameMap[35] = new UnbuyableTiles("Airplane", "Airplane",25,25,25,loadImage("airplane.jpg"));
-    gameMap[36] = new BuyableTiles("Incheon", "buyable", 325,0,0,204,loadImage("incheon.jpg"));
-    gameMap[37] = new BuyableTiles("Busan", "buyable", 325,0,0,204,loadImage("busan.jpg"));
+    gameMap[36] = new BuyableTiles("Incheon", "buyable", 500,0,0,204,loadImage("incheon.jpg"));
+    gameMap[37] = new BuyableTiles("Busan", "buyable", 500,0,0,204,loadImage("busan.jpg"));
     gameMap[38] = new UnbuyableTiles("Wallet on floor", "unbuyable",25,25,25,loadImage("wallet.png"));
-    gameMap[39] = new BuyableTiles("Seoul", "buyable", 325,0,0,204,loadImage("seoul.jpg"));
+    gameMap[39] = new BuyableTiles("Seoul", "buyable", 500,0,0,204,loadImage("seoul.jpg"));
  
   }
 
