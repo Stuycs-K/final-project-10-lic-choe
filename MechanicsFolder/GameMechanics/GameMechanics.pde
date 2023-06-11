@@ -660,11 +660,6 @@ void displayPlayerStat(Player currentP, float xVal, float yVal) {
   }
 }
 
-void displayPlayer(color playerC, float x, float y) {
-  fill(playerC);
-  float radi = 30;
-  ellipse(x, y, radi, radi);
-}
 
 void displayPlayer(PImage playerIcon, float x, float y) {
   image(playerIcon, x, y, 50, 50);
