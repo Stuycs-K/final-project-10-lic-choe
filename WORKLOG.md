@@ -42,6 +42,8 @@ Hovering mechanic works (hover over a tile to see details), restart button still
 
 Edited visuals, added all city icons for properties
 
+### 6/10/23
+
 ## ELIEZER CHO
 
 ### 5/23/23
@@ -86,4 +88,10 @@ edited the entire map, i have to add new features to it now.
 
 ###6/9/23
 1 am: i added some new tiles and began to implement their effects.
+
+###6/10/23
+i added a bunch of new features for tiles, have to debug because it caused an error in showing whose turn it is and stuff.
+
+###6/11/23
+finding bugs and fixing them for today
 info

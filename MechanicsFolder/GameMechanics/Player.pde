@@ -108,7 +108,8 @@ public class Player {
   }
   
   public int takeTurn() {
-    return this.move(int(random(2, 13)));
+    int moved = move(int(random(2, 13)));
+    return moved;
   }
   
   public void fly() {

@@ -1,4 +1,5 @@
 import java.util.Random; //<>// //<>//
+import processing.sound.*;
 int turn;
 PImage img,mask, bts, btsjoe, bts2, jhope, suga, jin, btsicon, taehyung, jungkook, rm, jimin, gameover, disneyplus, pyramid, irs, lottery, kidnap, bt21, concert, thief, fangirl, wallet; 
 static int PLAYERONE = 0;
