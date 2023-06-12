@@ -1,4 +1,4 @@
-import java.util.Random; //<>// //<>//
+import java.util.Random; //<>// //<>// //<>// //<>//
 import processing.sound.*;
 int turn;
 PImage img,mask, bts, btsjoe, bts2, jhope, suga, jin, btsicon, taehyung, jungkook, rm, jimin, gameover, disneyplus, pyramid, irs, lottery, kidnap, bt21, concert, thief, fangirl, wallet; 
@@ -129,51 +129,61 @@ void avatarScreen() {
   image(bts2, 0, 0, width, height);
   fill(0);
   textSize(50);
-  fill(255, 0, 0);
   rectMode(CENTER);
+  fill(0,0,255);
   rect(width/2, height/2-250, 450, 70, 30);
+  fill(255, 0, 0);
   rect(width/2, height/2+50, 450, 70, 30);
   rectMode(CORNER);
   if (players[0].getPfp().equals("jhope")) {
-    rect(200, height/2-150, 150, 150);
+    tint(130,255,255);
   }
   image(jhope, 200, height/2-150, 150, 150);
+  noTint();
   if (players[0].getPfp().equals("suga")) {
-    rect(525, height/2-150, 150, 150);
+    tint(130,255,255);
   }
   image(suga, 500, height/2-150, 150, 150);
+  noTint();
   if (players[0].getPfp().equals("jin")) {
-    rect(800, height/2-150, 150, 150);
+    tint(130,255,255);
   }
   image(jin, 800, height/2-150, 150, 150);
+  noTint();
   if (players[0].getPfp().equals("btsicon")) {
-    rect(1100, height/2-150, 150, 150);
+    tint(130,255,255);
   }
   image(btsicon, 1100, height/2-150, 150, 150);
+  noTint();
   if (players[1].getPfp().equals("taehyung")) {
-    rect(200, height/2+150, 150, 150);
+    tint(255,0,0);
   }
   image(taehyung, 200, height/2+150, 150, 150);
+  noTint();
   if (players[1].getPfp().equals("jungkook")) {
-    rect(500, height/2+150, 175, 175);
+    tint(255,0,0);
   }
   image(jungkook, 500, height/2+150, 150, 150);
+  noTint();
   if (players[1].getPfp().equals("rm")) {
-    rect(800, height/2+150, 175, 175);
+    tint(255,0,0);
   }
   image(rm, 800, height/2+150, 150, 150);
+  noTint();
   if (players[1].getPfp().equals("jimin")) {
-    rect(1100, height/2+150, 175, 175);
+    tint(255,0,0);
   }
   image(jimin, 1100, height/2+150, 150, 150);
+  noTint();
   fill(255);
   textAlign(CENTER);
-  text("Player 1 Avatars: ", width/2, height/2-220);
+  text("Player 1 Avatars: ", width/2, height/2-230);
   text("Player 2 Avatars: ", width/2, height/2+70);
   textSize(30);
   fill(255, 0, 0);
   rect(30, 30, 75, 30, 10);
   fill(255);
+  textAlign(LEFT);
   text("Menu", 35, 55);
   fill(255);
   textSize(75);
