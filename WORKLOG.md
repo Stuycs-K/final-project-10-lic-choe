@@ -42,6 +42,8 @@ Hovering mechanic works (hover over a tile to see details), restart button still
 
 Edited visuals, added all city icons for properties
 
+### 6/10/23
+
 ## ELIEZER CHO
 
 ### 5/23/23

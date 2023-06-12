@@ -1,6 +1,7 @@
-import java.util.Random; //<>//
+import java.util.Random; //<>// //<>// //<>//
+import processing.sound.*;
 int turn;
-PImage img, bts, btsjoe, bts2, kenny, tolkien, cartman, kyle, dora, boots, swiper, diego, gameover, disneyplus, pyramid, irs, lottery, kidnap, bt21, concert, thief, fangirl, wallet;  //<>//
+PImage img, bts, btsjoe, bts2, kenny, tolkien, cartman, kyle, dora, boots, swiper, diego, gameover, disneyplus, pyramid, irs, lottery, kidnap, bt21, concert, thief, fangirl, wallet; //<>//
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
 Player[] players;
@@ -196,25 +197,17 @@ void start() {
 }
 
 void end() {
-  background(255);
-  gameScreen = false;
   endScreen = true;
   gameover = loadImage("gameOver.jpg");
   textSize(200);
-  
+  //textAlign(CENTER);
   image(gameover, 0, 0, 1500, 1000);
-  fill(255,0,0);
-  rect(0, 90,1500,200,60);
-  fill(255);
   if (players[0].broke()) {
-    text("PLAYER 2 WINS!!!", 0, 250);
+    text("PLAYER 2 WINS!!!", width/2, height/2);
   } else {
-    text("PLAYER 1 WINS!!!", 0, 250);
+    text("PLAYER 1 WINS!!!", 750, 500);
   }
-  fill(255,0,0);
-  rect(0, height/2+250,1500,200,60);
-  fill(255);
-  text ("Hold \"r\" to restart", 0, height/2+410);
+  text ("press r to restart", 750, 750);
 }
 
 void draw() {
@@ -232,27 +225,16 @@ void draw() {
     displayPlayerStat(players[1], 1340, 100);
     playerLocation(players[0]);
     playerLocation(players[1]);
-
+    if (mouseOverTile() != -1) {
+      textSize(20);
+      displayTileStat(mouseOverTile());
+    }
     fill(220, 220, 220);
     rect(700, 100, 70, 25);
     fill(0);
     textSize(15);
     text("NOTICE", 710, 120);
-    if (turn == PLAYERONE ) {
-      textSize(30);
-      fill(255, 0, 0);
-      rect(300, 170, 880, 45, 50);
-      fill(255);
-      text("It is " + players[1].name() +"'s turn to roll", 590, 200);
-      if (turn > -1) {
-        fill(255, 0, 0);
-        rect(300, 260, 880, 45, 50);
-        rect(300, 350, 880, 45, 50);
-        fill(255);
-        text(players[0].name() + " just rolled a " + movement1, 580, 290);
-        text(players[0].name() + " went from " + screen.gameMap[prevPos1].getName() + " to " + screen.gameMap[p1pos].getName() +".", 400, 380);
-      }
-    } else if (turn == PLAYERTWO || turn ==-1) {
+    if (turn == PLAYERONE || turn ==-1) {
       textSize(30);
       fill(255, 0, 0);
       rect(300, 170, 880, 45, 50);
@@ -263,15 +245,31 @@ void draw() {
         rect(300, 260, 880, 45, 50);
         rect(300, 350, 880, 45, 50);
         fill(255);
-        text(players[1].name() + " just rolled a " + movement2, 580, 290);
-        text(players[1].name() + " went from " + screen.gameMap[prevPos2].getName() + " to " + screen.gameMap[p2pos].getName() +".", 400, 380);
+        text(players[0].name() + " just rolled a " + movement2, 580, 290);
+        text(players[0].name() + " went from " + screen.gameMap[prevPos2].getName() + " to " + screen.gameMap[p2pos].getName() +".", 400, 380);
+      }
+    } else {
+      textSize(30);
+      fill(255, 0, 0);
+      rect(300, 170, 880, 45, 50);
+      fill(255);
+      text("It is " + players[1].name() +"'s turn to roll", 590, 200);
+      if (turn > -1) {
+        fill(255, 0, 0);
+        rect(300, 260, 880, 45, 50);
+        rect(300, 350, 880, 45, 50);
+        fill(255);
+        text(players[1].name() + " just rolled a " + movement1, 580, 290);
+        text(players[1].name() + " went from " + screen.gameMap[prevPos1].getName() + " to " + screen.gameMap[p1pos].getName() +".", 400, 380);
       }
     }
     /*
     text(players[0].pos(), width/2, height/2-100);
      text(players[1].pos(), width/2, height/2+100);
-     */
-   
+    */
+    if (players[0].broke() || players[1].broke()) {
+      end();
+    }
     fill(0);
     if ((screen.gameMap[p1pos].getName().equals("Pyramid Scheme")&&turn ==0) ||(screen.gameMap[p2pos].getName().equals("Pyramid Scheme")&&turn ==1)) {
       fill(191, 219, 174);
@@ -360,7 +358,7 @@ void draw() {
       fill(255, 0, 0);
       rect(300, 790, 880, 50, 50);
       fill(255);
-      text(players[turn].name() +" flew across the map to the " + screen.gameMap[players[turn].pos()].getName(), 305, 820);
+      text(players[turn].name() +" got on an airplane and flew to the airport.", 305, 820);
     } else if ((screen.gameMap[p1pos].getName().equals("Concert") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("Concert")&&turn ==1)) {
       textSize(25);
       image(concert, 295, 95, 900, 815);
@@ -392,7 +390,7 @@ void draw() {
         text(players[turn].name() +" found a wallet with $150 inside!", 305, 820);
       } else if (wallet1 >.33 && wallet1 <=.66) {
         textSize(25);
-        text(players[turn].name() +" found a wallet on the ground, but it was a trap by the police!" +players[turn].name() +" paid $100!", 305, 820);
+        text(players[turn].name() +" found a wallet on the ground, but it was a trap by the police!" +players[turn].name() +" paid $100!", 305, 800);
       } else {
         text(players[turn].name() +" found an empty wallet on the ground", 305, 820);
       }
@@ -406,17 +404,10 @@ void draw() {
         text(players[turn].name() +" found a wallet with $150 inside!", 305, 820);
       } else if (wallet2 >.33 && wallet2 <=.66) {
         textSize(25);
-        text(players[turn].name() +" found a wallet on the ground, but it was a trap by the police!" +players[turn].name() +" paid $100!", 305, 820);
+        text(players[turn].name() +" found a wallet on the ground, but it was a trap by the police!" +players[turn].name() +" paid $100!", 305, 800);
       } else {
         text(players[turn].name() +" found an empty wallet on the ground", 305, 820);
       }
-    }
-    if (mouseOverTile() != -1) {
-      textSize(20);
-      displayTileStat(mouseOverTile());
-    }
-     if (players[0].broke() || players[1].broke()) {
-      end();
     }
   }
 }
@@ -430,35 +421,44 @@ void keyPressed() {
         movement1 = players[0].takeTurn();
         prevPos1 = p1pos;
         p1pos = players[0].pos();
-        if (screen.gameMap[p1pos].getType().equals("Airplane")||screen.gameMap[p1pos].getType().equals("Airport")) {
+        if (screen.gameMap[p1pos].getType().equals("Airplane")) {
           players[0].fly();
           p1pos = players[0].pos();
-        } else if (screen.gameMap[p1pos].getName().equals("Pyramid Scheme")|| screen.gameMap[p1pos].getName().equals("Tax Fraud")) {
+        }
+        if (screen.gameMap[p1pos].getName().equals("Pyramid Scheme")|| screen.gameMap[p1pos].getName().equals("Tax Fraud")) {
           players[0].pay(players[0].bank()*.5);
-        } else if (screen.gameMap[p1pos].getName().equals("Disney+ collab")) {
+        }
+        if (screen.gameMap[p1pos].getName().equals("Disney+ collab")) {
           players[0].add(players[0].bank() * .15);
-        } else if (screen.gameMap[p1pos].getName().equals("Thief")) {
+        }
+        if (screen.gameMap[p1pos].getName().equals("Thief")) {
           players[0].pay(150);
-        } else if (screen.gameMap[p1pos].getName().equals("New Merch")) {
+        }
+        if (screen.gameMap[p1pos].getName().equals("New Merch")) {
           players[0].add(200);
-        } else if (screen.gameMap[p1pos].getName().equals("Concert")) {
+        }
+        if (screen.gameMap[p1pos].getName().equals("Concert")) {
           players[0].add(players[0].bank()*.5);
-        } else if (screen.gameMap[p1pos].getName().equals("Kidnappers")) {
+        }
+        if (screen.gameMap[p1pos].getName().equals("Kidnappers")) {
           players[0].move(int(random(0, 40)));
-        } else  if (screen.gameMap[p1pos].getName().equals("Lottery")) {
+        }
+        if (screen.gameMap[p1pos].getName().equals("Lottery")) {
           lot1 = random(0, 1);
           players[0].pay(players[0].bank()*.1);
           if (lot1 > 0 && lot1 <=.33) {
             players[0].add(players[0].bank() * .75);
           }
-        } else if (screen.gameMap[p1pos].getName().equals("Wallet on floor")) {
+        }
+        if (screen.gameMap[p1pos].getName().equals("Wallet on floor")) {
           wallet1= random(0, 1);
           if (wallet1 > 0 && wallet1 <=.33) {
             players[0].add(150);
           } else if (wallet1 >.33 && wallet1 <=.66) {
             players[0].pay(100);
           }
-        } else if (screen.gameMap[p1pos].getName().equals("Crazy Fangirl")) {
+        }
+        if (screen.gameMap[p1pos].getName().equals("Crazy Fangirl")) {
           fan1= random(0, 1);
           if (fan1 > 0 && fan1 <=.5) {
             players[0].pay(300);
@@ -475,35 +475,44 @@ void keyPressed() {
         movement2 = players[1].takeTurn();
         prevPos2 = p2pos;
         p2pos = players[1].pos();
-        if (screen.gameMap[p2pos].getType().equals("Airplane") ||screen.gameMap[p2pos].getType().equals("Airport")) {
+        if (screen.gameMap[p2pos].getType().equals("Airplane")) {
           players[1].fly();
           p2pos = players[1].pos();
-        } else  if (screen.gameMap[p2pos].getName().equals("Pyramid Scheme") || screen.gameMap[p2pos].getName().equals("Tax Fraud")) {
+        }
+        if (screen.gameMap[p2pos].getName().equals("Pyramid Scheme") || screen.gameMap[p2pos].getName().equals("Tax Fraud")) {
           players[1].pay(players[1].bank()*.5);
-        } else   if (screen.gameMap[p2pos].getName().equals("Disney+ collab")) {
+        }
+        if (screen.gameMap[p2pos].getName().equals("Disney+ collab")) {
           players[1].add(players[1].bank() * .15);
-        } else   if (screen.gameMap[p2pos].getName().equals("Thief")) {
+        }
+        if (screen.gameMap[p2pos].getName().equals("Thief")) {
           players[1].pay(150);
-        } else   if (screen.gameMap[p2pos].getName().equals("New Merch")) {
+        }
+        if (screen.gameMap[p2pos].getName().equals("New Merch")) {
           players[1].add(200);
-        } else     if (screen.gameMap[p2pos].getName().equals("Concert")) {
+        }
+        if (screen.gameMap[p2pos].getName().equals("Concert")) {
           players[1].add(players[1].bank()*.5);
-        } else    if (screen.gameMap[p2pos].getName().equals("Kidnappers")) {
+        }
+        if (screen.gameMap[p2pos].getName().equals("Kidnappers")) {
           players[1].move(int(random(0, 40)));
-        } else      if (screen.gameMap[p2pos].getName().equals("Lottery")) {
+        }
+        if (screen.gameMap[p2pos].getName().equals("Lottery")) {
           lot2 = random(0, 1);
           players[1].pay(players[1].bank()*.1);
           if (lot2 > 0 && lot2 <=.33) {
             players[1].add(players[1].bank() * .75);
           }
-        } else       if (screen.gameMap[p2pos].getName().equals("Wallet on floor")) {
+        }
+        if (screen.gameMap[p2pos].getName().equals("Wallet on floor")) {
           wallet2 = random(0, 1);
           if (wallet2 > 0 && wallet2 <=.33) {
             players[1].add(150);
           } else if (wallet2 >.33 && wallet2 <=.66) {
             players[1].pay(100);
           }
-        } else    if (screen.gameMap[p2pos].getName().equals("Crazy Fangirl")) {
+        }
+        if (screen.gameMap[p2pos].getName().equals("Crazy Fangirl")) {
           fan2 = random(0, 1);
           if (fan2 > 0 && fan2 <=.5) {
             players[1].pay(300);
@@ -602,7 +611,7 @@ void displayTileStat(int tilenum) {
     } else if (screen.gameMap[tilenum].getName().equals("Concert")) {
       text("Your balance is multiplied by 1.5x", width/2, 480, 360, 250);
     } else if (screen.gameMap[tilenum].getName().equals("New Merch")) {
-      text("You gain $200", width/2, 445, 360, 250);
+      text("You gain $200", width/2, 445, 180, 250);
     } else if (screen.gameMap[tilenum].getName().equals("Kidnappers")) {
       text("You immediately teleport to a random tile", width/2, 480, 360, 250);
     } else if (screen.gameMap[tilenum].getName().equals("Pyramid Scheme")) {
@@ -660,6 +669,11 @@ void displayPlayerStat(Player currentP, float xVal, float yVal) {
   }
 }
 
+void displayPlayer(color playerC, float x, float y) {
+  fill(playerC);
+  float radi = 30;
+  ellipse(x, y, radi, radi);
+}
 
 void displayPlayer(PImage playerIcon, float x, float y) {
   image(playerIcon, x, y, 50, 50);
@@ -667,7 +681,7 @@ void displayPlayer(PImage playerIcon, float x, float y) {
 
 
 
-  void mousePressed() {
+void mousePressed() {
   if (loadingScreen) {
     if (avatarOver) {
       avatarScreen = true;
