@@ -17,7 +17,9 @@ public class UnbuyableTiles extends Tiles{
   }
   
   public int getPrice(){
-    return 1000000;  
+    return 21000000;  
+    
+  
   }
    private Player owner;
    
