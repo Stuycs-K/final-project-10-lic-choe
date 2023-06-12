@@ -1,7 +1,6 @@
-import java.util.Random; //<>//
-import processing.sound.*;
+import java.util.Random; //<>// //<>//
 int turn;
-PImage img, bts, btsjoe, bts2, kenny, tolkien, cartman, kyle, dora, boots, swiper, diego, gameover, disneyplus, pyramid, irs, lottery, kidnap, bt21, concert, thief, fangirl, wallet; //<>//
+PImage img,mask, bts, btsjoe, bts2, jhope, suga, jin, btsicon, taehyung, jungkook, rm, jimin, gameover, disneyplus, pyramid, irs, lottery, kidnap, bt21, concert, thief, fangirl, wallet; 
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
 Player[] players;
@@ -42,14 +41,23 @@ void setup() {
   playOver = false;
   avatarOver = false;
   controlOver = false;
-  kenny = loadImage("kenny.png");
-  tolkien =loadImage("tolkien.png");
-  cartman = loadImage("cartman.png");
-  kyle = loadImage("kyle.png");
-  dora = loadImage("dora.png");
-  boots= loadImage("boots.png");
-  swiper = loadImage("swiper.png");
-  diego = loadImage("diego.png");
+  mask = loadImage("mask.png");
+  jhope = loadImage("jhope.jpg");
+  jhope.mask(mask);
+  suga =loadImage("suga.jpg");
+  suga.mask(mask);
+  jin = loadImage("jin.jpg");
+  jin.mask(mask);
+  btsicon = loadImage("btsicon.jpg");
+  btsicon.mask(mask);
+  taehyung = loadImage("taehyung.jpg");
+  taehyung.mask(mask);
+  jungkook= loadImage("jungkook.jpg");
+  jungkook.mask(mask);
+  rm = loadImage("rm.jpg");
+  rm.mask(mask);
+  jimin = loadImage("jimin.jpg");
+  jimin.mask(mask);
   disneyplus = loadImage("disneyplus.jpg");
   pyramid=loadImage("pyramid.png");
   irs=loadImage("IRS.jpg");
@@ -121,66 +129,69 @@ void avatarScreen() {
   fill(0);
   textSize(50);
   fill(255, 0, 0);
-  rect(width/2-300, height/2-250, 450, 70, 30);
-  rect(width/2-300, height/2+50, 450, 70, 30);
-  if (players[0].getPfp().equals("kenny")) {
+  rectMode(CENTER);
+  rect(width/2, height/2-250, 450, 70, 30);
+  rect(width/2, height/2+50, 450, 70, 30);
+  rectMode(CORNER);
+  if (players[0].getPfp().equals("jhope")) {
     rect(200, height/2-150, 150, 150);
   }
-  image(kenny, 200, height/2-150, 150, 150);
-  if (players[0].getPfp().equals("tolkien")) {
+  image(jhope, 200, height/2-150, 150, 150);
+  if (players[0].getPfp().equals("suga")) {
     rect(525, height/2-150, 150, 150);
   }
-  image(tolkien, 450, height/2-150, 300, 150);
-  if (players[0].getPfp().equals("cartman")) {
+  image(suga, 500, height/2-150, 150, 150);
+  if (players[0].getPfp().equals("jin")) {
     rect(800, height/2-150, 150, 150);
   }
-  image(cartman, 800, height/2-150, 150, 150);
-  if (players[0].getPfp().equals("kyle")) {
+  image(jin, 800, height/2-150, 150, 150);
+  if (players[0].getPfp().equals("btsicon")) {
     rect(1100, height/2-150, 150, 150);
   }
-  image(kyle, 1100, height/2-150, 150, 150);
-  if (players[1].getPfp().equals("dora")) {
+  image(btsicon, 1100, height/2-150, 150, 150);
+  if (players[1].getPfp().equals("taehyung")) {
     rect(200, height/2+150, 150, 150);
   }
-  image(dora, 200, height/2+150, 150, 150);
-  if (players[1].getPfp().equals("boots")) {
+  image(taehyung, 200, height/2+150, 150, 150);
+  if (players[1].getPfp().equals("jungkook")) {
     rect(500, height/2+150, 175, 175);
   }
-  image(boots, 500, height/2+150, 150, 150);
-  if (players[1].getPfp().equals("swiper")) {
+  image(jungkook, 500, height/2+150, 150, 150);
+  if (players[1].getPfp().equals("rm")) {
     rect(800, height/2+150, 175, 175);
   }
-  image(swiper, 800, height/2+150, 150, 150);
-  if (players[1].getPfp().equals("diego")) {
+  image(rm, 800, height/2+150, 150, 150);
+  if (players[1].getPfp().equals("jimin")) {
     rect(1100, height/2+150, 175, 175);
   }
-  image(diego, 1100, height/2+150, 150, 150);
+  image(jimin, 1100, height/2+150, 150, 150);
   fill(255);
-  text("Player 1 Avatars: ", width/2-250, height/2-200);
-  text("Player 2 Avatars: ", width/2-250, height/2+100);
+  textAlign(CENTER);
+  text("Player 1 Avatars: ", width/2, height/2-220);
+  text("Player 2 Avatars: ", width/2, height/2+70);
   textSize(30);
   fill(255, 0, 0);
   rect(30, 30, 75, 30, 10);
   fill(255);
   text("Menu", 35, 55);
-  fill(0);
+  fill(255);
   textSize(75);
   if (overRect(200, height/2-150, 150, 150)) {
-    text("Kenny", width/2-100, 55);
+    text("jhope", width/2-100, 55);
   } else if (overRect(500, height/2-150, 150, 150)) {
-    text("Tolkien", width/2-100, 55);
+    text("suga", width/2-100, 55);
   } else if (overRect(800, height/2-150, 150, 150)) {
-    text("Cartman", width/2-100, 55);
+    text("jin", width/2-100, 55);
   } else if (overRect(1100, height/2-150, 150, 150)) {
-    text("Kyle", width/2-100, 55);
+    text("btsicon", width/2-100, 55);
   } else if (overRect(200, height/2+150, 150, 150)) {
-    text("dora", width/2-100, 55);
+    text("taehyung", width/2-100, 55);
   } else if (overRect(500, height/2+150, 150, 150)) {
-    text("boots", width/2-100, 55);
+    text("jungkook", width/2-100, 55);
   } else if (overRect(800, height/2+150, 150, 150)) {
-    text("swiper", width/2-100, 55);
+    text("rm", width/2-100, 55);
   } else if (overRect(1100, height/2+150, 150, 150)) {
-    text("diego", width/2-100, 55);
+    text("jimin", width/2-100, 55);
   }
 }
 
@@ -192,22 +203,30 @@ void start() {
   players[1] = new Player("Player Two");
   players[0].setColor(color(255, 0, 0));
   players[1].setColor(color(0, 0, 255));
-  players[0].setPfp("kenny", kenny);
-  players[1].setPfp("dora", dora);
+  players[0].setPfp("jhope", jhope);
+  players[1].setPfp("taehyung", taehyung);
 }
 
 void end() {
+  background(255);
+  gameScreen = false;
   endScreen = true;
   gameover = loadImage("gameOver.jpg");
   textSize(200);
-  //textAlign(CENTER);
+  
   image(gameover, 0, 0, 1500, 1000);
+  fill(255,0,0);
+  rect(0, 90,1500,200,60);
+  fill(255);
   if (players[0].broke()) {
-    text("PLAYER 2 WINS!!!", width/2, height/2);
+    text("PLAYER 2 WINS!!!", 0, 250);
   } else {
-    text("PLAYER 1 WINS!!!", 750, 500);
+    text("PLAYER 1 WINS!!!", 0, 250);
   }
-  text ("press r to restart", 750, 750);
+  fill(255,0,0);
+  rect(0, height/2+250,1500,200,60);
+  fill(255);
+  text ("Hold \"r\" to restart", 0, height/2+410);
 }
 
 void draw() {
@@ -225,30 +244,13 @@ void draw() {
     displayPlayerStat(players[1], 1340, 100);
     playerLocation(players[0]);
     playerLocation(players[1]);
-    if (mouseOverTile() != -1) {
-      textSize(20);
-      displayTileStat(mouseOverTile());
-    }
+
     fill(220, 220, 220);
     rect(700, 100, 70, 25);
     fill(0);
     textSize(15);
     text("NOTICE", 710, 120);
-    if (turn == PLAYERONE || turn ==-1) {
-      textSize(30);
-      fill(255, 0, 0);
-      rect(300, 170, 880, 45, 50);
-      fill(255);
-      text("It is " + players[0].name() +"'s turn to roll", 590, 200);
-      if (turn > -1) {
-        fill(255, 0, 0);
-        rect(300, 260, 880, 45, 50);
-        rect(300, 350, 880, 45, 50);
-        fill(255);
-        text(players[0].name() + " just rolled a " + movement2, 580, 290);
-        text(players[0].name() + " went from " + screen.gameMap[prevPos2].getName() + " to " + screen.gameMap[p2pos].getName() +".", 400, 380);
-      }
-    } else {
+    if (turn == PLAYERONE ) {
       textSize(30);
       fill(255, 0, 0);
       rect(300, 170, 880, 45, 50);
@@ -259,17 +261,29 @@ void draw() {
         rect(300, 260, 880, 45, 50);
         rect(300, 350, 880, 45, 50);
         fill(255);
-        text(players[1].name() + " just rolled a " + movement1, 580, 290);
-        text(players[1].name() + " went from " + screen.gameMap[prevPos1].getName() + " to " + screen.gameMap[p1pos].getName() +".", 400, 380);
+        text(players[0].name() + " just rolled a " + movement1, 580, 290);
+        text(players[0].name() + " went from " + screen.gameMap[prevPos1].getName() + " to " + screen.gameMap[p1pos].getName() +".", 400, 380);
+      }
+    } else if (turn == PLAYERTWO || turn ==-1) {
+      textSize(30);
+      fill(255, 0, 0);
+      rect(300, 170, 880, 45, 50);
+      fill(255);
+      text("It is " + players[0].name() +"'s turn to roll", 590, 200);
+      if (turn > -1) {
+        fill(255, 0, 0);
+        rect(300, 260, 880, 45, 50);
+        rect(300, 350, 880, 45, 50);
+        fill(255);
+        text(players[1].name() + " just rolled a " + movement2, 580, 290);
+        text(players[1].name() + " went from " + screen.gameMap[prevPos2].getName() + " to " + screen.gameMap[p2pos].getName() +".", 400, 380);
       }
     }
     /*
     text(players[0].pos(), width/2, height/2-100);
      text(players[1].pos(), width/2, height/2+100);
-    */
-    if (players[0].broke() || players[1].broke()) {
-      end();
-    }
+     */
+   
     fill(0);
     if ((screen.gameMap[p1pos].getName().equals("Pyramid Scheme")&&turn ==0) ||(screen.gameMap[p2pos].getName().equals("Pyramid Scheme")&&turn ==1)) {
       fill(191, 219, 174);
@@ -358,7 +372,7 @@ void draw() {
       fill(255, 0, 0);
       rect(300, 790, 880, 50, 50);
       fill(255);
-      text(players[turn].name() +" got on an airplane and flew to the airport.", 305, 820);
+      text(players[turn].name() +" flew across the map to the " + screen.gameMap[players[turn].pos()].getName(), 305, 820);
     } else if ((screen.gameMap[p1pos].getName().equals("Concert") &&turn ==0)||(screen.gameMap[p2pos].getName().equals("Concert")&&turn ==1)) {
       textSize(25);
       image(concert, 295, 95, 900, 815);
@@ -390,7 +404,7 @@ void draw() {
         text(players[turn].name() +" found a wallet with $150 inside!", 305, 820);
       } else if (wallet1 >.33 && wallet1 <=.66) {
         textSize(25);
-        text(players[turn].name() +" found a wallet on the ground, but it was a trap by the police!" +players[turn].name() +" paid $100!", 305, 800);
+        text(players[turn].name() +" found a wallet on the ground, but it was a trap by the police!" +players[turn].name() +" paid $100!", 305, 820);
       } else {
         text(players[turn].name() +" found an empty wallet on the ground", 305, 820);
       }
@@ -404,10 +418,17 @@ void draw() {
         text(players[turn].name() +" found a wallet with $150 inside!", 305, 820);
       } else if (wallet2 >.33 && wallet2 <=.66) {
         textSize(25);
-        text(players[turn].name() +" found a wallet on the ground, but it was a trap by the police!" +players[turn].name() +" paid $100!", 305, 800);
+        text(players[turn].name() +" found a wallet on the ground, but it was a trap by the police!" +players[turn].name() +" paid $100!", 305, 820);
       } else {
         text(players[turn].name() +" found an empty wallet on the ground", 305, 820);
       }
+    }
+    if (mouseOverTile() != -1) {
+      textSize(20);
+      displayTileStat(mouseOverTile());
+    }
+     if (players[0].broke() || players[1].broke()) {
+      end();
     }
   }
 }
@@ -421,44 +442,35 @@ void keyPressed() {
         movement1 = players[0].takeTurn();
         prevPos1 = p1pos;
         p1pos = players[0].pos();
-        if (screen.gameMap[p1pos].getType().equals("Airplane")) {
+        if (screen.gameMap[p1pos].getType().equals("Airplane")||screen.gameMap[p1pos].getType().equals("Airport")) {
           players[0].fly();
           p1pos = players[0].pos();
-        }
-        if (screen.gameMap[p1pos].getName().equals("Pyramid Scheme")|| screen.gameMap[p1pos].getName().equals("Tax Fraud")) {
+        } else if (screen.gameMap[p1pos].getName().equals("Pyramid Scheme")|| screen.gameMap[p1pos].getName().equals("Tax Fraud")) {
           players[0].pay(players[0].bank()*.5);
-        }
-        if (screen.gameMap[p1pos].getName().equals("Disney+ collab")) {
+        } else if (screen.gameMap[p1pos].getName().equals("Disney+ collab")) {
           players[0].add(players[0].bank() * .15);
-        }
-        if (screen.gameMap[p1pos].getName().equals("Thief")) {
+        } else if (screen.gameMap[p1pos].getName().equals("Thief")) {
           players[0].pay(150);
-        }
-        if (screen.gameMap[p1pos].getName().equals("New Merch")) {
+        } else if (screen.gameMap[p1pos].getName().equals("New Merch")) {
           players[0].add(200);
-        }
-        if (screen.gameMap[p1pos].getName().equals("Concert")) {
+        } else if (screen.gameMap[p1pos].getName().equals("Concert")) {
           players[0].add(players[0].bank()*.5);
-        }
-        if (screen.gameMap[p1pos].getName().equals("Kidnappers")) {
+        } else if (screen.gameMap[p1pos].getName().equals("Kidnappers")) {
           players[0].move(int(random(0, 40)));
-        }
-        if (screen.gameMap[p1pos].getName().equals("Lottery")) {
+        } else  if (screen.gameMap[p1pos].getName().equals("Lottery")) {
           lot1 = random(0, 1);
           players[0].pay(players[0].bank()*.1);
           if (lot1 > 0 && lot1 <=.33) {
             players[0].add(players[0].bank() * .75);
           }
-        }
-        if (screen.gameMap[p1pos].getName().equals("Wallet on floor")) {
+        } else if (screen.gameMap[p1pos].getName().equals("Wallet on floor")) {
           wallet1= random(0, 1);
           if (wallet1 > 0 && wallet1 <=.33) {
             players[0].add(150);
           } else if (wallet1 >.33 && wallet1 <=.66) {
             players[0].pay(100);
           }
-        }
-        if (screen.gameMap[p1pos].getName().equals("Crazy Fangirl")) {
+        } else if (screen.gameMap[p1pos].getName().equals("Crazy Fangirl")) {
           fan1= random(0, 1);
           if (fan1 > 0 && fan1 <=.5) {
             players[0].pay(300);
@@ -475,44 +487,35 @@ void keyPressed() {
         movement2 = players[1].takeTurn();
         prevPos2 = p2pos;
         p2pos = players[1].pos();
-        if (screen.gameMap[p2pos].getType().equals("Airplane")) {
+        if (screen.gameMap[p2pos].getType().equals("Airplane") ||screen.gameMap[p2pos].getType().equals("Airport")) {
           players[1].fly();
           p2pos = players[1].pos();
-        }
-        if (screen.gameMap[p2pos].getName().equals("Pyramid Scheme") || screen.gameMap[p2pos].getName().equals("Tax Fraud")) {
+        } else  if (screen.gameMap[p2pos].getName().equals("Pyramid Scheme") || screen.gameMap[p2pos].getName().equals("Tax Fraud")) {
           players[1].pay(players[1].bank()*.5);
-        }
-        if (screen.gameMap[p2pos].getName().equals("Disney+ collab")) {
+        } else   if (screen.gameMap[p2pos].getName().equals("Disney+ collab")) {
           players[1].add(players[1].bank() * .15);
-        }
-        if (screen.gameMap[p2pos].getName().equals("Thief")) {
+        } else   if (screen.gameMap[p2pos].getName().equals("Thief")) {
           players[1].pay(150);
-        }
-        if (screen.gameMap[p2pos].getName().equals("New Merch")) {
+        } else   if (screen.gameMap[p2pos].getName().equals("New Merch")) {
           players[1].add(200);
-        }
-        if (screen.gameMap[p2pos].getName().equals("Concert")) {
+        } else     if (screen.gameMap[p2pos].getName().equals("Concert")) {
           players[1].add(players[1].bank()*.5);
-        }
-        if (screen.gameMap[p2pos].getName().equals("Kidnappers")) {
+        } else    if (screen.gameMap[p2pos].getName().equals("Kidnappers")) {
           players[1].move(int(random(0, 40)));
-        }
-        if (screen.gameMap[p2pos].getName().equals("Lottery")) {
+        } else      if (screen.gameMap[p2pos].getName().equals("Lottery")) {
           lot2 = random(0, 1);
           players[1].pay(players[1].bank()*.1);
           if (lot2 > 0 && lot2 <=.33) {
             players[1].add(players[1].bank() * .75);
           }
-        }
-        if (screen.gameMap[p2pos].getName().equals("Wallet on floor")) {
+        } else       if (screen.gameMap[p2pos].getName().equals("Wallet on floor")) {
           wallet2 = random(0, 1);
           if (wallet2 > 0 && wallet2 <=.33) {
             players[1].add(150);
           } else if (wallet2 >.33 && wallet2 <=.66) {
             players[1].pay(100);
           }
-        }
-        if (screen.gameMap[p2pos].getName().equals("Crazy Fangirl")) {
+        } else    if (screen.gameMap[p2pos].getName().equals("Crazy Fangirl")) {
           fan2 = random(0, 1);
           if (fan2 > 0 && fan2 <=.5) {
             players[1].pay(300);
@@ -611,7 +614,7 @@ void displayTileStat(int tilenum) {
     } else if (screen.gameMap[tilenum].getName().equals("Concert")) {
       text("Your balance is multiplied by 1.5x", width/2, 480, 360, 250);
     } else if (screen.gameMap[tilenum].getName().equals("New Merch")) {
-      text("You gain $200", width/2, 445, 180, 250);
+      text("You gain $200", width/2, 445, 360, 250);
     } else if (screen.gameMap[tilenum].getName().equals("Kidnappers")) {
       text("You immediately teleport to a random tile", width/2, 480, 360, 250);
     } else if (screen.gameMap[tilenum].getName().equals("Pyramid Scheme")) {
@@ -669,19 +672,21 @@ void displayPlayerStat(Player currentP, float xVal, float yVal) {
   }
 }
 
-void displayPlayer(color playerC, float x, float y) {
-  fill(playerC);
-  float radi = 30;
-  ellipse(x, y, radi, radi);
+
+void displayPlayer(PImage playerIcon, float x, float y, int player) {
+  if (player == PLAYERONE) {
+    tint(130, 255, 255);
+  }
+  if (player == PLAYERTWO) {
+    tint(255, 130, 130);
+  }
+  image(playerIcon, x, y, 75, 75);
+  noTint();
 }
 
-void displayPlayer(PImage playerIcon, float x, float y) {
-  image(playerIcon, x, y, 50, 50);
-}
 
 
-
-void mousePressed() {
+  void mousePressed() {
   if (loadingScreen) {
     if (avatarOver) {
       avatarScreen = true;
@@ -702,21 +707,21 @@ void mousePressed() {
       avatarScreen = false;
     }
     if (overRect(200, height/2-150, 150, 150)) {
-      players[0].setPfp("kenny", kenny);
+      players[0].setPfp("jhope", jhope);
     } else if (overRect(500, height/2-150, 150, 150)) {
-      players[0].setPfp("tolkien", tolkien);
+      players[0].setPfp("suga", suga);
     } else if (overRect(800, height/2-150, 150, 150)) {
-      players[0].setPfp("cartman", tolkien);
+      players[0].setPfp("jin", suga);
     } else if (overRect(1100, height/2-150, 150, 150)) {
-      players[0].setPfp("kyle", kyle);
+      players[0].setPfp("btsicon", btsicon);
     } else if (overRect(200, height/2+150, 150, 150)) {
-      players[1].setPfp("dora", dora);
+      players[1].setPfp("taehyung", taehyung);
     } else if (overRect(500, height/2+150, 150, 150)) {
-      players[1].setPfp("boots", boots);
+      players[1].setPfp("jungkook", jungkook);
     } else if (overRect(800, height/2+150, 150, 150)) {
-      players[1].setPfp("swiper", swiper);
+      players[1].setPfp("rm", rm);
     } else if (overRect(1100, height/2+150, 150, 150)) {
-      players[1].setPfp("diego", diego);
+      players[1].setPfp("jimin", jimin);
     }
   }
   if (gameScreen) {
@@ -768,8 +773,8 @@ int mouseOverTile() {
 
 void playerLocation(Player player) {
   if (player.name().equals(players[0].name())) {
-    displayPlayer(player.getPfpimg(), screen.gameMap[player.pos()].getStartX()+5, screen.gameMap[player.pos()].getStartY()+30);
+    displayPlayer(player.getPfpimg(), screen.gameMap[player.pos()].getStartX()+5, screen.gameMap[player.pos()].getStartY()+30, PLAYERONE);
   } else {
-    displayPlayer(player.getPfpimg(), screen.gameMap[player.pos()].getStartX()+45, screen.gameMap[player.pos()].getStartY()+30);
+    displayPlayer(player.getPfpimg(), screen.gameMap[player.pos()].getStartX()+45, screen.gameMap[player.pos()].getStartY()+30, PLAYERTWO);
   }
 }
