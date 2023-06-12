@@ -48,7 +48,7 @@ The hovering mechanic should now display the tile icon as the background, specia
 
 ### 6/11/23
 
-Avatars are now a uniform size, avatar screen is centered and all the titles are aligned, icons have blue and red tints for visibility, circular tokens using mask with a circle, characters switched to bts members
+Avatars are now a uniform size, avatar screen is centered and all the titles are aligned, icons have blue and red tints for visibility, circular tokens using mask with a circle, characters switched to bts members, selection for avatars is shown with a tint
 
 ## ELIEZER CHO
 
