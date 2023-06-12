@@ -1,7 +1,7 @@
 import java.util.Random; //<>//
 import processing.sound.*;
 int turn;
-PImage img, bts, btsjoe, bts2, kenny, tolkien, cartman, kyle, dora, boots, swiper, diego, gameover, disneyplus, pyramid, irs, lottery, kidnap, bt21, concert, thief, fangirl, wallet; //<>//
+PImage img, bts, btsjoe, bts2, kenny, tolkien, cartman, kyle, dora, boots, swiper, diego, gameover, disneyplus, pyramid, irs, lottery, kidnap, bt21, concert, thief, fangirl, wallet; //<>// //<>//
 static int PLAYERONE = 0;
 static int PLAYERTWO = 1;
 Player[] players;
