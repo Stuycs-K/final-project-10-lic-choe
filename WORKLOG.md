@@ -44,6 +44,12 @@ Edited visuals, added all city icons for properties
 
 ### 6/10/23
 
+The hovering mechanic should now display the tile icon as the background, special tiles have descriptions in their hover icon, tile centered, fortnite collab changed to disney collab
+
+### 6/11/23
+
+Avatars are now a uniform size, avatar screen is centered and all the titles are aligned, icons have blue and red tints for visibility, circular tokens using mask with a circle, characters switched to bts members
+
 ## ELIEZER CHO
 
 ### 5/23/23
