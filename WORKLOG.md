@@ -1,5 +1,37 @@
 # Work Log
 
+## WORKING FEATURES
+Backgrounds (BTS wallpapers)
+Menu Screen
+ - Buttons leading to each screen
+Rules Screen:
+ - Lists all of the rules
+ - Menu button
+Avatar Screen:
+ - BTS character tokens
+ - Avatar selection that tints the selected players
+ - Circular characters using masks
+ - Menu button
+Game Screen
+ - Monopoly board made of Tiles class with two Players
+ - Display with Player names, Player balances, and Player properties
+ - Tile descriptions when hovered over, shows Tile card and Tile image as the background
+Working Monopoly basics
+ - Rolling ('Enter')
+ - Buying ('b')
+ - Mortgaging ('m')
+ Working Monopoly specials
+ - Airplane/Airport teleportation tiles
+ - Kidnapper random teleportation tile
+ - Various tiles that affect money
+ - Logs detailing events that happen and showing images (Rolls, special events, buying, etc.)
+
+## BROKEN FEATURES
+Game is somewhat laggy on the restart because all of the variables and shapes are being reset.
+Sound library is there but not implemented at all.
+## CONTENT RESOURCES
+Processing References, Google Images
+
 ## CLEMENS LI
 
 ### 5/24/23
