@@ -25,8 +25,12 @@ Working Monopoly basics
  - Kidnapper random teleportation tile
  - Various tiles that affect money
  - Logs detailing events that happen and showing images (Rolls, special events, buying, etc.)
+ Game Over Screen
+ - Appears whenever a player goes bankrupt
+ - 'r' to restart, goes back to the Menu Screen and resets game
 
 ## BROKEN FEATURES
+Mortgaging is not automatic when player is about to go bankrupt
 Game is somewhat laggy on the restart because all of the variables and shapes are being reset.
 Sound library is there but not implemented at all.
 ## CONTENT RESOURCES
